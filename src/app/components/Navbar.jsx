@@ -5,6 +5,8 @@ import { ChevronDown, ChevronRight, X } from "lucide-react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
+import Button from "./Button/Button";
+import Img from "./Image/Image";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -26,7 +28,7 @@ export default function Navbar() {
       name: "Features",
       dropdown: [
         { name: "Inventary Management", href: "#", icon: "/Images/Navassests/icons/Invent.png", isIcon: false },
-        { name: "Supplier Integrations", href: "#", icon: "/Images/Navassests/icons/Supp.png ", isIcon: false },
+        { name: "Supplier Integrations", href: "#", icon: "/Images/Navassests/icons/Supp.png", isIcon: false },
         { name: "Sales Management", href: "#", icon: "/Images/Navassests/icons/Dollars.png", isIcon: false },
         { name: "Warehousing", href: "#", icon: "/Images/Navassests/icons/Ware.png", isIcon: false },
         { name: "Accounting", href: "#", icon: "/Images/Navassests/icons/Accounting.png", isIcon: false },
@@ -54,7 +56,7 @@ export default function Navbar() {
     { name: "Pricing", href: "/pricing" },
   ];
 
-  // Close dropdown when clicked outside
+  // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(e) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -69,20 +71,20 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-navBg">
       <div className="max-w-[1440px] mx-auto flex justify-between items-center h-[80px] px-4 sm:px-8 lg:px-[100px]">
         {/* Left side */}
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-6 sm:space-x-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center w-[160px] h-[32px]">
-            <img src="/Images/Navassests/Logo.png" alt="Logo" className="h-10 w-auto" />
+          <Link href="/" className="flex items-center w-[140px] sm:w-[160px] h-[32px]">
+            <Img src="/Images/Navassests/Logo.png" width={160} height={32} />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-9" ref={dropdownRef}>
+          <div className="hidden md:flex space-x-6 lg:space-x-9" ref={dropdownRef}>
             {navItems.map((item, idx) => (
               <div key={idx} className="relative">
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`font-plus-jakarta-sans text-[16px] ${
+                    className={`font-plus-jakarta-sans text-[15px] lg:text-[16px] ${
                       item.name === "Home" ? "text-[#0B6D7E]" : "text-gray-700 hover:text-blue-600"
                     }`}
                   >
@@ -92,32 +94,30 @@ export default function Navbar() {
                   <>
                     <button
                       onClick={() => setOpenDropdown(openDropdown === idx ? null : idx)}
-                      className="flex items-center font-plus-jakarta-sans text-[16px] text-gray-700 hover:text-blue-600"
+                      className="flex items-center font-plus-jakarta-sans text-[15px] lg:text-[16px] text-gray-700 hover:text-blue-600"
                     >
                       {item.name}
                       <ChevronDown
-                        className={`ml-1 w-4 h-4 transition-transform ${
-                          openDropdown === idx ? "rotate-180" : ""
-                        }`}
+                        className={`ml-1 w-4 h-4 transition-transform ${openDropdown === idx ? "rotate-180" : ""}`}
                       />
                     </button>
 
                     {/* Dropdown */}
                     {item.dropdown && openDropdown === idx && (
-                      <div className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-xl overflow-hidden">
+                      <div className="absolute left-0 mt-2 w-60 sm:w-64 bg-white shadow-lg rounded-xl overflow-hidden">
                         {item.dropdown.map((sub, subIdx) => (
                           <Link
                             key={subIdx}
                             href={sub.href}
-                            onClick={() => setOpenDropdown(null)} // close dropdown on click
-                            className={`flex items-center px-4 py-3 text-[15px] text-gray-700 transition-all duration-200 hover:bg-navBg hover:pl-6 hover:py-4 ${
+                            onClick={() => setOpenDropdown(null)}
+                            className={`flex items-center px-4 py-3 text-[14px] lg:text-[15px] text-gray-700 transition-all duration-200 hover:bg-navBg hover:pl-6 hover:py-4 ${
                               subIdx !== item.dropdown.length - 1 ? "border-b border-gray-200" : ""
                             }`}
                           >
                             {sub.isIcon ? (
                               <FontAwesomeIcon icon={sub.icon} className="w-4 h-4 mr-3 text-gray-500" />
                             ) : (
-                              <img src={sub.icon} className="w-5 h-5 mr-3" alt="" />
+                              <Img src={sub.icon} className="mr-3" width={22} height={22} alt={"icon"} />
                             )}
                             {sub.name}
                             <ChevronRight className="ml-auto w-4 h-4 text-gray-400" />
@@ -133,19 +133,14 @@ export default function Navbar() {
         </div>
 
         {/* Right side (Desktop only) */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
           <Link
             href="/login"
-            className="text-gray-700 hover:text-blue-600 font-plus-jakarta-sans font-medium text-[16px] uppercase rounded-[32px] w-[87px] h-[40px] flex items-center justify-center"
+            className="text-gray-700 hover:text-blue-600 font-plus-jakarta-sans font-medium text-[15px] lg:text-[16px] uppercase rounded-[32px] w-[80px] lg:w-[87px] h-[38px] lg:h-[40px] flex items-center justify-center"
           >
             Login
           </Link>
-          <Link
-            href="/demo"
-            className="bg-navdemobuttonBg text-[#FCFCFC] font-plusjakarta font-medium text-[16px] uppercase rounded-[32px] w-[148px] h-[40px] flex items-center justify-center transition-colors duration-200 hover:bg-[#0a5a6b]"
-          >
-            Book a Demo
-          </Link>
+          <Button href={"/demo"} children={"Book a Demo"} />
         </div>
 
         {/* Mobile Menu Button */}
@@ -155,12 +150,12 @@ export default function Navbar() {
             className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100"
           >
             {mobileMenu ? (
-              <X className="w-6 h-6 text-gray-700" /> // Open → X
+              <X className="w-6 h-6 text-gray-700" />
             ) : (
               <div className="flex flex-col items-center justify-center space-y-1">
                 <span className="block w-6 h-0.5 bg-gray-700 rounded"></span>
+                <span className="block w-5 h-0.5 bg-gray-700 rounded"></span>
                 <span className="block w-4 h-0.5 bg-gray-700 rounded"></span>
-                <span className="block w-3 h-0.5 bg-gray-700 rounded"></span>
               </div>
             )}
           </button>
@@ -171,12 +166,12 @@ export default function Navbar() {
       {mobileMenu && (
         <div className="md:hidden bg-white shadow-lg" ref={dropdownRef}>
           {navItems.map((item, idx) => (
-            <div key={idx} className="border-b-2 border-navBg">
+            <div key={idx} className="border-b border-gray-200">
               {item.href ? (
                 <Link
                   href={item.href}
-                  onClick={() => setMobileMenu(false)} // close on click
-                  className={`block px-4 py-2 font-plus-jakarta-sans text-[16px] ${
+                  onClick={() => setMobileMenu(false)}
+                  className={`block px-4 py-3 font-plus-jakarta-sans text-[15px] ${
                     item.name === "Home" ? "text-[#0B6D7E]" : "text-gray-700 hover:bg-gray-100"
                   }`}
                 >
@@ -186,10 +181,12 @@ export default function Navbar() {
                 <>
                   <button
                     onClick={() => setOpenDropdown(openDropdown === idx ? null : idx)}
-                    className="w-full flex justify-between items-center px-4 py-2 font-plus-jakarta-sans text-[16px] text-gray-700 hover:bg-gray-100"
+                    className="w-full flex justify-between items-center px-4 py-3 font-plus-jakarta-sans text-[15px] text-gray-700 hover:bg-gray-100"
                   >
                     {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === idx ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${openDropdown === idx ? "rotate-180" : ""}`}
+                    />
                   </button>
                   {item.dropdown && openDropdown === idx && (
                     <div className="pl-6">
@@ -201,14 +198,14 @@ export default function Navbar() {
                             setOpenDropdown(null);
                             setMobileMenu(false);
                           }}
-                          className={`flex items-center px-4 py-2 text-sm text-gray-600 transition-all duration-200 hover:bg-gray-200 hover:pl-8 hover:py-3 ${
+                          className={`flex items-center px-4 py-3 text-[14px] text-gray-600 transition-all duration-200 hover:bg-gray-200 hover:pl-8 ${
                             subIdx !== item.dropdown.length - 1 ? "border-b border-gray-200" : ""
                           }`}
                         >
                           {sub.isIcon ? (
                             <FontAwesomeIcon icon={sub.icon} className="w-4 h-4 mr-2 text-gray-500" />
                           ) : (
-                            <img src={sub.icon} className="w-5 h-5 mr-2" alt="" />
+                            <Img src={sub.icon} className="w-5 h-5 mr-2" width={20} height={20} alt="icon" />
                           )}
                           {sub.name}
                           <ChevronRight className="ml-auto w-4 h-4 text-gray-400" />
@@ -220,18 +217,20 @@ export default function Navbar() {
               )}
             </div>
           ))}
-          <div className="px-4 py-2">
+
+          {/* Mobile Buttons */}
+          <div className="px-4 py-3 space-y-2">
             <Link
               href="/login"
               onClick={() => setMobileMenu(false)}
-              className="block py-2 text-gray-700 hover:bg-gray-100"
+              className="block py-2 text-gray-700 hover:bg-gray-100 text-center rounded-lg"
             >
               Login
             </Link>
             <Link
               href="/demo"
               onClick={() => setMobileMenu(false)}
-              className="block text-white text-center bg-navdemobuttonBg py-2 rounded-xl transition-colors duration-200 hover:bg-[#0a5a6b]"
+              className="block text-white text-center bg-navdemobuttonBg py-2 rounded-lg transition-colors duration-200 hover:bg-[#0a5a6b]"
             >
               Book a Demo
             </Link>
