@@ -6,8 +6,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navBg: "var(--navBg)",   // 👈 Tailwind class ko CSS variable ke saath map
+        navBg: "var(--navBg)",
         navdemobuttonBg: "var(--navdemobuttonBg)",
+      },
+      fontFamily: {
+        jakarta: ["var(--font-jakarta)", "'Plus Jakarta Sans'", "sans-serif"],
+        volkhov: ["var(--font-volkhov)", "Volkhov", "serif"],
       },
     },
   },

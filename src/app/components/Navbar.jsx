@@ -69,22 +69,22 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-navBg">
-      <div className="max-w-[1440px] mx-auto flex justify-between items-center h-[80px] px-4 sm:px-8 lg:px-[100px]">
+      <div className="max-w-[1440px] mx-auto flex justify-between items-center h-[70px] sm:h-[80px] px-4 sm:px-6 lg:px-[80px]">
         {/* Left side */}
-        <div className="flex items-center space-x-6 sm:space-x-8">
+        <div className="flex items-center space-x-4 sm:space-x-6 lg:space-x-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center w-[140px] sm:w-[160px] h-[32px]">
+          <Link href="/" className="flex items-center w-[120px] sm:w-[150px] lg:w-[160px] h-[30px] sm:h-[32px]">
             <Img src="/Images/Navassests/Logo.png" width={160} height={32} />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 lg:space-x-9" ref={dropdownRef}>
+          <div className="hidden md:flex space-x-5 lg:space-x-8" ref={dropdownRef}>
             {navItems.map((item, idx) => (
               <div key={idx} className="relative">
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={`font-plus-jakarta-sans text-[15px] lg:text-[16px] ${
+                    className={`font-plus-jakarta-sans text-[14px] lg:text-[16px] ${
                       item.name === "Home" ? "text-[#0B6D7E]" : "text-gray-700 hover:text-blue-600"
                     }`}
                   >
@@ -94,7 +94,7 @@ export default function Navbar() {
                   <>
                     <button
                       onClick={() => setOpenDropdown(openDropdown === idx ? null : idx)}
-                      className="flex items-center font-plus-jakarta-sans text-[15px] lg:text-[16px] text-gray-700 hover:text-blue-600"
+                      className="flex items-center font-plus-jakarta-sans text-[14px] lg:text-[16px] text-gray-700 hover:text-blue-600"
                     >
                       {item.name}
                       <ChevronDown
@@ -104,20 +104,20 @@ export default function Navbar() {
 
                     {/* Dropdown */}
                     {item.dropdown && openDropdown === idx && (
-                      <div className="absolute left-0 mt-2 w-60 sm:w-64 bg-white shadow-lg rounded-xl overflow-hidden">
+                      <div className="absolute left-0 mt-2 w-56 sm:w-64 bg-white shadow-lg rounded-xl overflow-hidden">
                         {item.dropdown.map((sub, subIdx) => (
                           <Link
                             key={subIdx}
                             href={sub.href}
                             onClick={() => setOpenDropdown(null)}
-                            className={`flex items-center px-4 py-3 text-[14px] lg:text-[15px] text-gray-700 transition-all duration-200 hover:bg-navBg hover:pl-6 hover:py-4 ${
+                            className={`flex items-center px-4 py-2 sm:py-3 text-[13px] sm:text-[14px] lg:text-[15px] text-gray-700 transition-all duration-200 hover:bg-navBg hover:pl-6 ${
                               subIdx !== item.dropdown.length - 1 ? "border-b border-gray-200" : ""
                             }`}
                           >
                             {sub.isIcon ? (
                               <FontAwesomeIcon icon={sub.icon} className="w-4 h-4 mr-3 text-gray-500" />
                             ) : (
-                              <Img src={sub.icon} className="mr-3" width={22} height={22} alt={"icon"} />
+                              <Img src={sub.icon} className="mr-3" width={20} height={20} alt="icon" />
                             )}
                             {sub.name}
                             <ChevronRight className="ml-auto w-4 h-4 text-gray-400" />
@@ -133,10 +133,10 @@ export default function Navbar() {
         </div>
 
         {/* Right side (Desktop only) */}
-        <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
+        <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
           <Link
             href="/login"
-            className="text-gray-700 hover:text-blue-600 font-plus-jakarta-sans font-medium text-[15px] lg:text-[16px] uppercase rounded-[32px] w-[80px] lg:w-[87px] h-[38px] lg:h-[40px] flex items-center justify-center"
+            className="text-gray-700 hover:text-blue-600 font-plus-jakarta-sans font-medium text-[14px] lg:text-[15px] uppercase rounded-[32px] w-[75px] lg:w-[87px] h-[36px] lg:h-[40px] flex items-center justify-center"
           >
             Login
           </Link>
@@ -147,7 +147,7 @@ export default function Navbar() {
         <div className="md:hidden">
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100"
+            className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-100"
           >
             {mobileMenu ? (
               <X className="w-6 h-6 text-gray-700" />
@@ -171,7 +171,7 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={() => setMobileMenu(false)}
-                  className={`block px-4 py-3 font-plus-jakarta-sans text-[15px] ${
+                  className={`block px-4 py-3 font-plus-jakarta-sans text-[14px] sm:text-[15px] ${
                     item.name === "Home" ? "text-[#0B6D7E]" : "text-gray-700 hover:bg-gray-100"
                   }`}
                 >
@@ -181,7 +181,7 @@ export default function Navbar() {
                 <>
                   <button
                     onClick={() => setOpenDropdown(openDropdown === idx ? null : idx)}
-                    className="w-full flex justify-between items-center px-4 py-3 font-plus-jakarta-sans text-[15px] text-gray-700 hover:bg-gray-100"
+                    className="w-full flex justify-between items-center px-4 py-3 font-plus-jakarta-sans text-[14px] sm:text-[15px] text-gray-700 hover:bg-gray-100"
                   >
                     {item.name}
                     <ChevronDown
@@ -198,7 +198,7 @@ export default function Navbar() {
                             setOpenDropdown(null);
                             setMobileMenu(false);
                           }}
-                          className={`flex items-center px-4 py-3 text-[14px] text-gray-600 transition-all duration-200 hover:bg-gray-200 hover:pl-8 ${
+                          className={`flex items-center px-4 py-2 sm:py-3 text-[13px] sm:text-[14px] text-gray-600 transition-all duration-200 hover:bg-gray-200 hover:pl-8 ${
                             subIdx !== item.dropdown.length - 1 ? "border-b border-gray-200" : ""
                           }`}
                         >
