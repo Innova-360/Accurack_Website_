@@ -7,10 +7,11 @@ module.exports = {
     extend: {
       colors: {
         navBg: "var(--navBg)",
-        navdemobuttonBg: "var(--navdemobuttonBg)",
+        navbookademobg1: "var(--navbookademobg1)",
+        navbookademobg2: "var(--navbookademobg2)",
       },
       fontFamily: {
-        jakarta: ["var(--font-jakarta)", "'Plus Jakarta Sans'", "sans-serif"],
+        jakarta: ["var(--font-jakarta)"],
         volkhov: ["var(--font-volkhov)", "Volkhov", "serif"],
       },
     },
