@@ -1,26 +1,24 @@
-import HeroSection from "../components/Home/Hero";
-import CardSection from "../components/Home/Cardgroup"
-import CustomerStoriesSection from "../components/Home/CustomerStories"
-import IntegrationsSection from "../components/Home/IntegrationsSection"
-import ForecastingSection from "../components/Home/ForecastingSection"
+import CardSection from "@/components/Home/CardGroup";
+import CustomerStoriesSection from "@/components/Home/CustomerStories";
+import Features from "@/components/Home/Features";
+import ForecastingSection from "@/components/Home/ForecastingSection";
+import HeroSection from "@/components/Home/Hero";
+import Industries from "@/components/Home/Industries";
+import Info from "@/components/Home/Info";
+import IntegrationsSection from "@/components/Home/IntegrationsSection";
+
 
 export default function Home() {
   return (
-      <>
-       {/* <HeroSection /> */}
+    <>
+      <HeroSection />
       {/* <CardSection /> */}
       {/* <IntegrationsSection /> */}
-      {/* <ForecastingSection />  */}
-
-
-
-
-
-
-
-
+      <ForecastingSection />
+      <Info />
+      <Industries />
       {/* <CustomerStoriesSection /> */}
-      
-      </>
-      );
+      <Features />
+    </>
+  );
 }

@@ -1,25 +1,17 @@
-
-import Warehousing from "../../../components/Solutions/Aiwarehouse/WareHousing"
-import SurSection from "../../../components/Solutions/Aiwarehouse/Slider"
-import CommunitySection from "../../../components/Solutions/Aiwarehouse/Community"
-import TeamSection from "../../../components/Solutions/Aiwarehouse/Officer"
-import TransformSection from "../../../components/Solutions/Aiwarehouse/Transform"
-
-
-
-
-
-
-
+import Warehousing from "./_components/WareHousing";
+import SurSection from "./_components/Slider";
+import CommunitySection from "./_components/Community";
+import TeamSection from "./_components/Officer";
+import TransformSection from "./_components/Transform";
 
 export default function Aiwarehouse() {
   return (
-      <>
-        <Warehousing />
-        <SurSection />
-        <CommunitySection />
-        <TeamSection />
-        <TransformSection />
-      </>
-      );
+    <>
+      <Warehousing />
+      <SurSection />
+      <CommunitySection />
+      <TeamSection />
+      <TransformSection />
+    </>
+  );
 }

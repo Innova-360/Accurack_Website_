@@ -1,7 +1,7 @@
-import { Geist, Geist_Mono, Lora, Plus_Jakarta_Sans} from "next/font/google";
+import { Geist, Geist_Mono, Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "@/components/common/Navbar";
+import Footer from "@/components/common/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +26,6 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-
-
 
 export const metadata = {
   title: "Accurack Website",
