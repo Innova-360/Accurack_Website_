@@ -40,9 +40,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${lora.variable} ${jakarta.variable} antialiased`}
       >
-        <Navbar />
+        {/* <Navbar /> */}
         {children}
-        
+        <Footer />
       </body>
     </html>
   );
