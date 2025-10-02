@@ -2,6 +2,7 @@
 
 import Img from "../../Image/Image";
 import { Plus_Jakarta_Sans, Lora } from "next/font/google";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -16,7 +17,6 @@ const lora = Lora({
 });
 
 export default function TeamSection() {
-  // Sample data for 5 team members with custom size + css
   const teamMembers = [
     {
       name: "Dr. Anya Sharma -",
@@ -51,7 +51,7 @@ export default function TeamSection() {
       extraClass: "!h-[560px] top-[1px]",
     },
     {
-      name: "Dr. Anya Sharma -",
+      name: "Robert Brown",
       image: "/Images/Dropdownassests/Solutions/Aiwarehouse/Man1.png",
       text: "Chief Technology Officer",
       width: 233,
@@ -83,9 +83,9 @@ export default function TeamSection() {
         {teamMembers.map((member, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-start w-[233px] h-[407px] bg-white relative"
+            className="flex flex-col items-start w-[233px] h-[407px] bg-white relative group"
           >
-            {/* Image */}
+            {/* Image + Hover Overlay */}
             <div
               style={{ width: member.width, height: member.height }}
               className="relative overflow-hidden rounded-[7px] mb-4"
@@ -95,8 +95,33 @@ export default function TeamSection() {
                 alt={member.name}
                 width={member.width}
                 height={member.height}
-                className={`absolute w-full h-full object-cover ${member.extraClass}`}
+                className={`absolute w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-x-3 group-hover:translate-y-2 ${member.extraClass}`}
               />
+
+              {/* Hover Bottom Gradient + Icons */}
+              <div className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Bottom Gradient Background */}
+                <div
+                  className="absolute bottom-0 left-0 w-full h-[120px]"
+                  style={{
+                    background:
+                      "linear-gradient(to top, #83DCEC 0%, #FFFFFF00 100%)",
+                  }}
+                ></div>
+
+                {/* Icons at Bottom */}
+                <div className="relative flex gap-[13.73px] mb-4">
+                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[#002A32] text-[#002A32] bg-transparent">
+                    <FaFacebookF size={18} />
+                  </div>
+                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[#002A32] text-[#002A32] bg-transparent">
+                    <FaInstagram size={18} />
+                  </div>
+                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[#002A32] text-[#002A32] bg-transparent">
+                    <FaYoutube size={18} />
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Heading + Text */}
