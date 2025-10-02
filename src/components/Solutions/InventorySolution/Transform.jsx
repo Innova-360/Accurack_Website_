@@ -19,7 +19,7 @@ export default function TransformSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-[#0A2626] opacity-95"></div>
+        <div className="absolute inset-0 bg-[var(--color-primary-hover)] opacity-95"></div>
       </div>
 
       {/* Content */}
@@ -65,7 +65,7 @@ export default function TransformSection() {
             >
               <span
                 className={`font-jakarta font-bold text-[16px] leading-[100%] whitespace-nowrap transition-colors duration-300 ${
-                  hoveredBtn === "demo" ? "text-[#0C6676E5]" : "text-[#0A2626]"
+                  hoveredBtn === "demo" ? "text-[var(--color-gradient-primary-2)]/90" : "text-[var(--color-primary-hover)]"
                 }`}
               >
                 Request a Quote

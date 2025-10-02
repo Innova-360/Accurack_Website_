@@ -66,13 +66,13 @@ export default function TeamSection() {
       <div className="max-w-[850px]">
         <h2
           style={{ fontFamily: "var(--font-lora)" }}
-          className="font-medium text-[48px] leading-[60px] tracking-[-0.02em] text-[#000000] mb-6"
+                    className="font-medium text-[48px] leading-[61px] text-black mb-6"
         >
           The Great Minds Behind Our Work
         </h2>
         <p
           style={{ fontFamily: "Inter, sans-serif" }}
-          className="text-[16px] leading-[24px] text-[#000000] font-normal mb-12 max-w-[612px]"
+          className="text-[16px] leading-[24px] text-black font-normal mb-12 max-w-[612px]"
         >
           Join hundreds of businesses optimizing their operations with Accurack.
         </p>
@@ -111,13 +111,13 @@ export default function TeamSection() {
 
                 {/* Icons at Bottom */}
                 <div className="relative flex gap-[13.73px] mb-4">
-                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[#002A32] text-[#002A32] bg-transparent">
+                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[var(--color-primary-hover)] text-[var(--color-primary-hover)] bg-transparent">
                     <FaFacebookF size={18} />
                   </div>
-                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[#002A32] text-[#002A32] bg-transparent">
+                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[var(--color-primary-hover)] text-[var(--color-primary-hover)] bg-transparent">
                     <FaInstagram size={18} />
                   </div>
-                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[#002A32] text-[#002A32] bg-transparent">
+                  <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-[var(--color-primary-hover)] text-[var(--color-primary-hover)] bg-transparent">
                     <FaYoutube size={18} />
                   </div>
                 </div>
@@ -128,13 +128,13 @@ export default function TeamSection() {
             <div className="w-[217px] h-[48px]">
               <h3
                 style={{ fontFamily: "var(--font-jakarta)" }}
-                className="font-medium text-[24px] leading-[32px] text-[#0D0D0D]"
+                className="font-medium text-[24px] leading-[32px] text-gray-900"
               >
                 {member.name}
               </h3>
               <p
                 style={{ fontFamily: "var(--font-jakarta)" }}
-                className="text-[14px] leading-[16px] text-[#0D0D0D] mt-1"
+                className="text-[14px] leading-[16px] text-gray-900 mt-1"
               >
                 {member.text}
               </p>

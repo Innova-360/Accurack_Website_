@@ -22,13 +22,13 @@ export default function CommunitySection() {
       <div className="max-w-[800px] mx-auto text-center px-4">
         <h2
           style={{ fontFamily: "var(--font-lora)" }}
-          className="font-medium text-[48px] leading-[61px] text-[#000000]"
+          className="font-medium text-[48px] leading-[61px] text-black"
         >
           Community Involvement
         </h2>
         <p
           style={{ fontFamily: "var(--font-jakarta)" }}
-          className="mt-6 text-[16px] leading-[24px] text-[#808080] font-normal"
+          className="mt-6 text-[16px] leading-[24px] text-gray-500 font-normal"
         >
           Discover why businesses partner with us to overcome challenges and fuel
           growth. From streamlining inventory to expanding into new markets,
@@ -93,13 +93,13 @@ function FeatureBlock({ heading, text, image, bg, reverse }) {
       >
         <h3
           style={{ fontFamily: "var(--font-jakarta)" }}
-          className="font-medium text-[24px] leading-[32px] text-[#0D0D0D] mb-4 whitespace-nowrap"
+          className="font-medium text-[24px] leading-[32px] text-gray-900 mb-4 whitespace-nowrap"
         >
           {heading}
         </h3>
         <p
           style={{ fontFamily: "var(--font-jakarta)" }}
-          className="text-[16px] leading-[24px] text-[#494949] font-normal"
+          className="text-[16px] leading-[24px] text-gray-600 font-normal"
         >
           {text}
         </p>

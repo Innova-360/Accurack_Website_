@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 export default function IntegrationsSection() {
   return (
     <section
-      className="py-16 bg-[#010101] w-full relative overflow-hidden z-10"
+      className="py-16 bg-black w-full relative overflow-hidden z-10"
       style={{ paddingTop: "100px", height: "739px" }} // fixed height
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-20 h-full">
@@ -104,7 +104,7 @@ export default function IntegrationsSection() {
 
           {/* 🔹 Right Column: Text + Button */}
           <div className="flex flex-col gap-2 lg:pl-9 relative z-50">
-            <span className="inline-flex items-center justify-center border border-[#18BDA0] text-[#18BDA0] font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] w-fit">
+            <span className="inline-flex items-center justify-center border border-teal-400 text-teal-400 font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] w-fit">
               Discover Accurack
             </span>
 
@@ -116,7 +116,7 @@ export default function IntegrationsSection() {
               Our Integrations Power Diverse Industries
             </h2>
 
-            <p className="text-[#808080] font-inter font-normal text-[16px] leading-[24px]">
+            <p className="text-gray-500 font-inter font-normal text-[16px] leading-[24px]">
               Accurack integrates with the tools you already use, streamlining
               operations across ecommerce, wholesale, logistics, and beyond.
             </p>

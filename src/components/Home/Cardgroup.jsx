@@ -23,7 +23,7 @@ export default function CardSection() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: false }}
-            className="px-4 py-1 border border-[#000000] rounded-[7px] text-[16px] font-medium"
+            className="px-4 py-1 border border-black rounded-[7px] text-[16px] font-medium"
           >
             Top Rated
           </motion.span>
@@ -34,7 +34,7 @@ export default function CardSection() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: false }}
-            className="font-medium text-[48px] leading-[100%] text-[#070709]"
+            className="font-medium text-[48px] leading-[100%] text-gray-900"
           >
             Find Out Why We’re Rated #1
           </motion.h2>

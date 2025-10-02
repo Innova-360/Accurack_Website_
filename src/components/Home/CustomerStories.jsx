@@ -9,7 +9,7 @@ export default function CustomerStoriesSection() {
       {/* 🔹 Heading */}
       <h2
         style={{ fontFamily: "'Lora', serif" }}
-        className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] leading-[38px] sm:leading-[46px] lg:leading-[54px] text-center text-[#070709] mb-10 sm:mb-14"
+        className="font-medium text-[28px] sm:text-[36px] lg:text-[48px] leading-[38px] sm:leading-[46px] lg:leading-[54px] text-center text-gray-900 mb-10 sm:mb-14"
       >
         Customer Success Stories
       </h2>
@@ -26,10 +26,10 @@ export default function CustomerStoriesSection() {
               height={80}
               className="rounded-full mx-auto mb-2 object-cover"
             />
-            <h3 className="font-jakarta font-semibold text-lg text-[#070709]">
+            <h3 className="font-jakarta font-semibold text-lg text-gray-900">
               Ross Geller
             </h3>
-            <p className="font-inter font-normal text-[16px] leading-[24px] text-[#808080]">
+            <p className="font-inter font-normal text-[16px] leading-[24px] text-gray-500">
               Retail Manager
             </p>
           </div>
@@ -53,10 +53,10 @@ export default function CustomerStoriesSection() {
               height={80}
               className="rounded-full mx-auto mb-2 object-cover"
             />
-            <h3 className="font-jakarta font-semibold text-lg text-[#070709]">
+            <h3 className="font-jakarta font-semibold text-lg text-gray-900">
               Joey Tribbiani
             </h3>
-            <p className="font-inter font-normal text-[16px] leading-[24px] text-[#808080]">
+            <p className="font-inter font-normal text-[16px] leading-[24px] text-gray-500">
               Retail Manager
             </p>
           </div>
@@ -81,10 +81,10 @@ export default function CustomerStoriesSection() {
               height={80}
               className="rounded-full mx-auto mb-2 object-cover"
             />
-            <h3 className="font-jakarta font-semibold text-lg text-[#070709]">
+            <h3 className="font-jakarta font-semibold text-lg text-gray-900">
               Rachel Green
             </h3>
-            <p className="font-inter font-normal text-[16px] leading-[24px] text-[#808080]">
+            <p className="font-inter font-normal text-[16px] leading-[24px] text-gray-500">
               Retail Manager
             </p>
           </div>

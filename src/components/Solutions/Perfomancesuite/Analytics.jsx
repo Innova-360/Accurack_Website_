@@ -43,7 +43,7 @@ export default function AnalyticsSection() {
       {/* ✅ Heading */}
       <div className="flex justify-center text-center mb-12">
         <h2
-          className={`${lora.className} font-medium text-[48px] leading-[60px] tracking-[-0.02em] text-[#0D0D0D] max-w-[544px]`}
+          className={`${lora.className} font-medium text-[48px] leading-[60px] tracking-[-0.02em] text-gray-900 max-w-[544px]`}
         >
           Analytics & Reporting
         </h2>
@@ -70,12 +70,12 @@ export default function AnalyticsSection() {
               icon={card.icon}
               title={card.title}
               text={card.text}
-              className="p-6 border border-gray-100 shadow-sm rounded-2xl bg-[#F9F9FB]"
-              iconWrapperClass="w-[32px] h-[32px] rounded-full border border-[#0B6D7E] flex items-center justify-center"
+              className="p-6 border border-gray-100 shadow-sm rounded-2xl bg-gray-50"
+              iconWrapperClass="w-[32px] h-[32px] rounded-full border border-[var(--color-gradient-primary-2)] flex items-center justify-center"
               iconWidth={16}
               iconHeight={16}
-              titleClass={`${jakarta.className} font-medium text-[24px] leading-[32px] text-[#0D0D0D]`}
-              textClass={`${jakarta.className} text-[16px] leading-[24px] text-[#808080]`}
+              titleClass={`${jakarta.className} font-medium text-[24px] leading-[32px] text-gray-900`}
+              textClass={`${jakarta.className} text-[16px] leading-[24px] text-gray-500`}
             />
           ))}
         </div>
