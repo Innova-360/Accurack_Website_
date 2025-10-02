@@ -1,45 +1,25 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 @import "tailwindcss";
 
+@theme {
+  --color-background: white;
+  --color-foreground: #171717;
 
+  --color-primary: #02404B;
+  --color-primary-hover: #012A30;
 
-
-
-
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --navBg: #FFFFFF;
-  --navbookademobg1: #00B6BC;
-  --navbookademobg2: #0C6676;
+  --color-gradient-primary-1: #00B6BC;
+  --color-gradient-primary-2: #0C6676;
+  --font-heading: 'Lora', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-title: 'Base Neue', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-navBg: var(--navBg);
-  --color-navbookademobg1: var(--navbookademobg1);
-  --color-navbookademobg2: var(--navbookademobg2);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'Base Neue';
+  src: url('/fonts/base-neue/BaseNeueTrial-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-

@@ -6,21 +6,12 @@ import ForecastingSection from "../components/Home/ForecastingSection"
 
 export default function Home() {
   return (
-      <>
-       {/* <HeroSection /> */}
-      {/* <CardSection /> */}
-      {/* <IntegrationsSection /> */}
-      {/* <ForecastingSection />  */}
-
-
-
-
-
-
-
-
-      {/* <CustomerStoriesSection /> */}
-      
-      </>
-      );
+    <>
+      <HeroSection />
+      <CardSection />
+      <IntegrationsSection />
+      <ForecastingSection   />
+      <CustomerStoriesSection />
+    </>
+  );
 }

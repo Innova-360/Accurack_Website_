@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "motion/react";
 import { useState } from "react";
 import Img from "../Image/Image";
@@ -9,75 +8,35 @@ export default function HeroSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
 
   return (
-    <section className="w-full bg-white">
-      <div
-        className="max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-[100px] 
-                   py-6 lg:py-12 grid grid-cols-1 lg:grid-cols-2 
-                   items-start gap-10 lg:gap-10"
-      >
-        {/* Left Side - Text + Buttons */}
+    <section className="w-full bg-background">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-[100px] py-6 lg:py-12 grid grid-cols-1 lg:grid-cols-2 items-start gap-10">
         <motion.div
           initial={{ x: -150, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }} // ✅ Scroll pe trigger
-          viewport={{ once: false, amount: 0.3 }} // har dafa jab visible hoga
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col items-center lg:items-start 
-                     text-center lg:text-left -mt-[9px]"
+          className="flex flex-col items-center lg:items-start text-center lg:text-left -mt-[9px]"
         >
-          {/* ✅ Heading with exact style */}
-          <h1
-            style={{
-              fontFamily: "'Base Neue Trial', sans-serif",
-              fontWeight: 700,
-              fontStyle: "normal",
-              fontStretch: "expanded", // Wide Bold
-              fontSize: "70px",
-              lineHeight: "70.5px", // Bilkul design wali height
-              letterSpacing: "0px",
-              color: "#03414B",
-            }}
-            className="max-w-[700px]"
-          >
+          <h1 className="max-w-[700px] text-primary text-2xl sm:text-[55px] lg:text-[70px] leading-[50px] sm:leading-[60px] lg:leading-[70.5px] font-extrabold font-title">
             The Smarter <br />
             Way to Manage <br />
             Inventory.
           </h1>
 
-          <p
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            className="mt-35 text-[#000000]
-                       font-normal text-[16px] sm:text-[18px] lg:text-[20px]
-                       leading-[30px] tracking-[0]
-                       max-w-[600px]"
-          >
+          <p className="mt-9 text-foreground font-normal text-[16px] sm:text-[18px] lg:text-[20px] max-w-[600px] font-body">
             Discover our story, mission, and the team <br /> behind the
             Ai-powered solution transforming <br /> inventory management.
           </p>
 
-          {/* ✅ Buttons */}
-          <div
-            className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 
-                       justify-center lg:justify-start items-center lg:items-start w-full"
-          >
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center lg:items-start w-full">
             {/* Book a Demo */}
             <div
               onMouseEnter={() => setHoveredBtn("demo")}
               onMouseLeave={() => setHoveredBtn(null)}
-              style={{
-                backgroundColor: hoveredBtn === "demo" ? "#8BEEFF" : "#03414B",
-                color: hoveredBtn === "demo" ? "#000000" : "#fff",
-                width: hoveredBtn === "demo" ? "200px" : "184px",
-                height: "48px",
-                borderRadius: "8px",
-                border: "1px solid #02404B",
-                transition: "all 0.3s ease",
-              }}
-              className="flex items-center justify-center gap-2"
+              className={`flex items-center justify-center gap-2 rounded-lg border border-primary transition-all duration-300 
+                ${hoveredBtn === "demo" ? "bg-gradient-to-r from-[#8BEEFF] to-[#8BEEFF] text-foreground w-[200px]" : "bg-primary text-white w-[184px]"} h-12`}
             >
-              <Button
-                href="/book-demo"
-                className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2"
-              >
+              <Button href="/book-demo" className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2">
                 <span>Book a Demo</span>
                 {hoveredBtn === "demo" && (
                   <Img
@@ -96,21 +55,10 @@ export default function HeroSection() {
             <div
               onMouseEnter={() => setHoveredBtn("trial")}
               onMouseLeave={() => setHoveredBtn(null)}
-              style={{
-                backgroundColor: "#fff",
-                color: "#03414B",
-                width: hoveredBtn === "trial" ? "200px" : "184px",
-                height: "48px",
-                borderRadius: "8px",
-                border: "1px solid #02404B",
-                transition: "all 0.3s ease",
-              }}
-              className="flex items-center justify-center gap-2"
+              className={`flex items-center justify-center gap-2 rounded-lg border border-primary transition-all duration-300 
+                ${hoveredBtn === "trial" ? "w-[200px]" : "w-[184px]"} h-12 bg-background text-primary`}
             >
-              <Button
-                href="/free-trial"
-                className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2"
-              >
+              <Button href="/free-trial" className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2">
                 <span>Start Free Trial</span>
                 {hoveredBtn === "trial" && (
                   <Img
@@ -127,10 +75,9 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Right Side - Image + Stats */}
         <motion.div
           initial={{ x: -150, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }} // ✅ Scroll pe trigger
+          whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative flex justify-center lg:justify-center"
@@ -140,18 +87,16 @@ export default function HeroSection() {
             alt="Hero Section"
             width={751}
             height={536}
-            className="object-contain w-[260px] sm:w-[380px] lg:w-[700px] mt-35 mr-120"
+            className="object-contain w-[260px] sm:w-[380px] lg:w-[700px] mt-9 mr-32"
             fallback="/Images/Homeassests/Heroimage/back.jpg"
           />
 
-          {/* Stats */}
           <motion.div
             initial={{ y: -150, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }} // ✅ Scroll pe trigger
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-            className="absolute -top-16 right-0 sm:-top-16 sm:right-4 
-                       lg:top-0 lg:right-10 flex flex-col items-start text-left"
+            className="absolute -top-16 right-0 sm:-top-16 sm:right-4 lg:top-0 lg:right-10 flex flex-col items-start text-left"
           >
             <div className="flex items-center gap-2 sm:gap-3">
               <Img
@@ -162,28 +107,12 @@ export default function HeroSection() {
                 className="object-contain bg-transparent"
                 fallback="/Images/Homeassests/Heroimage/back.jpg"
               />
-              <span
-                style={{
-                  fontFamily: "'Base Neue Trial', sans-serif",
-                  fontWeight: 700,
-                }}
-                className="text-[#03414B] font-bold 
-                           text-[28px] sm:text-[40px] lg:text-[52.45px] 
-                           leading-[61.76px]"
-              >
+              <span className="text-primary font-bold text-[28px] sm:text-[40px] lg:text-[52.45px] leading-[61.76px] font-title">
                 130%
               </span>
-              <span className="text-[#03414B] font-bold text-xs sm:text-sm lg:text-base">
-                Growth
-              </span>
+              <span className="text-primary font-bold text-xs sm:text-sm lg:text-base">Growth</span>
             </div>
-
-            <p
-              style={{ fontFamily: "'Lora', serif" }}
-              className="mt-2 text-[#050506] text-[16px] sm:text-[16px] 
-                         lg:text-[18px] leading-[110%] font-medium 
-                         max-w-[220px]"
-            >
+            <p className="mt-2 text-[#050506] text-[16px] sm:text-[16px] lg:text-[18px] leading-[110%] font-medium max-w-[220px] font-heading">
               Top used website for warehouse management
             </p>
           </motion.div>
