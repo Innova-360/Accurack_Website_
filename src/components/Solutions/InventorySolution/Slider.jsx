@@ -1,6 +1,6 @@
 "use client";
 
-import Img from "../../Image/Image";
+import Img from "../../ui/Image/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarSolid, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 

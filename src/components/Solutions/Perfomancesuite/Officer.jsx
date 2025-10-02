@@ -1,6 +1,6 @@
 "use client";
 
-import Img from "../../Image/Image";
+import Img from "../../ui/Image/Image";
 import { Plus_Jakarta_Sans, Lora } from "next/font/google";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 

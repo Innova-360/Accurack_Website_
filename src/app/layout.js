@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono, Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../components/common/Navbar";
+import Footer from "../components/common/Footer";
 
 
 export const metadata = {

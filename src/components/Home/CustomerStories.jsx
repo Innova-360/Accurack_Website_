@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Card from "../Card/Card";
+import Card from "../ui/Card/Card";
 
 export default function CustomerStoriesSection() {
   return (

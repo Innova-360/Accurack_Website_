@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Card from "../../Card/Card"; // ✅ apna card component import karna
+import Card from "../../ui/Card/Card"; // ✅ apna card component import karna
 import { Lora, Plus_Jakarta_Sans } from "next/font/google";
 
 const lora = Lora({

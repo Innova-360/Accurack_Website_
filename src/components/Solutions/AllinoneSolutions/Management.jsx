@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Button from "../../Button/Button";
-import Img from "../../Image/Image";
+import Button from "../../ui/Button/Button";
+import Img from "../../ui/Image/Image";
 
 export default function TransformSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);

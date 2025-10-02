@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "motion/react";
 import { useState } from "react";
-import Img from "../Image/Image";
-import Button from "../Button/Button";
+import Img from "../ui/Image/Image";
+import Button from "../ui/Button/Button";
 
 export default function HeroSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
