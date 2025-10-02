@@ -12,6 +12,7 @@ export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const dropdownRef = useRef(null);
+  
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -38,7 +39,7 @@ export default function Navbar() {
         },
         {
           name: "Performance Suite",
-          href: "#",
+          href: "/Solutions/Perfomancesuite",
           icon: "/Images/Navassests/icons/Baar.png",
           isIcon: false,
         },
@@ -227,50 +228,76 @@ export default function Navbar() {
                   </button>
 
                   {/* Dropdown */}
-                  {item.dropdown && openDropdown === idx && (
-                    <div
-                      className="absolute left-0 mt-2 rounded-[12px] shadow-lg z-50 flex flex-col w-[364px]"
-                      style={{
-                        padding: "15px",
-                        gap: "10px",
-                        background: "rgba(235, 252, 249, 0.75)",
-                        backdropFilter:
-                          "blur(30px) saturate(200%) contrast(120%)",
-                        border: "1px solid #64c4b3",
-                      }}
-                    >
-                      {item.dropdown.map((sub, subIdx) => (
-                        <Link
-                          key={subIdx}
-                          href={sub.href}
-                          onClick={() => setOpenDropdown(null)}
-                          className="flex items-center text-[14px] px-4 py-[14px] rounded-[7px] transition bg-[#ebfcf9] hover:bg-[#d3d3d3] text-[#363b40]"
-                          style={{
-                            fontFamily: "var(--font-jakarta)",
-                            fontWeight: 500,
-                            gap: "10px",
-                          }}
-                        >
-                          {sub.isIcon ? (
-                            <FontAwesomeIcon
-                              icon={sub.icon}
-                              className="w-4 h-4 mr-3"
-                              style={{ color: "#328a7a" }}
-                            />
-                          ) : (
-                            <Img
-                              src={sub.icon}
-                              className="mr-3"
-                              width={20}
-                              height={20}
-                              alt="icon"
-                            />
-                          )}
-                          {sub.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+{item.dropdown && openDropdown === idx && (
+  <div
+    className="absolute left-0 mt-2 rounded-[12px] shadow-lg z-50 flex flex-col w-[326px]"
+    style={{
+      padding: "15px",
+      gap: "3px",
+      background: "rgba(255, 255, 255, 0.25)", // glass effect
+      border: "1px solid #64c4b3",
+      backdropFilter: "blur(30px) saturate(200%) contrast(120%)",
+      WebkitBackdropFilter: "blur(30px) saturate(200%) contrast(120%)",
+    }}
+  >
+    {item.dropdown.map((sub, subIdx) => (
+      <Link
+        key={subIdx}
+        href={sub.href}
+        onClick={() => setOpenDropdown(null)}
+        className="flex items-center justify-between w-full h-[60px] px-[12px] py-[18px] rounded-[7px] border transition-all duration-300"
+        style={{
+          fontFamily: "var(--font-jakarta)",
+          fontWeight: 500,
+          fontSize: "14px",
+          gap: "10px",
+          borderColor: "rgba(10, 110, 92, 0.14)",
+          background: "rgba(105,235,212,0.13)",
+          color: "#004F3F",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = "#69EBD4D4";
+          e.currentTarget.style.transform = "translateY(-2px)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = "rgba(105,235,212,0.13)";
+          e.currentTarget.style.transform = "translateY(0)";
+        }}
+      >
+        {/* Left: icon + text */}
+        <div className="flex items-center gap-3 text-[#004F3F]">
+          {sub.isIcon ? (
+            <FontAwesomeIcon
+              icon={sub.icon}
+              className="w-5 h-5"
+              style={{ color: "#004F3F" }}
+            />
+          ) : (
+            <span
+              className="w-5 h-5"
+              style={{
+                display: "inline-block",
+                backgroundColor: "#004F3F",
+                maskImage: `url(${sub.icon})`,
+                WebkitMaskImage: `url(${sub.icon})`,
+                maskRepeat: "no-repeat",
+                WebkitMaskRepeat: "no-repeat",
+                maskPosition: "center",
+                WebkitMaskPosition: "center",
+                maskSize: "contain",
+                WebkitMaskSize: "contain",
+              }}
+            />
+          )}
+          {sub.name}
+        </div>
+
+        {/* Right arrow */}
+        <ArrowRight className="w-4 h-4 text-[#004F3F]" />
+      </Link>
+    ))}
+  </div>
+)}
                 </>
               )}
             </div>
@@ -302,8 +329,6 @@ export default function Navbar() {
           <span className="transition-transform duration-300 group-hover:translate-x-[-10px]">
             Book a Demo
           </span>
-
-          {/* Arrow on hover */}
           <span className="absolute right-2 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex items-center justify-center w-[44px] h-[44px] rounded-[101px] bg-white">
             <span
               className="w-[20px] h-[20px] bg-[#0C6676]"
@@ -322,84 +347,219 @@ export default function Navbar() {
         </Button>
       </div>
 
-      {/* Mobile Menu Button */}
-      <div className="lg:hidden">
-        <button
-          onClick={() => setMobileMenu(!mobileMenu)}
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100"
-          aria-label="Toggle menu"
-        >
-          {mobileMenu ? (
-            <X className="w-6 h-6 text-gray-700" />
-          ) : (
-            <div className="flex flex-col items-center justify-center space-y-1">
-              <span className="block w-6 h-0.5 bg-gray-700 rounded"></span>
-              <span className="block w-5 h-0.5 bg-gray-700 rounded"></span>
-              <span className="block w-4 h-0.5 bg-gray-700 rounded"></span>
-            </div>
-          )}
-        </button>
-      </div>
+              {/* Top Nav for Mobile */}
+<div className="lg:hidden flex items-center justify-between px-4 py-3  fixed top-0 left-0 w-full z-50">
+  {/* Logo on Left */}
+  <Img
+    src="/Images/Navassests/Accurack.png"
+    width={106}
+    height={40}
+    alt="Accurack Logo"
+    className="object-contain"
+  />
 
-      {/* Mobile Dropdown Menu */}
-      {mobileMenu && (
-        <div className="absolute top-[80px] left-0 w-full bg-white border-t shadow-lg lg:hidden">
-          <div className="flex flex-col px-6 py-4 space-y-4">
+  {/* Hamburger on Right */}
+  <button onClick={() => setMobileMenu(true)}>
+    <svg
+      className="w-8 h-8  text-[#02404B]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</div>
+
+{mobileMenu && (
+        <div
+          className="fixed top-0  right-0 h-full w-[359px] bg-[#02404B] text-white z-50 transition-transform duration-300 flex flex-col"
+          style={{
+            borderTopLeftRadius: "17px",
+            borderBottomLeftRadius: "17px",
+          }}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setMobileMenu(false)}
+            className="absolute top-4 right-4"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+
+          {/* Drawer Logo */}
+          <div className="flex items-center px-6 mt-6">
+            <Img
+              src="/Images/Navassests/WhiteLog.png"
+              width={123}
+              height={35}
+              alt="Accurack Logo"
+              className="object-contain"
+            />
+          </div>
+
+          {/* Nav Items */}
+          <div className="flex-1 mt-8 px-6 space-y-2 overflow-y-auto pb-40">
             {navItems.map((item, idx) => (
               <div key={idx}>
                 {item.href ? (
+                  // Normal Link
                   <Link
                     href={item.href}
-                    className="block text-[15px] font-semibold text-black hover:text-[#0C6676]"
                     onClick={() => setMobileMenu(false)}
+                    className="block border-b border-white/20 py-3"
+                    style={{
+                      fontFamily: "Base Neue Trial, sans-serif",
+                      fontWeight: 400,
+                      fontSize: "24px",
+                      lineHeight: "47.33px",
+                      color: "rgba(255,255,255,0.7)",
+                    }}
                   >
                     {item.name}
                   </Link>
                 ) : (
-                  <details>
-                    <summary className="flex items-center justify-between cursor-pointer text-[15px] font-semibold text-black hover:text-[#0C6676]">
+                  // Dropdown Item
+                  <div>
+                    <button
+                      onClick={() =>
+                        setOpenDropdown(openDropdown === idx ? null : idx)
+                      }
+                      className="w-full flex justify-between items-center border-b border-white/20 py-3"
+                      style={{
+                        fontFamily: "Base Neue Trial, sans-serif",
+                        fontWeight: 400,
+                        fontSize: "24px",
+                        lineHeight: "47.33px",
+                        color: "rgba(255,255,255,0.7)",
+                      }}
+                    >
                       {item.name}
-                      <ChevronDown className="w-4 h-4 transition-transform duration-300 group-open:rotate-180" />
-                    </summary>
-                    <div className="ml-4 mt-2 flex flex-col space-y-2">
-                      {item.dropdown?.map((sub, subIdx) => (
-                        <Link
-                          key={subIdx}
-                          href={sub.href}
-                          className="text-[14px] text-gray-700 hover:text-[#0C6676]"
-                          onClick={() => setMobileMenu(false)}
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </details>
+                      {openDropdown === idx ? (
+                        <span className="text-2xl w-10">−</span>
+                      ) : (
+                        <span className="text-2xl">+</span>
+                      )}
+                    </button>
+
+                    {/* Dropdown Content */}
+                    {openDropdown === idx && (
+                      <div className="ml-4 mt-2 flex flex-col space-y-2">
+                        {item.dropdown?.map((sub, subIdx) => (
+                          <Link
+                            key={subIdx}
+                            href={sub.href}
+                            onClick={() => setMobileMenu(false)}
+                            className="flex items-center gap-3 py-2"
+                            style={{
+                              fontFamily: "Base Neue Trial, sans-serif",
+                              fontWeight: 400,
+                              fontSize: "24px",
+                              lineHeight: "47.33px",
+                              color: "rgba(255,255,255,0.7)",
+                            }}
+                          >
+                            {sub.isIcon ? (
+                              <FontAwesomeIcon
+                                icon={sub.icon}
+                                className="w-6 h-6 text-[#75FFDF] fill-current"
+                              />
+                            ) : (
+                              <img
+                                src={sub.icon}
+                                alt=""
+                                className="w-6 h-6 object-contain"
+                                style={{
+                                  filter:
+                                    "brightness(0) saturate(100%) invert(69%) sepia(100%) saturate(400%) hue-rotate(115deg)",
+                                }}
+                              />
+                            )}
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
             ))}
+          </div>
 
-            {/* Mobile Buttons */}
-            <div className="flex flex-col gap-3 mt-4">
-              <Button
-                href="/login"
-                className="w-full h-[51px] rounded-[555px] font-jakarta font-bold text-[16px] text-[#0C6676] border border-[#0C6676]"
-              >
-                Login
-              </Button>
-              <Button
-                href="/book-demo"
-                className="w-full h-[51px] rounded-[44px] font-jakarta font-bold text-[16px] text-white bg-gradient-to-r from-[var(--navbookademobg1)] to-[var(--navbookademobg2)] flex items-center justify-center gap-2 group relative overflow-hidden"
+          {/* Bottom Buttons */}
+          <div className="absolute bottom-10 left-0 w-full px-6 flex flex-col space-y-4">
+            {/* Book a Demo */}
+            <div
+              className="relative flex items-center justify-center bg-white"
+              style={{
+                width: "292px",
+                height: "59px",
+                borderRadius: "555px",
+                padding: "15px 25px",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Plus Jakarta Sans, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "16px",
+                  lineHeight: "100%",
+                  color: "#0C4752",
+                }}
               >
                 Book a Demo
-                {/* Arrow on hover (Mobile too) */}
-                <span className="absolute right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center w-[44px] h-[44px] rounded-[101px] bg-white">
-                  <ArrowRight className="w-5 h-5 text-[#0C6676]" />
-                </span>
-              </Button>
+              </span>
+              <div
+                className="absolute right-4 flex items-center justify-center"
+                style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "101px",
+                  backgroundColor: "#0C4752",
+                }}
+              >
+
+
+                    <Img
+              src="/Images/Navassests/ReArrow.png"
+              width={24}
+              height={24}
+              alt="Arrow"
+              className=""
+            />
+
+              </div>
+            </div>
+
+            {/* Start Free Trial */}
+            <div
+              className="flex items-center justify-center border"
+              style={{
+                width: "292px",
+                height: "59px",
+                borderRadius: "555px",
+                border: "1.5px solid #FFFFFF",
+                padding: "15px 25px",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "Plus Jakarta Sans, sans-serif",
+                  fontWeight: 500,
+                  fontSize: "16px",
+                  lineHeight: "100%",
+                  color: "#FFFFFF",
+                  textAlign: "center",
+                }}
+              >
+                Start Free Trial
+              </span>
             </div>
           </div>
         </div>
       )}
+
     </nav>
   );
 }
