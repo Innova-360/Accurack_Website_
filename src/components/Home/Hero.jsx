@@ -34,7 +34,7 @@ export default function HeroSection() {
               onMouseEnter={() => setHoveredBtn("demo")}
               onMouseLeave={() => setHoveredBtn(null)}
               className={`flex items-center justify-center gap-2 rounded-lg border border-primary transition-all duration-300 
-                ${hoveredBtn === "demo" ? "bg-gradient-to-r from-[#8BEEFF] to-[#8BEEFF] text-foreground w-[200px]" : "bg-primary text-white w-[184px]"} h-12`}
+                ${hoveredBtn === "demo" ? "bg-gradient-to-r from-cyan-200 to-cyan-200 text-foreground w-[200px]" : "bg-primary text-white w-[184px]"} h-12`}
             >
               <Button href="/book-demo" className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2">
                 <span>Book a Demo</span>
@@ -112,7 +112,7 @@ export default function HeroSection() {
               </span>
               <span className="text-primary font-bold text-xs sm:text-sm lg:text-base">Growth</span>
             </div>
-            <p className="mt-2 text-[#050506] text-[16px] sm:text-[16px] lg:text-[18px] leading-[110%] font-medium max-w-[220px] font-heading">
+            <p className="mt-2 text-gray-900 text-[16px] sm:text-[16px] lg:text-[18px] leading-[110%] font-medium max-w-[220px] font-heading">
               Top used website for warehouse management
             </p>
           </motion.div>

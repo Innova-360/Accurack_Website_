@@ -5,7 +5,7 @@ import Card from "../../Card/Card"; // apne Card ka sahi path lagao
 
 export default function InventoryFeatures() {
   return (
-    <section className="relative w-full bg-[#1a1a1a] text-white overflow-hidden">
+    <section className="relative w-full bg-gray-900 text-white overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
@@ -23,7 +23,7 @@ export default function InventoryFeatures() {
             <h2 className="font-[Lora] font-medium text-[32px] sm:text-[40px] lg:text-[48px] leading-[130%] tracking-[-0.02em] text-white max-w-[598px] mb-6">
               Advanced Inventory Management Features
             </h2>
-            <p className="font-normal text-[16px] leading-[24px] text-[#808080] max-w-[612px]">
+            <p className="font-normal text-[16px] leading-[24px] text-gray-500 max-w-[612px]">
               Join hundreds of businesses optimizing their operations with
               Accurack.
             </p>
@@ -39,7 +39,7 @@ export default function InventoryFeatures() {
               contentClass="items-start text-left"
               titleClass="font-jakarta font-medium text-[20px] leading-[120%] text-white mt-6 mb-4"
               textClass="font-jakarta font-normal text-[16px] leading-[140%] text-white max-w-[350px]"
-              iconWrapperClass="w-[63.23px] h-[58px] rounded-[158.08px] bg-[#FFFFFF1A] flex items-center justify-center p-[12.65px] mb-2"
+              iconWrapperClass="w-[63.23px] h-[58px] rounded-[158.08px] bg-white/10 flex items-center justify-center p-[12.65px] mb-2"
               iconWidth={32.71}
               iconHeight={32.71}
             />
@@ -60,7 +60,7 @@ export default function InventoryFeatures() {
                 contentClass="items-start text-left"
                 titleClass="font-jakarta font-medium text-[20px] leading-[120%] text-white mt-6 mb-4"
                 textClass="font-jakarta font-normal text-[16px] leading-[140%] text-white max-w-[350px]"
-                iconWrapperClass="w-[63.23px] h-[58px] rounded-[158.08px] bg-[#FFFFFF1A] flex items-center justify-center p-[12.65px] mb-2"
+                iconWrapperClass="w-[63.23px] h-[58px] rounded-[158.08px] bg-white/10 flex items-center justify-center p-[12.65px] mb-2"
                 iconWidth={32.71}
                 iconHeight={32.71}
               />

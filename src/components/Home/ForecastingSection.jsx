@@ -28,23 +28,23 @@ export default function ForecastingSection() {
   ];
 
   return (
-    <section className="w-full bg-[#EFEFEF] flex flex-col items-center justify-center py-16 px-4 sm:px-8">
+    <section className="w-full bg-gray-100 flex flex-col items-center justify-center py-16 px-4 sm:px-8">
       <div className="max-w-[1284px] w-full flex flex-col items-center text-center">
         {/* 🔹 Features Tag */}
-        <span className="inline-flex items-center justify-center border border-[#18BDA0] text-[#18BDA0] font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] mb-6">
+        <span className="inline-flex items-center justify-center border border-teal-400 text-teal-400 font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] mb-6">
           Features
         </span>
 
         {/* 🔹 Heading */}
         <h2
           style={{ fontFamily: "'Lora', serif" }}
-          className="font-lora font-medium text-[32px] sm:text-[40px] lg:text-[48px] leading-[100%] text-[#070709] text-center mb-4"
+          className="font-lora font-medium text-[32px] sm:text-[40px] lg:text-[48px] leading-[100%] text-gray-900 text-center mb-4"
         >
           AI-Driven Demand Forecasting for <br /> Smarter Inventory Management
         </h2>
 
         {/* 🔹 Paragraph */}
-        <p className="text-[#070709] font-inter font-normal text-[16px] leading-[24px] text-center max-w-4xl mb-12">
+        <p className="text-gray-900 font-inter font-normal text-[16px] leading-[24px] text-center max-w-4xl mb-12">
           Discover why businesses partner with us to overcome challenges and
           fuel growth. From streamlining inventory to <br /> expanding into new
           markets, these success stories show how Cin7 helps companies reach new
@@ -68,7 +68,7 @@ export default function ForecastingSection() {
               />
 
               {/* Hover Overlay (color) */}
-              <div className="absolute inset-0 bg-[#0BBB9C] opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"></div>
+              <div className="absolute inset-0 bg-teal-500 opacity-0 group-hover:opacity-70 transition-opacity duration-300 ease-in-out"></div>
 
               {/* Video Icon with smooth scale */}
               {/* Video Icon */}

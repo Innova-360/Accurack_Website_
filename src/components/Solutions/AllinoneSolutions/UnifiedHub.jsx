@@ -22,7 +22,7 @@ export default function UnifiedHub() {
         >
           {/* Badge */}
           <span
-            className="inline-block rounded-md border border-[#03414B] -mt-5 px-4 py-1 mb-3"
+            className="inline-block rounded-md border border-primary -mt-5 px-4 py-1 mb-3"
             style={{
               fontFamily: "'Lora', serif",
               fontWeight: 500,
@@ -87,7 +87,7 @@ export default function UnifiedHub() {
                            group-hover:-translate-x-[130px] group-hover:rotate-180"
               >
                 <span
-                  className="w-[20px] h-[20px] bg-[#0C6676]"
+                  className="w-[20px] h-[20px] bg-[var(--color-gradient-primary-2)]"
                   style={{
                     maskImage: "url('/Images/Navassests/ReArrow.png')",
                     WebkitMaskImage: "url('/Images/Navassests/ReArrow.png')",
@@ -108,7 +108,7 @@ export default function UnifiedHub() {
               href="/free-trial"
               className="w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] 
                          font-jakarta font-bold text-[16px] leading-[100%] tracking-[0%] 
-                         text-[#0C6676] border border-[#0C6676] bg-white 
+                         text-[var(--color-gradient-primary-2)] border border-[var(--color-gradient-primary-2)] bg-white 
                          flex items-center justify-center"
             >
               Start Free Trial
@@ -127,15 +127,15 @@ export default function UnifiedHub() {
           <div className="relative inline-block h-full">
             {/* Borders */}
             <div
-              className="absolute inset-0 rounded-[42px] border-[3px] border-[#18BDA0]"
+              className="absolute inset-0 rounded-[42px] border-[3px] border-teal-400"
               style={{ transform: "rotate(4deg)", zIndex: 0 }}
             ></div>
             <div
-              className="absolute inset-0 rounded-[42px] border-[2px] border-[#18BDA0]/60"
+              className="absolute inset-0 rounded-[42px] border-[2px] border-teal-400/60"
               style={{ transform: "rotate(7deg)", zIndex: 0 }}
             ></div>
             <div
-              className="absolute inset-0 rounded-[42px] border-[2px] border-[#18BDA0]/30"
+              className="absolute inset-0 rounded-[42px] border-[2px] border-teal-400/30"
               style={{ transform: "rotate(10deg)", zIndex: 0 }}
             ></div>
 
@@ -145,7 +145,7 @@ export default function UnifiedHub() {
               alt="Inventory Section"
               width={709}
               height={473}
-              className="relative object-contain h-full w-auto  rounded-[42px] border-[5px] border-[#02404B] z-10"
+              className="relative object-contain h-full w-auto  rounded-[42px] border-[5px] border-primary z-10"
               fallback="/Images/Homeassests/Heroimage/back.jpg"
             />
           </div>

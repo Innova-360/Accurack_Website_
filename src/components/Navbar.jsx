@@ -205,7 +205,7 @@ export default function Navbar() {
               {item.href ? (
                 <Link
                   href={item.href}
-                  className="text-[15px] px-4 py-2 rounded-md transition text-black font-semibold hover:text-[#0C6676]"
+                  className="text-[15px] px-4 py-2 rounded-md transition text-black font-semibold hover:text-[var(--color-gradient-primary-2)]"
                   style={{ fontFamily: "var(--font-jakarta)" }}
                 >
                   {item.name}
@@ -216,7 +216,7 @@ export default function Navbar() {
                     onClick={() =>
                       setOpenDropdown(openDropdown === idx ? null : idx)
                     }
-                    className="flex items-center text-[15px] px-4 py-2 rounded-md transition text-black font-semibold hover:text-[#0C6676]"
+                    className="flex items-center text-[15px] px-4 py-2 rounded-md transition text-black font-semibold hover:text-[var(--color-gradient-primary-2)]"
                     style={{ fontFamily: "var(--font-jakarta)" }}
                   >
                     {item.name}
@@ -265,7 +265,7 @@ export default function Navbar() {
         }}
       >
         {/* Left: icon + text */}
-        <div className="flex items-center gap-3 text-[#004F3F]">
+        <div className="flex items-center gap-3 text-primary">
           {sub.isIcon ? (
             <FontAwesomeIcon
               icon={sub.icon}
@@ -293,7 +293,7 @@ export default function Navbar() {
         </div>
 
         {/* Right arrow */}
-        <ArrowRight className="w-4 h-4 text-[#004F3F]" />
+        <ArrowRight className="w-4 h-4 text-primary" />
       </Link>
     ))}
   </div>
@@ -318,7 +318,7 @@ export default function Navbar() {
       >
         <Button
           href="/login"
-          className="w-[94px] h-[51px] px-[25px] py-[15px] rounded-[555px] font-jakarta font-bold text-[16px] leading-[100%] text-[#0C6676] border border-[#0C6676]"
+          className="w-[94px] h-[51px] px-[25px] py-[15px] rounded-[555px] font-jakarta font-bold text-[16px] leading-[100%] text-[var(--color-gradient-primary-2)] border border-[var(--color-gradient-primary-2)]"
         >
           Login
         </Button>
@@ -331,7 +331,7 @@ export default function Navbar() {
           </span>
           <span className="absolute right-2 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex items-center justify-center w-[44px] h-[44px] rounded-[101px] bg-white">
             <span
-              className="w-[20px] h-[20px] bg-[#0C6676]"
+              className="w-[20px] h-[20px] bg-[var(--color-gradient-primary-2)]"
               style={{
                 maskImage: "url('/Images/Navassests/ReArrow.png')",
                 WebkitMaskImage: "url('/Images/Navassests/ReArrow.png')",
@@ -361,7 +361,7 @@ export default function Navbar() {
   {/* Hamburger on Right */}
   <button onClick={() => setMobileMenu(true)}>
     <svg
-      className="w-8 h-8  text-[#02404B]"
+      className="w-8 h-8  text-primary"
       fill="none"
       stroke="currentColor"
       strokeWidth={2}
@@ -374,7 +374,7 @@ export default function Navbar() {
 
 {mobileMenu && (
         <div
-          className="fixed top-0  right-0 h-full w-[359px] bg-[#02404B] text-white z-50 transition-transform duration-300 flex flex-col"
+          className="fixed top-0  right-0 h-full w-[359px] bg-primary text-white z-50 transition-transform duration-300 flex flex-col"
           style={{
             borderTopLeftRadius: "17px",
             borderBottomLeftRadius: "17px",
@@ -463,7 +463,7 @@ export default function Navbar() {
                             {sub.isIcon ? (
                               <FontAwesomeIcon
                                 icon={sub.icon}
-                                className="w-6 h-6 text-[#75FFDF] fill-current"
+                                className="w-6 h-6 text-cyan-300 fill-current"
                               />
                             ) : (
                               <img

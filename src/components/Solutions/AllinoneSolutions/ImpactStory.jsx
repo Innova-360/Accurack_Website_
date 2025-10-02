@@ -13,7 +13,7 @@ export default function ImpactStory() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#074854E5]" /> {/* overlay */}
+        <div className="absolute inset-0 bg-primary/90" /> {/* overlay */}
       </div>
 
       <div className="relative max-w-[1440px] mx-auto px-6 lg:px-16 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -34,7 +34,7 @@ export default function ImpactStory() {
           </h2>
 
           {/* sub text */}
-          <p className="font-jakarta font-normal text-[16px] leading-[100%] text-[#FCFCFCE5] mb-8">
+          <p className="font-jakarta font-normal text-[16px] leading-[100%] text-white/90 mb-8">
             See how HM Warehouse leveraged Accurack's AI-driven insights to
             reduce their inventory holding costs by 20%.
           </p>
