@@ -23,18 +23,7 @@ export default function AdvancedFeatures() {
     "/Images/Dropdownassests/Solutions/InventorySolutions/History.png",
   ];
 
- 
-  
-  const backgrounds = [
-  "bg-bg1",
-  "bg-bg2",
-  "bg-bg3",
-  "bg-bg4",
-  "bg-bg5",
-];
-
-
-
+  const backgrounds = ["bg-bg1", "bg-bg2", "bg-bg3", "bg-bg4", "bg-bg5"];
 
   const [active, setActive] = useState(0);
 
@@ -52,20 +41,21 @@ export default function AdvancedFeatures() {
           Advanced Inventory Management Features
         </h2>
 
-        {/* Tabs */}
+        {/* Tabs - same for desktop and mobile */}
         <div className="mt-8 flex justify-center">
-          <nav className="flex justify-between gap-6 lg:gap-10 no-scrollbar overflow-hidden max-w-[1100px] w-full">
+          <nav className="flex justify-between gap-6 lg:gap-10 no-scrollbar overflow-x-auto lg:overflow-hidden max-w-[1100px] w-full">
             {tabs.map((t, i) => {
               const isActive = i === active;
               return (
                 <button
                   key={t}
-                  onMouseEnter={() => setActive(i)}
-                  onClick={() => setActive(i)}
-                  className={`relative pb-4 focus:outline-none text-center font-body font-normal max-w-[260px] whitespace-normal text-[clamp(13px,1.2vw,18px)] ${
+                  onMouseEnter={() =>
+                    window.innerWidth >= 1024 && setActive(i)
+                  } // Desktop hover only
+                  onClick={() => setActive(i)} // Mobile + Desktop click
+                  className={`relative pb-4 focus:outline-none text-center font-body font-normal max-w-[260px] whitespace-nowrap text-[clamp(13px,1.2vw,18px)] ${
                     isActive ? "font-semibold" : "font-normal"
                   } text-text`}
-                  title={t}
                 >
                   {t}
                   <span
@@ -83,12 +73,28 @@ export default function AdvancedFeatures() {
         <div
           className={`mt-12 flex flex-col lg:flex-row items-start gap-10 p-8 rounded-lg ${backgrounds[active]}`}
         >
-          {/* Left */}
+          {/* Mobile Image First */}
+          <div className="block lg:hidden w-full flex justify-center mb-6">
+            <div className="w-[300px] sm:w-[368px] h-auto shadow-[12px_12px_0_rgba(0,0,0,0.25)]">
+              <Img
+                key={active}
+                src={images[active]}
+                alt={tabs[active]}
+                width={368}
+                height={368}
+                quality={100}
+                priority
+                className="object-cover w-full h-auto"
+              />
+            </div>
+          </div>
+
+          {/* Left (Desktop Text) */}
           <div className="w-full lg:w-1/2">
-            <h3 className="font-heading font-semibold text-[20px] text-text mb-3">
+            <h3 className="font-heading font-semibold text-[20px] text-text mb-3 text-center lg:text-left">
               {tabs[active]}
             </h3>
-            <p className="font-body font-normal text-[16px] text-desc mb-6">
+            <p className="font-body font-normal text-[16px] text-desc mb-6 text-center lg:text-left">
               Automate repetitive tasks to free up your team for strategic
               growth.
             </p>
@@ -97,34 +103,47 @@ export default function AdvancedFeatures() {
               <div className="flex items-start gap-4">
                 <IconWrapper icon={faFaceFrown} />
                 <p className="text-[16px] font-body text-text">
-                  The Problem: Retail Co. struggled with manual
-                  inventory tracking and frequent stockouts, which resulted in
-                  lost sales and customer frustration.
+                  The Problem: Retail Co. struggled with manual inventory
+                  tracking and frequent stockouts, which resulted in lost sales
+                  and customer frustration.
                 </p>
               </div>
 
               <div className="flex items-start gap-4">
                 <IconWrapper icon={faGear} />
                 <p className="text-[16px] font-body text-text">
-                  The Solution: Accurack implemented its
-                  AI-powered platform to provide real-time inventory tracking,
-                  multi-warehouse visibility, and a robust AI forecasting engine.
+                  The Solution: Accurack implemented its AI-powered platform to
+                  provide real-time inventory tracking, multi-warehouse
+                  visibility, and a robust AI forecasting engine.
                 </p>
               </div>
 
               <div className="flex items-start gap-4">
                 <IconWrapper icon={faCheckDouble} />
                 <p className="text-[16px] font-body text-text">
-                  The Result: A 30% reduction in stockouts, a
-                  15% improvement in order fulfillment accuracy, and a
-                  significant boost in customer satisfaction.
+                  The Result: A 30% reduction in stockouts, a 15% improvement in
+                  order fulfillment accuracy, and a significant boost in
+                  customer satisfaction.
                 </p>
               </div>
             </div>
+
+            {/* Mobile slider dots INSIDE content */}
+            <div className="flex justify-center items-center gap-2 mt-6 lg:hidden">
+              {tabs.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    active === i ? "bg-line scale-125" : "bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Right */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          {/* Right (Desktop Image) */}
+          <div className="hidden lg:flex w-full lg:w-1/2 justify-center lg:justify-end">
             <div className="w-[368px] h-[368px] shadow-[16px_17px_0_rgba(0,0,0,0.31)]">
               <Img
                 key={active}
@@ -140,8 +159,6 @@ export default function AdvancedFeatures() {
           </div>
         </div>
       </div>
-
-     
     </section>
   );
 }

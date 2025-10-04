@@ -39,7 +39,7 @@ export default function Navbar() {
         },
         {
           name: "Performance Suite",
-          href: "/Solutions/Perfomancesuite",
+          href: "/Solutions/PerfomanceSuite",
           icon: "/Images/Navassests/icons/Baar.png",
           isIcon: false,
         },

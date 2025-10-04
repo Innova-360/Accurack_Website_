@@ -47,7 +47,7 @@ export default function Section({
           {/* Heading */}
           {heading && (
             <h1
-              className={`font-title font-bold tracking-wider max-w-[663px] 
+              className={`font-title font-bold lg:mb-12 tracking-wider max-w-[663px] 
               ${textColor || ""} ${headingSize || ""}`}
             >
               {heading}
@@ -57,7 +57,7 @@ export default function Section({
           {/* Description */}
           {description && (
             <p
-              className={`mt-6 max-w-[530px] font-body font-normal 
+              className={`mt-6 max-w-[530px] -lg:mt-10 font-body font-normal 
               ${descSize || ""} ${descColor || ""}`}
             >
               {description}
@@ -71,7 +71,7 @@ export default function Section({
               <Button
                 href={primaryBtnLink}
                 className="group relative w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
-                           font-body font-bold text-[15px] sm:text-[16px] text-white 
+                           font-body font-bold text-[15px] sm:text-[16px] text-background 
                            bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 
                            flex items-center justify-center overflow-hidden"
               >
@@ -82,7 +82,7 @@ export default function Section({
                 {/* Arrow container */}
                 <span
                   className="absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
-                             w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-white
+                             w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-background
                              lg:transition-all lg:duration-700 lg:ease-in-out 
                              lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
                 >
@@ -101,7 +101,7 @@ export default function Section({
                 href={secondaryBtnLink}
                 className="w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
                            font-body font-bold text-[15px] sm:text-[16px] text-gradient-primary-2 
-                           border border-gradient-primary-2 bg-white flex items-center justify-center"
+                           border border-gradient-primary-2 bg-background flex items-center justify-center"
               >
                 {secondaryBtnText}
               </Button>

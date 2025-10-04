@@ -12,6 +12,15 @@
   --color-line: #0B6D7E;
   --color-iconbg: #0B6D7E1A;
   --color-desc: #2B3954;
+  --color-border: #E0E0E0;
+  --color-light: #808080;
+  --color-bgpic2: #074854;
+  --color-light2: #FCFCFCE5;
+  --color-shade: #494949;
+  --color-feature1:#E2EEF0;
+  --color-feature2: #F0F3F6;
+  --color-feature3: #E2EEF0;
+  --color-feature4: #F0F3F6;
   
 
 
@@ -24,7 +33,7 @@
 
 
 
-
+  --color-bgpic: #0A2626;
   --color-primary: #02404B;
   --color-primary-hover: #012A30;
 
@@ -33,6 +42,7 @@
   --font-heading: 'Lora', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
   --font-title: 'Base Neue', monospace;
+  --font-text: 'Inter', sans-serif;
 }
 
 @font-face {
