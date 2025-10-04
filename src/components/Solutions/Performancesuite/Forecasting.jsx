@@ -2,19 +2,16 @@
 
 import Image from "next/image";
 import { Play } from "lucide-react"; 
-import { Lora } from "next/font/google";
 
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["500"],
-});
+
+
 
 export default function ForecastingSection() {
   return (
     <section className="w-full bg-white py-16 px-4 sm:px-8 lg:px-12 flex flex-col items-center">
       {/* ✅ Heading */}
       <h2
-        className={`${lora.className} text-[32px] sm:text-[40px] lg:text-[48px] leading-[100%] text-primary text-center max-w-[1200px]`}
+        className={`text-[32px] sm:text-[40px] lg:text-[48px] leading-[100%] text-primary text-center max-w-[1200px]`}
       >
         AI-Driven Demand Forecasting for Smarter Inventory Management
       </h2>
