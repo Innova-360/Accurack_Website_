@@ -53,11 +53,7 @@ export default function InventoryManagementFeaturesCards() {
             icon={card.icon}
             title={card.title}
             text={card.text}
-            className="bg-white rounded-3xl p-2 py-6 border border-primary-bright shadow-[0px_11px_0px_0px_rgba(0,_0,_0,_0.1)] transition-all duration-300"
-            contentClass="flex flex-col items-center text-center"
-            titleClass="font-semibold text-xl text-primary mt-4"
-            textClass="text-sm text-gray-500 leading-6 mt-2"
-            iconWrapperClass="flex items-center justify-center text-line"
+            variant="glow"
             iconWidth={28}
             iconHeight={28}
             iconGlow

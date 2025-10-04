@@ -39,7 +39,7 @@ export default function Navbar() {
         },
         {
           name: "Performance Suite",
-          href: "/Solutions/Perfomancesuite",
+          href: "/Solutions/PerformanceSuite",
           icon: "/Images/Navassests/icons/Baar.png",
           isIcon: false,
         },
@@ -68,19 +68,19 @@ export default function Navbar() {
         },
         {
           name: "Warehousing",
-          href: "#",
+          href: "/Features/Warehousing",
           icon: "/Images/Navassests/icons/Ware.png",
           isIcon: false,
         },
         {
           name: "Accounting",
-          href: "#",
+          href: "/Features/Accounting",
           icon: "/Images/Navassests/icons/Accounting.png",
           isIcon: false,
         },
         {
           name: "CRM & ERP",
-          href: "#",
+          href: "/Features/CRM-And-ERP",
           icon: "/Images/Navassests/icons/profile.png",
           isIcon: false,
         },
