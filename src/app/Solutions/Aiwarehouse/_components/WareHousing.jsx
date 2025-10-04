@@ -1,8 +1,8 @@
 "use client";
 
+import Button from "@/components/ui/Button";
+import Img from "@/components/ui/Image";
 import { motion } from "motion/react";
-import Img from "../../ui/Image/Image";
-import Button from "../../ui/Button/Button";
 
 export default function Warehousing() {
   return (
@@ -62,8 +62,8 @@ export default function Warehousing() {
               }}
               className="mt-6 max-w-[600px]"
             >
-              Optimize stock, streamline operations, and enhance <br /> efficiency
-              with Accurack&apos;s intelligent AI Warehouse Suite.
+              Optimize stock, streamline operations, and enhance <br />{" "}
+              efficiency with Accurack&apos;s intelligent AI Warehouse Suite.
             </p>
 
             {/* Buttons */}

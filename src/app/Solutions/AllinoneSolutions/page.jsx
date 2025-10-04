@@ -1,8 +1,8 @@
-import SurSection from "@/components/common/Ratings"
-import InventoryFeatures from "../../../components/Solutions/AllinoneSolutions/CardSection"
-import ImpactStory from "../../../components/Solutions/AllinoneSolutions/ImpactStory";
-import TransformSection from "@/components/common/Transform"
-import Hero from "@/components/ui/HeroSection/Hero";
+import UnifiedHub from "./_components/UnifiedHub"
+import SliderSection from "./_components/Slider"
+import InventoryFeatures from "./_components/CardSection"
+import ImpactStory from "./_components/ImpactStory";
+import TransformSection from "./_components/Management"
 
 
 

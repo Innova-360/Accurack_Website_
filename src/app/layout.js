@@ -1,8 +1,31 @@
 import { Geist, Geist_Mono, Lora, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
+import Navbar from "@/components/common/Navbar";
+import Footer from "@/components/common/Footer";
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+// 🔹 Lora font (for headings like EmpowerSection)
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+// 🔹 Plus Jakarta Sans (for card heading + text)
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata = {
   title: "Accurack Website",

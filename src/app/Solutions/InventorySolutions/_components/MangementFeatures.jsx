@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Img from "../../ui/Image/Image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceFrown } from "@fortawesome/free-regular-svg-icons";
 import { faGear, faCheckDouble } from "@fortawesome/free-solid-svg-icons";
+import Img from "@/components/ui/Image";
 
 export default function AdvancedFeatures() {
   const tabs = [

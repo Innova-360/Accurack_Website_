@@ -1,7 +1,7 @@
 "use client";
 
+import Card from "@/components/ui/Card";
 import Image from "next/image";
-import Card from "../../ui/Card/Card"; // apne Card ka sahi path lagao
 
 export default function InventoryFeatures() {
   return (

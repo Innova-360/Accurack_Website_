@@ -1,6 +1,6 @@
 "use client";
 
-import Img from "../../ui/Image/Image";
+import Img from "@/components/ui/Image";
 import { Plus_Jakarta_Sans, Lora } from "next/font/google";
 
 const jakarta = Plus_Jakarta_Sans({

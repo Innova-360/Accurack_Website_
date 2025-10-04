@@ -5,8 +5,8 @@ import { ChevronDown, X, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import Img from "../ui/Image/Image";
-import Button from "../ui/Button/Button";
+import Img from "../ui/Image";
+import Button from "../ui/Button";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -566,7 +566,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-
     </nav>
   );
 }

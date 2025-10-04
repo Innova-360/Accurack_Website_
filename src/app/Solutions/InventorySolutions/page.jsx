@@ -1,7 +1,7 @@
-import SurSection from "@/components/common/Ratings";
-import Inventory from "../../../components/Solutions/InventorySolution/InventorySolutions"
-import AdvancedFeatures from "../../../components/Solutions/InventorySolution/MangementFeatures"
-import TransformSection from "@/components/common/Transform"
+import SurSection from "./_components/Slider";
+import Inventory from "./_components/InventorySolutions"
+import AdvancedFeatures from "./_components/MangementFeatures"
+import TransformSection from "./_components/Transform"
 
 
 
