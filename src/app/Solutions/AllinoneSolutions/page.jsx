@@ -29,7 +29,42 @@ export default function AllinoneSolutions() {
         reverse={false}
       />
       <SurSection />
-      <InventoryFeatures />
+      <InventoryFeatures
+        title="Advanced Inventory Management Features"
+        subtitle="Join hundreds of businesses optimizing their operations with Accurack."
+        background="/Images/Dropdownassests/Solutions/AllinoneSolutions/Cardbg.png"
+        mainCard={{
+          icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
+          title: "For E-Commerce",
+          text: "Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
+          iconWidth: 32.71,
+          iconHeight: 32.71,
+          variant: "dark", // you can pass 'glow', 'classic', 'simple'
+        }}
+        cards={[
+          {
+            icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
+            title: "Smart Forecasting",
+            text: "Predict demand Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
+          },
+          {
+            icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
+            title: "Real-Time Tracking",
+            text: "Monitor your Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
+          },
+          {
+            icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
+            title: "Warehouse Automation",
+            text: "Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
+          },
+          {
+            icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
+            title: "Multi-Channel Sync",
+            text: "Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
+          },
+        ]}
+      />
+
       <ImpactStory />
       <TransformSection />
     </>
