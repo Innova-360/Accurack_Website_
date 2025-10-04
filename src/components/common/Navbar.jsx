@@ -50,19 +50,19 @@ export default function Navbar() {
       dropdown: [
         {
           name: "Inventory Management",
-          href: "#",
+          href: "/Features/InventoryManagement",
           icon: "/Images/Navassests/icons/Invent.png",
           isIcon: false,
         },
         {
           name: "Supplier Integrations",
-          href: "#",
+          href: "/Features/SupplierIntegration",
           icon: "/Images/Navassests/icons/Supp.png",
           isIcon: false,
         },
         {
           name: "Sales Management",
-          href: "#",
+          href: "/Features/SalesManagement",
           icon: "/Images/Navassests/icons/Dollars.png",
           isIcon: false,
         },
