@@ -19,20 +19,37 @@ export default function Card({
   iconWrapperClass,   // 🔹 wrapper around icon (e.g. rounded bg)
   iconWidth = 58,     // 🔹 default width (overridable)
   iconHeight = 58,    // 🔹 default height (overridable)
+  iconGlow = false, // 🔹 New prop
 }) {
   return (
     <div className={clsx("rounded-[20px] overflow-hidden", className)}>
       <div className={clsx("flex flex-col h-full", contentClass)}>
-        {/* 🔹 Icon */}
+
+
         {icon && (
-          <div className={clsx("mb-4 flex items-center justify-center", iconWrapperClass)}>
-            <Image
-              src={icon}
-              alt={title || "icon"}
-              width={iconWidth}
-              height={iconHeight}
-              className="object-contain"
-            />
+          <div
+            className={clsx(
+              "relative flex items-center justify-center mb-4",
+              iconWrapperClass
+            )}
+          >
+            {/* 🔹 Conditional Glow Behind Icon */}
+            {iconGlow && (
+              <div className="absolute inset-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-[#00B6BC]/30 blur-xl" />
+            )}
+
+            {/* 🔹 Icon (handles both string src and JSX icon) */}
+            {typeof icon === "string" ? (
+              <Image
+                src={icon}
+                alt={title || "icon"}
+                width={iconWidth}
+                height={iconHeight}
+                className="relative object-contain z-10"
+              />
+            ) : (
+              <div className="relative z-10">{icon}</div>
+            )}
           </div>
         )}
 

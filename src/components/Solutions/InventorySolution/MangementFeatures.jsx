@@ -23,15 +23,15 @@ export default function AdvancedFeatures() {
     "/Images/Dropdownassests/Solutions/InventorySolutions/History.png",
   ];
 
- 
-  
+
+
   const backgrounds = [
-  "bg-bg1",
-  "bg-bg2",
-  "bg-bg3",
-  "bg-bg4",
-  "bg-bg5",
-];
+    "bg-bg1",
+    "bg-bg2",
+    "bg-bg3",
+    "bg-bg4",
+    "bg-bg5",
+  ];
 
 
 
@@ -62,16 +62,14 @@ export default function AdvancedFeatures() {
                   key={t}
                   onMouseEnter={() => setActive(i)}
                   onClick={() => setActive(i)}
-                  className={`relative pb-4 focus:outline-none text-center font-body font-normal max-w-[260px] whitespace-normal text-[clamp(13px,1.2vw,18px)] ${
-                    isActive ? "font-semibold" : "font-normal"
-                  } text-text`}
+                  className={`relative pb-4 focus:outline-none text-center font-body font-normal max-w-[260px] whitespace-normal text-[clamp(13px,1.2vw,18px)] ${isActive ? "font-semibold" : "font-normal"
+                    } text-text`}
                   title={t}
                 >
                   {t}
                   <span
-                    className={`absolute left-0 bottom-0 h-[2px] transition-all ${
-                      isActive ? "w-full bg-line" : "w-0"
-                    }`}
+                    className={`absolute left-0 bottom-0 h-[2px] transition-all ${isActive ? "w-full bg-line" : "w-0"
+                      }`}
                   />
                 </button>
               );
@@ -141,7 +139,7 @@ export default function AdvancedFeatures() {
         </div>
       </div>
 
-     
+
     </section>
   );
 }

@@ -2,17 +2,9 @@
 
 import Image from "next/image";
 import Card from "../../ui/Card/Card"; // ✅ apna card component import karna
-import { Lora, Plus_Jakarta_Sans } from "next/font/google";
+import Header from "@/components/ui/Headers/Header";
 
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 export default function AnalyticsSection() {
   const cards = [
@@ -40,14 +32,7 @@ export default function AnalyticsSection() {
 
   return (
     <section className="w-full bg-white py-20 px-4 sm:px-8 lg:px-16">
-      {/* ✅ Heading */}
-      <div className="flex justify-center text-center mb-12">
-        <h2
-          className={`${lora.className} font-medium text-[48px] leading-[60px] tracking-[-0.02em] text-gray-900 max-w-[544px]`}
-        >
-          Analytics & Reporting
-        </h2>
-      </div>
+      <Header title="Analytics & Reporting" />
 
       {/* ✅ Main Layout */}
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
@@ -74,8 +59,8 @@ export default function AnalyticsSection() {
               iconWrapperClass="w-[32px] h-[32px] rounded-full border border-[var(--color-gradient-primary-2)] flex items-center justify-center"
               iconWidth={16}
               iconHeight={16}
-              titleClass={`${jakarta.className} font-medium text-[24px] leading-[32px] text-gray-900`}
-              textClass={`${jakarta.className} text-[16px] leading-[24px] text-gray-500`}
+              titleClass={`font-medium text-[24px] leading-[32px] text-gray-900`}
+              textClass={`text-[16px] leading-[24px] text-gray-500`}
             />
           ))}
         </div>

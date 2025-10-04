@@ -1,10 +1,9 @@
 "use client";
 
-import Img from "../../ui/Image/Image";
-import Button from "../../ui/Button/Button";
+import Img from "../Image/Image";
+import Button from "../Button/Button";
 
-export default function Section({
-  // Content Props
+export default function Hero({
   badgeText,
   heading,
   description,
@@ -15,7 +14,6 @@ export default function Section({
   imageSrc,
   imageAlt,
 
-  // Styling Props
   bgColor,
   textColor,
   descColor,
