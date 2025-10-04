@@ -2,7 +2,7 @@ import SurSection from "@/components/common/Ratings";
 import Inventory from "../../../components/Solutions/InventorySolution/InventorySolutions"
 import AdvancedFeatures from "../../../components/Solutions/InventorySolution/MangementFeatures"
 import TransformSection from "@/components/common/Transform"
-import Section from "@/components/ui/Main/Hero"
+import Section from "@/components/ui/HeroSection/Hero"
 
 
 

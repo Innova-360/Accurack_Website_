@@ -1,4 +1,3 @@
-import Perfomance from "../../../components/Solutions/Performancesuite/Perfomance"
 import SurSection from "@/components/common/Ratings";
 import AnalyticsSection from "../../../components/Solutions/Performancesuite/Analytics"
 import TeamSection from "@/components/common/Officer"

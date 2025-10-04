@@ -2,9 +2,7 @@ import Ratings from "@/components/common/Ratings";
 import Hero from "@/components/ui/HeroSection/Hero";
 import TransformSection from "@/components/common/Transform";
 import ForecastingSection from "@/components/Solutions/Performancesuite/Forecasting";
-import Testimonials from "@/components/common/Testimonials";
-import FourCardSection from "@/components/common/FourCardSection";
-import ImpactStory from "@/components/Solutions/AllinoneSolutions/ImpactStory";
+import ImpactStory from "@/components/common/ImpactStory";
 import WarehouseAndLogisticsManagement from "@/components/Features/Warehousing/WarehouseAndLogisticsManagement";
 
 export default function page() {
