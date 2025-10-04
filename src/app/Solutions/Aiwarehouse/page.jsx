@@ -1,9 +1,9 @@
 
 import Warehousing from "../../../components/Solutions/Aiwarehouse/WareHousing"
-import SurSection from "../../../components/Solutions/Aiwarehouse/Slider"
+import SurSection from "@/components/common/Slider"
 import CommunitySection from "../../../components/Solutions/Aiwarehouse/Community"
-import TeamSection from "../../../components/Solutions/Aiwarehouse/Officer"
-import TransformSection from "../../../components/Solutions/Aiwarehouse/Transform"
+import TeamSection from "@/components/common/Officer"
+import TransformSection from "@/components/common/Transform"
 
 
 

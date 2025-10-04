@@ -23,28 +23,24 @@ export default function AdvancedFeatures() {
     "/Images/Dropdownassests/Solutions/InventorySolutions/History.png",
   ];
 
+ 
+  
   const backgrounds = [
-    "#85DEED",
-    "#85EDD8",
-    "#ADD6FF",
-    "#E5DFB1",
-    "#ECDAFA",
-  ];
+  "bg-bg1",
+  "bg-bg2",
+  "bg-bg3",
+  "bg-bg4",
+  "bg-bg5",
+];
+
+
+
 
   const [active, setActive] = useState(0);
 
   const IconWrapper = ({ icon }) => (
-    <div
-      className="flex items-center justify-center"
-      style={{
-        width: 40,
-        height: 40,
-        backgroundColor: "#0B6D7E1A",
-        borderRadius: "50%",
-        padding: 8,
-      }}
-    >
-      <FontAwesomeIcon icon={icon} size="lg" color="#0B6D7E" />
+    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-iconbg p-2">
+      <FontAwesomeIcon icon={icon} className="text-line text-lg" />
     </div>
   );
 
@@ -52,29 +48,13 @@ export default function AdvancedFeatures() {
     <section className="w-full bg-white py-12 overflow-hidden no-scrollbar">
       <div className="max-w-[1253px] mx-auto px-6 lg:px-20">
         {/* Heading */}
-        <h2
-          className="mx-auto text-center"
-          style={{
-            fontFamily: "Lora, serif",
-            fontWeight: 500,
-            fontSize: "32px",
-            lineHeight: "48px",
-            letterSpacing: "-2%",
-            color: "#0D0D0D",
-          }}
-        >
+        <h2 className="mx-auto text-center font-heading font-medium text-[32px] leading-[48px] tracking-[-0.02em] text-text">
           Advanced Inventory Management Features
         </h2>
 
         {/* Tabs */}
         <div className="mt-8 flex justify-center">
-          <nav
-            className="flex justify-between gap-6 lg:gap-10 no-scrollbar overflow-hidden"
-            style={{
-              maxWidth: "1100px",
-              width: "100%",
-            }}
-          >
+          <nav className="flex justify-between gap-6 lg:gap-10 no-scrollbar overflow-hidden max-w-[1100px] w-full">
             {tabs.map((t, i) => {
               const isActive = i === active;
               return (
@@ -82,24 +62,16 @@ export default function AdvancedFeatures() {
                   key={t}
                   onMouseEnter={() => setActive(i)}
                   onClick={() => setActive(i)}
-                  className="relative pb-4 focus:outline-none text-center"
-                  style={{
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
-                    fontWeight: isActive ? 600 : 400,
-                    fontSize: "clamp(13px, 1.2vw, 18px)", // responsive size
-                    color: "#000",
-                    maxWidth: "260px", // ✅ bigger width for long text
-                    whiteSpace: "normal", // ✅ allow full text
-                  }}
+                  className={`relative pb-4 focus:outline-none text-center font-body font-normal max-w-[260px] whitespace-normal text-[clamp(13px,1.2vw,18px)] ${
+                    isActive ? "font-semibold" : "font-normal"
+                  } text-text`}
                   title={t}
                 >
                   {t}
                   <span
-                    className="absolute left-0 bottom-0 h-[2px] transition-all"
-                    style={{
-                      width: isActive ? "100%" : "0%",
-                      backgroundColor: "#0B6D7E",
-                    }}
+                    className={`absolute left-0 bottom-0 h-[2px] transition-all ${
+                      isActive ? "w-full bg-line" : "w-0"
+                    }`}
                   />
                 </button>
               );
@@ -109,31 +81,14 @@ export default function AdvancedFeatures() {
 
         {/* Content */}
         <div
-          className="mt-12 flex flex-col lg:flex-row items-start gap-10 p-8 rounded-lg"
-          style={{ backgroundColor: backgrounds[active] }}
+          className={`mt-12 flex flex-col lg:flex-row items-start gap-10 p-8 rounded-lg ${backgrounds[active]}`}
         >
           {/* Left */}
           <div className="w-full lg:w-1/2">
-            <h3
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 600,
-                fontSize: "20px",
-                color: "#2B3954",
-                marginBottom: "12px",
-              }}
-            >
+            <h3 className="font-heading font-semibold text-[20px] text-text mb-3">
               {tabs[active]}
             </h3>
-            <p
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 400,
-                fontSize: "16px",
-                color: "#2B3954",
-                marginBottom: "24px",
-              }}
-            >
+            <p className="font-body font-normal text-[16px] text-desc mb-6">
               Automate repetitive tasks to free up your team for strategic
               growth.
             </p>
@@ -141,8 +96,8 @@ export default function AdvancedFeatures() {
             <div className="space-y-5">
               <div className="flex items-start gap-4">
                 <IconWrapper icon={faFaceFrown} />
-                <p style={{ fontSize: "16px", color: "#000" }}>
-                  <strong>The Problem:</strong> Retail Co. struggled with manual
+                <p className="text-[16px] font-body text-text">
+                  The Problem: Retail Co. struggled with manual
                   inventory tracking and frequent stockouts, which resulted in
                   lost sales and customer frustration.
                 </p>
@@ -150,8 +105,8 @@ export default function AdvancedFeatures() {
 
               <div className="flex items-start gap-4">
                 <IconWrapper icon={faGear} />
-                <p style={{ fontSize: "16px", color: "#000" }}>
-                  <strong>The Solution:</strong> Accurack implemented its
+                <p className="text-[16px] font-body text-text">
+                  The Solution: Accurack implemented its
                   AI-powered platform to provide real-time inventory tracking,
                   multi-warehouse visibility, and a robust AI forecasting engine.
                 </p>
@@ -159,8 +114,8 @@ export default function AdvancedFeatures() {
 
               <div className="flex items-start gap-4">
                 <IconWrapper icon={faCheckDouble} />
-                <p style={{ fontSize: "16px", color: "#000" }}>
-                  <strong>The Result:</strong> A 30% reduction in stockouts, a
+                <p className="text-[16px] font-body text-text">
+                  The Result: A 30% reduction in stockouts, a
                   15% improvement in order fulfillment accuracy, and a
                   significant boost in customer satisfaction.
                 </p>
@@ -170,13 +125,7 @@ export default function AdvancedFeatures() {
 
           {/* Right */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-            <div
-              style={{
-                width: 368,
-                height: 368,
-                boxShadow: "16px 17px 0 rgba(0,0,0,0.31)",
-              }}
-            >
+            <div className="w-[368px] h-[368px] shadow-[16px_17px_0_rgba(0,0,0,0.31)]">
               <Img
                 key={active}
                 src={images[active]}
@@ -192,16 +141,7 @@ export default function AdvancedFeatures() {
         </div>
       </div>
 
-      {/* Remove scrollbar CSS */}
-      <style jsx>{`
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+     
     </section>
   );
 }

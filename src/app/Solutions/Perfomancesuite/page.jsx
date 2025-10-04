@@ -1,7 +1,7 @@
 import Perfomance from "../../../components/Solutions/Perfomancesuite/Perfomance"
-import SurSection from "../../../components/Solutions/Perfomancesuite/Slider"
+import SurSection from "@/components/common/Slider";
 import AnalyticsSection from "../../../components/Solutions/Perfomancesuite/Analytics"
-import TeamSection from "../../../components/Solutions/Perfomancesuite/Officer"
+import TeamSection from "@/components/common/Officer"
 import ForecastingSection from "../../../components/Solutions/Perfomancesuite/Forecasting"
 
 

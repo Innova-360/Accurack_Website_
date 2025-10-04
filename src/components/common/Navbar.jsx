@@ -216,7 +216,7 @@ export default function Navbar() {
                     onClick={() =>
                       setOpenDropdown(openDropdown === idx ? null : idx)
                     }
-                    className="flex items-center text-[15px] px-4 py-2 rounded-md transition text-black font-semibold hover:text-[var(--color-gradient-primary-2)]"
+                    className="flex items-center text-[15px] px-4 py-2 rounded-md transition text-black font-semibold hover:text-gradient-primary-2"
                     style={{ fontFamily: "var(--font-jakarta)" }}
                   >
                     {item.name}
@@ -318,20 +318,20 @@ export default function Navbar() {
       >
         <Button
           href="/login"
-          className="w-[94px] h-[51px] px-[25px] py-[15px] rounded-[555px] font-jakarta font-bold text-[16px] leading-[100%] text-[var(--color-gradient-primary-2)] border border-[var(--color-gradient-primary-2)]"
+          className="w-[94px] h-[51px] px-[25px] py-[15px] rounded-[555px] font-jakarta font-bold text-[16px] leading-[100%] text-gradient-primary-2 border border-gradient-primary-2"
         >
           Login
         </Button>
         <Button
           href="/book-demo"
-          className="group relative w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] font-jakarta font-bold text-[16px] leading-[100%] text-white bg-gradient-to-r from-[var(--navbookademobg1)] to-[var(--navbookademobg2)] flex items-center justify-center overflow-hidden"
+          className="group relative w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] font-jakarta font-bold text-[16px] leading-[100%] text-white bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 flex items-center justify-center overflow-hidden"
         >
           <span className="transition-transform duration-300 group-hover:translate-x-[-10px]">
             Book a Demo
           </span>
           <span className="absolute right-2 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex items-center justify-center w-[44px] h-[44px] rounded-[101px] bg-white">
             <span
-              className="w-[20px] h-[20px] bg-[var(--color-gradient-primary-2)]"
+              className="w-[20px] h-[20px] bg-gradient-primary-2"
               style={{
                 maskImage: "url('/Images/Navassests/ReArrow.png')",
                 WebkitMaskImage: "url('/Images/Navassests/ReArrow.png')",
@@ -346,6 +346,13 @@ export default function Navbar() {
           </span>
         </Button>
       </div>
+
+
+
+
+
+
+
 
               {/* Top Nav for Mobile */}
 <div className="lg:hidden flex items-center justify-between px-4 py-3  fixed top-0 left-0 w-full z-50">

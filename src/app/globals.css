@@ -6,6 +6,24 @@
 @theme {
   --color-background: white;
   --color-foreground: #171717;
+  --color-heading: #03414B;
+  --color-text: #000000;
+  --color-sectionBg: #F0F3F6;
+  --color-line: #0B6D7E;
+  --color-iconbg: #0B6D7E1A;
+  --color-desc: #2B3954;
+  
+
+
+  --color-bg1: #85DEED;
+  --color-bg2: #85EDD8;
+  --color-bg3: #ADD6FF;
+  --color-bg4: #E5DFB1;
+  --color-bg5: #ECDAFA;
+
+
+
+
 
   --color-primary: #02404B;
   --color-primary-hover: #012A30;
