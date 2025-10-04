@@ -9,10 +9,10 @@ export default function FourCardSection() {
       {/* Four Card Section */}
       <div className="flex gap-7 justify-center items-center w-full">
         {/* Left Column */}
-        <div className="flex flex-col gap-7 w-full h-[120vh] relative">
+        <div className="flex flex-col gap-7 w-full h-[150vh] relative">
           <div className="relative flex-1 rounded-2xl rounded-tl-[130px] overflow-hidden">
             <Image
-              src="/SalesManagement/1.png"
+              src="/Images/SalesManagement/1.png"
               alt="Aloo"
               fill
               className="object-cover"
@@ -23,7 +23,7 @@ export default function FourCardSection() {
           </div>
           <div className="relative flex-1 rounded-2xl rounded-bl-[130px] overflow-hidden">
             <Image
-              src="/SalesManagement/2.png"
+              src="/Images/SalesManagement/2.png"
               alt="aloo"
               fill
               className="object-cover"
@@ -35,10 +35,10 @@ export default function FourCardSection() {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col gap-7 w-full h-[120vh] relative">
+        <div className="flex flex-col gap-7 w-full h-[150vh] relative">
           <div className="relative flex-1 rounded-2xl rounded-tr-[130px] overflow-hidden">
             <Image
-              src="/SalesManagement/3.png"
+              src="/Images/SalesManagement/3.png"
               alt="khaoge"
               fill
               className="object-cover"
@@ -49,7 +49,7 @@ export default function FourCardSection() {
           </div>
           <div className="relative flex-1 rounded-2xl rounded-br-[130px] overflow-hidden">
             <Image
-              src="/SalesManagement/4.png"
+              src="/Images/SalesManagement/1.png"
               alt="haan?"
               fill
               className="object-cover"
