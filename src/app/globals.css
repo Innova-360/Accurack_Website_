@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-
 @import "tailwindcss";
 
 @theme {
@@ -21,11 +20,9 @@
   --color-bg4: #E5DFB1;
   --color-bg5: #ECDAFA;
 
-
-
-
-
   --color-primary: #02404B;
+  --color-primary-light: #E5F6F8;
+  --color-primary-bright: #0db8d6;
   --color-primary-hover: #012A30;
 
   --color-gradient-primary-1: #00B6BC;

@@ -3,7 +3,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarSolid, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 
-export default function SurSection() {
+export default function Ratings() {
   // ✅ Rating Stars Component (mobile chhote, desktop normal)
   const RatingStars = () => (
     <div className="flex gap-[2px] sm:gap-1 justify-center">
@@ -94,3 +94,4 @@ export default function SurSection() {
     </section>
   );
 }
+
