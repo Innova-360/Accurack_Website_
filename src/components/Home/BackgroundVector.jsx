@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export function BackgroundVector({ children }) {
   return (
-    <div className="md:h-[500vh] lg:h-[490vh] relative border">
+    <div className="md:h-[500vh] lg:h-[490vh] relative">
       {/* Background Layer - Lowest */}
       <div className="absolute w-full h-full pointer-events-none">
         {/* Main Background with Mask */}

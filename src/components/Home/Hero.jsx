@@ -9,11 +9,16 @@ export default function HeroSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-full -mt-10 h-screen flex items-center justify-center bg-white overflow-hidden">
       <div
-        className="max-w-[1500px] mx-auto px-4 sm:px-8 lg:px-[100px] 
-                   py-6 lg:py-12 grid grid-cols-1 lg:grid-cols-2 
-                   items-start gap-10 lg:gap-10"
+        className="
+      w-full h-full
+      px-4 sm:px-6 lg:px-[100px]
+      py-10 sm:py-12 lg:py-20
+      grid grid-cols-1 lg:grid-cols-2
+      items-center text-center lg:text-left
+      lg:gap-8 sm:gap-12 
+    "
       >
         {/* Left Side - Text + Buttons */}
         <motion.div
@@ -26,17 +31,10 @@ export default function HeroSection() {
         >
           {/* ✅ Heading with exact style */}
           <h1
-            style={{
-              fontFamily: "'Base Neue Trial', sans-serif",
-              fontWeight: 700,
-              fontStyle: "normal",
-              fontStretch: "expanded", // Wide Bold
-              fontSize: "70px",
-              lineHeight: "70.5px", // Bilkul design wali height
-              letterSpacing: "0px",
-              color: "#03414B",
-            }}
-            className="max-w-[700px]"
+            className="max-w-[700px] font-title lg:font-black font-extrabold
+             text-[24px] sm:text-[36px] lg:text-[70px]
+             leading-[30px] sm:leading-[90px] lg:leading-[70.5px]
+             text-[#03414B] lg:[font-stretch:expanded]"
           >
             The Smarter <br />
             Way to Manage <br />
@@ -44,39 +42,39 @@ export default function HeroSection() {
           </h1>
 
           <p
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            className="mt-35 text-[#000000]
-                       font-normal text-[16px] sm:text-[18px] lg:text-[20px]
-                       leading-[30px] tracking-[0]
-                       max-w-[600px]"
+            className="mt-5 text-[#000000] font-body font-normal 
+             text-[14px] sm:text-[12px] lg:text-[20px]
+             leading-[22px] sm:leading-[66px] lg:leading-[30px]
+             tracking-normal max-w-[600px]"
           >
-            Discover our story, mission, and the team <br /> behind the
-            Ai-powered solution transforming <br /> inventory management.
+            Discover our story, mission, and the team <br />
+            behind the AI-powered solution transforming <br />
+            inventory management.
           </p>
 
           {/* ✅ Buttons */}
           <div
-            className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 
+            className="mt-8 sm:mb-20 flex flex-col sm:flex-row gap-4 sm:gap-6 
                        justify-center lg:justify-start items-center lg:items-start w-full"
           >
             {/* Book a Demo */}
             <div
               onMouseEnter={() => setHoveredBtn("demo")}
               onMouseLeave={() => setHoveredBtn(null)}
-              style={{
-                backgroundColor: hoveredBtn === "demo" ? "#8BEEFF" : "#03414B",
-                color: hoveredBtn === "demo" ? "#000000" : "#fff",
-                width: hoveredBtn === "demo" ? "200px" : "184px",
-                height: "48px",
-                borderRadius: "8px",
-                border: "1px solid #02404B",
-                transition: "all 0.3s ease",
-              }}
-              className="flex items-center justify-center gap-2"
+              className={`
+    flex items-center justify-center gap-2
+    w-[184px] h-[48px] rounded-full border border-[#02404B]
+    transition-all duration-300 ease-in-out
+    ${
+      hoveredBtn === "demo"
+        ? "bg-[#8BEEFF] text-black w-[200px]"
+        : "bg-gradient-to-r from-[#00B6BC] to-[#0C6676] text-white"
+    }
+  `}
             >
               <Button
                 href="/book-demo"
-                className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2"
+                className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2 rounded-full"
               >
                 <span>Book a Demo</span>
                 {hoveredBtn === "demo" && (
@@ -93,23 +91,24 @@ export default function HeroSection() {
             </div>
 
             {/* Start Free Trial */}
+            {/* Start Free Trial */}
             <div
               onMouseEnter={() => setHoveredBtn("trial")}
               onMouseLeave={() => setHoveredBtn(null)}
-              style={{
-                backgroundColor: "#fff",
-                color: "#03414B",
-                width: hoveredBtn === "trial" ? "200px" : "184px",
-                height: "48px",
-                borderRadius: "8px",
-                border: "1px solid #02404B",
-                transition: "all 0.3s ease",
-              }}
-              className="flex items-center justify-center gap-2"
+              className={`flex items-center justify-center gap-2
+              rounded-full border border-[#02404B] 
+              transition-all duration-300 ease-in-out
+              ${hoveredBtn === "trial" ? "w-[200px]" : "w-[184px]"} 
+              h-[48px]
+              ${
+                hoveredBtn === "trial"
+                  ? "bg-[#8BEEFF] text-black"
+                  : "bg-white text-[#03414B]"
+              }`}
             >
               <Button
                 href="/free-trial"
-                className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2"
+                className="!bg-transparent !text-inherit !w-full !h-full flex items-center justify-center gap-2 rounded-full"
               >
                 <span>Start Free Trial</span>
                 {hoveredBtn === "trial" && (
@@ -130,30 +129,48 @@ export default function HeroSection() {
         {/* Right Side - Image + Stats */}
         <motion.div
           initial={{ x: -150, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }} // ✅ Scroll pe trigger
+          whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative flex justify-center lg:justify-center"
+          className="relative ml-0 lg:ml-16 flex justify-center items-center lg:h-[90vh]"
         >
+          {/* These two images only for large screens */}
+          <Img
+            src="/Images/Homeassests/Heroimage/Stores-2.png"
+            alt="Decorative store overlay"
+            width={230}
+            height={60}
+            className="hidden lg:block absolute top-45 left-70 z-20 object-contain"
+            fallback="/Images/Homeassests/Heroimage/Stores-2.png"
+          />
+          <Img
+            src="/Images/Homeassests/Heroimage/Stores.png"
+            alt="Decorative store overlay"
+            width={250}
+            height={50}
+            className="hidden lg:block absolute top-60 -left-30 z-20 object-contain"
+            fallback="/Images/Homeassests/Heroimage/Stores.png"
+          />
+
+          {/* ✅ Main Loader Image visible in all screens */}
           <Img
             src="/Images/Homeassests/Heroimage/Loader.png"
             alt="Hero Section"
-            width={751}
+            width={951}
             height={536}
-            className="object-contain w-[260px] sm:w-[380px] lg:w-[700px] mt-35 mr-120"
-            fallback="/Images/Homeassests/Heroimage/back.jpg"
+            className="object-contain w-[90%] sm:w-[380px] lg:rotate-0 sm:rotate-6 lg:w-[800px] mt-10 sm:-mt-10 lg:mt-38"
+            fallback="/Images/Homeassests/Heroimage/Loader.png"
           />
 
-          {/* Stats */}
+          {/* Stats (hidden on mobile) */}
           <motion.div
             initial={{ y: -150, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }} // ✅ Scroll pe trigger
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-            className="absolute -top-16 right-0 sm:-top-16 sm:right-4 
-                       lg:top-0 lg:right-10 flex flex-col items-start text-left"
+            className="hidden lg:flex absolute top-0 right-10 flex-col items-start text-left"
           >
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-3">
               <Img
                 src="/Images/Homeassests/Heroimage/Arrow.png"
                 alt="Arrow Icon"
@@ -163,27 +180,15 @@ export default function HeroSection() {
                 fallback="/Images/Homeassests/Heroimage/back.jpg"
               />
               <span
-                style={{
-                  fontFamily: "'Base Neue Trial', sans-serif",
-                  fontWeight: 700,
-                }}
-                className="text-[#03414B] font-bold 
-                           text-[28px] sm:text-[40px] lg:text-[52.45px] 
-                           leading-[61.76px]"
+                className="text-[#03414B] font-bold text-[28px] lg:text-[52px] leading-[61px]"
+                style={{ fontFamily: "'Base Neue Trial', sans-serif" }}
               >
                 130%
               </span>
-              <span className="text-[#03414B] font-bold text-xs sm:text-sm lg:text-base">
-                Growth
-              </span>
+              <span className="text-[#03414B] font-bold text-base">Growth</span>
             </div>
 
-            <p
-              style={{ fontFamily: "'Lora', serif" }}
-              className="mt-2 text-[#050506] text-[16px] sm:text-[16px] 
-                         lg:text-[18px] leading-[110%] font-medium 
-                         max-w-[220px]"
-            >
+            <p className="mt-2 text-[#050506] text-[16px] lg:text-[18px] leading-[110%] font-medium max-w-[220px]">
               Top used website for warehouse management
             </p>
           </motion.div>

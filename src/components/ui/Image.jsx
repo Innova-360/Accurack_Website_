@@ -3,13 +3,12 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function Img({
-  src = "public/Images/Homeassests/Heroimage/back.jpg",
+  src,
   className = "",
-  fallback = "", 
+  fallback = "",
   width,
   height,
-  alt = ""
-  
+  alt = "",
 }) {
   const [imgSrc, setImgSrc] = useState(src);
 
@@ -21,7 +20,7 @@ export default function Img({
       alt={alt}
       className={className}
       loading="lazy"
-      onError={() => setImgSrc(fallback)} 
+      onError={() => setImgSrc(fallback)}
     />
   );
 }

@@ -6,31 +6,38 @@ const Features = () => {
       title: "Inbound Order Management",
       description:
         "Utilize warehouse management software that covers every stage of your supply chain.",
+      arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Pack Station",
       description:
         "Utilize warehouse management software that covers every stage of your supply chain.",
+
+      arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Shipping Management",
       description:
         "Utilize warehouse management software that covers every stage of your supply chain.",
+      arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Inventory Control",
       description:
         "Utilize warehouse management software that covers every stage of your supply chain.",
+      arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Reporting & Analytics",
       description:
         "Utilize warehouse management software that covers every stage of your supply chain.",
+      arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "B2B Payments",
       description:
         "Utilize warehouse management software that covers every stage of your supply chain.",
+      arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
   ];
 
@@ -43,7 +50,7 @@ const Features = () => {
       <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-2">
         <div
           style={{ fontFamily: "'Lora', serif" }}
-          className="inline-flex items-center text-black justify-center border font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-[#18BDA0]"
+          className="inline-flex items-center justify-center border font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-[#18BDA0]"
         >
           Features
         </div>

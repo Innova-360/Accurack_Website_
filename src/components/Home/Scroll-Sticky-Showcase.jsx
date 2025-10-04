@@ -1,154 +1,449 @@
-"use client"
+"use client";
 
-import { cn } from "@/src/lib/utils"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useTransform,
+  PanInfo,
+} from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export function ScrollStickyShowcase({ items = [], className }) {
-    const [active, setActive] = useState(0)
-    const sectionRefs = useRef([])
+  const [active, setActive] = useState(0);
+  const [showMedia, setShowMedia] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileSlide, setMobileSlide] = useState(0);
+  const sectionRefs = useRef([]);
+  const dragX = useMotionValue(0);
 
-    useEffect(() => {
-        sectionRefs.current = sectionRefs.current.slice(0, items.length)
-        const sections = sectionRefs.current.filter(Boolean)
-        if (!sections.length) return
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visible = entries
-                    .filter((e) => e.isIntersecting)
-                    .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0]
-                if (visible) {
-                    const idx = Number(visible.target.getAttribute("data-index") || 0)
-                    setActive(idx)
-                }
-            },
-            {
-                root: null,
-                rootMargin: "-30% 0% -40% 0%",
-                threshold: [0.2, 0.33, 0.5, 0.66, 0.8],
-            },
-        )
+  // Desktop intersection observer
+  useEffect(() => {
+    if (isMobile) return; // Skip for mobile
 
-        sections.forEach((el) => observer.observe(el))
-        return () => observer.disconnect()
-    }, [items.length])
+    sectionRefs.current = sectionRefs.current.slice(0, items.length);
+    const sections = sectionRefs.current.filter(Boolean);
+    if (!sections.length) return;
 
-    const current = useMemo(() => items[active] ?? items[0], [items, active])
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort(
+            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
+          )[0];
+        if (visible) {
+          const idx = Number(visible.target.getAttribute("data-index") || 0);
+          setActive(idx);
 
-    // If no items provided, render nothing to avoid runtime errors
-    if (!items || items.length === 0) {
-        return null
+          const ratio = visible.intersectionRatio ?? 0;
+          setShowMedia(ratio > 0.4);
+        } else {
+          setShowMedia(false);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-30% 0% -40% 0%",
+        threshold: [0, 0.2, 0.33, 0.5, 0.66, 0.8, 1.0],
+      }
+    );
+
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [items.length, isMobile]);
+
+  const current = useMemo(() => items[active] ?? items[0], [items, active]);
+  const currentMobile = useMemo(
+    () => items[mobileSlide] ?? items[0],
+    [items, mobileSlide]
+  );
+
+  if (!items || items.length === 0) {
+    return null;
+  }
+
+  // Handle drag end for mobile swipe
+  const handleDragEnd = (event, info) => {
+    const threshold = 50;
+    if (info.offset.x > threshold && mobileSlide > 0) {
+      setMobileSlide(mobileSlide - 1);
+    } else if (info.offset.x < -threshold && mobileSlide < items.length - 1) {
+      setMobileSlide(mobileSlide + 1);
     }
+  };
 
+  const textVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.35,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.05,
+      },
+    },
+  };
+
+  const bulletVariants = {
+    hidden: { opacity: 0, x: -15 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.15 + i * 0.05,
+        duration: 0.3,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    }),
+  };
+
+  const mediaVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.95,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.08,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      y: -20,
+      transition: {
+        duration: 0.25,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 300 : -300,
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    }),
+  };
+
+  // MOBILE VERSION - Slider
+  if (isMobile) {
     return (
-        <section className={cn("relative mx-auto max-w-6xl px-4 md:px-6 border", className)} style={{ zIndex: 100 }}>
-            <div className="">
-                <h1>See How Accurack Saves You Time & Money</h1>
-            </div>
-            <div className="grid lg:gap-40 py-10 md:grid-cols-2 md:gap-12 relative absolute border" style={{ zIndex: 100 }}>
-                <div className="flex flex-col relative gap-90 mt-50 border border-3" style={{ zIndex: 200 }}>
-                    {items.map((item, i) => (
-                        <article
-                            key={item.id}
-                            ref={(el) => (sectionRefs.current[i] = el)}
-                            data-index={i}
-                            className={cn("py-16 md:py-24 border-b last:border-b-0 relative z-10", i === active ? "opacity-100" : "opacity-70")}
-                            style={{ zIndex: 200 }}
-                            aria-current={i === active ? "true" : undefined}
-                        >
-                            <header className="mb-4" style={{ zIndex: 200 }}>
-                                <h3 className="text-pretty text-2xl font-semibold md:text-3xl" style={{ zIndex: 200 }}>
-                                    {item.heading}
-                                </h3>
-                            </header>
+      <section
+        className={cn("relative w-full px-4 py-12 overflow-visible", className)}
+      >
+        <div className="max-w-md mx-auto overflow-visible">
 
-                            <p className="text-muted-foreground leading-relaxed" style={{ zIndex: 200 }}>
-                                {item.description}
-                            </p>
+          {/* Slider content */}
+          <div className="relative overflow-visible">
+            <AnimatePresence mode="wait" custom={mobileSlide}>
+              <motion.div
+                key={mobileSlide}
+                custom={mobileSlide}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleDragEnd}
+                className="cursor-grab active:cursor-grabbing"
+              >
+                {/* Slide heading */}
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {currentMobile.heading}
+                </h3>
 
-                            {item.bullets?.length ? (
-                                <ul className="mt-6 grid gap-3" style={{ zIndex: 200 }}>
-                                    {item.bullets.map((b, idx) => (
-                                        <li key={idx} className="leading-relaxed" style={{ zIndex: 200 }}>
-                                            • {b}
-                                        </li>
-                                    ))}
-                                </ul>
-                            ) : null}
+                {/* Slide description */}
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                  {currentMobile.description}
+                </p>
 
-                            <div className="mt-10 h-0" />
-                        </article>
-                    ))}
-                </div>
-
-                {/* RIGHT: sticky media */}
-                <div className="relative" style={{ zIndex: 50 }}>
-                    <div className="sticky top-48 p-1 bottom-10 h-[520px] w-[360px] md:top-32 lg:top-24 md:h-[560px] lg:h-[500px]">
-                        <div className="relative h-full w-full">
-                            {/* Decorative shape - BEHIND media */}
-                            {current.shapeImageSrc ? (
-                                <img
-                                    key={current.shapeImageSrc}
-                                    src={current.shapeImageSrc || "/placeholder.svg?height=320&width=320&query=rounded%20hex%20shape"}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className="pointer-events-none absolute top-1/2 -translate-y-1/2 right-[-30px] w-60 select-none transition-transform duration-500 md:right-[-80px] md:w-96 lg:right-[-100px] lg:w-[28rem]"
-                                    style={{ zIndex: 1 }}
-                                />
-                            ) : (
-                                <div
-                                    aria-hidden
-                                    className="absolute top-1/2 -translate-y-1/2 right-[-60px] h-72 w-72 rounded-[2rem] transition-[background-color,transform] duration-500 md:right-[-80px] md:h-96 md:w-96 lg:right-[-100px] lg:h-[28rem] lg:w-[28rem]"
-                                    style={{ backgroundColor: current.shapeColor, zIndex: 1 }}
-                                />
-                            )}
-
-                            {/* Media sits above shapes */}
-                            <div
-                                className="relative mx-auto aspect-[16/10] w-full max-w-[560px] rounded-xl border bg-card shadow-xl md:absolute md:left-1/2 md:top-1/2 md:-translate-x-[55%] md:-translate-y-1/2 lg:-translate-x-[50%]"
-                                style={{ zIndex: 10 }}
-                            >
-                                {current.mediaType === "video" ? (
-                                    <video
-                                        key={current.mediaSrc}
-                                        src={current.mediaSrc}
-                                        className="h-full w-full rounded-xl object-cover transition-opacity duration-500"
-                                        autoPlay
-                                        muted
-                                        loop
-                                        playsInline
-                                        aria-label={current.mediaAlt}
-                                    />
-                                ) : (
-                                    <img
-                                        key={current.mediaSrc}
-                                        src={current.mediaSrc || "/placeholder.svg"}
-                                        alt={current.mediaAlt}
-                                        className="h-full w-full rounded-xl object-cover transition-opacity duration-500"
-                                    />
-                                )}
-                            </div>
-
-                            {/* dots above media */}
-                            <div
-                                className="pointer-events-none absolute bottom-10 left-1/2 flex -translate-x-1/2 items-center gap-2 md:bottom-3"
-                                style={{ zIndex: 20 }}
-                            >
-                                {items.map((_, i) => (
-                                    <span
-                                        key={i}
-                                        className={cn(
-                                            "inline-block h-1.5 w-1.5 rounded-full bg-foreground/30",
-                                            i === active && "h-2 w-5 bg-foreground/80 transition-all",
-                                        )}
-                                        aria-hidden
-                                    />
-                                ))}
-                            </div>
+                {/* Bullets with icons */}
+                {currentMobile.bullets?.length > 0 && (
+                  <div className="space-y-4 mb-8">
+                    {currentMobile.bullets.map((bullet, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 + idx * 0.08 }}
+                        className="flex items-start gap-3"
+                      >
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center">
+                          <div className="w-5 h-5 rounded-full bg-cyan-500" />
                         </div>
-                    </div>
+                        <div className="flex-1 pt-2">
+                          <p className="text-sm text-gray-700 leading-relaxed">
+                            {bullet}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Image with shape */}
+                <div className="relative">
+                  {/* Decorative shape */}
+                  <motion.div
+                    className="absolute -bottom-8 -right-4 w-32 h-32 rounded-[2rem] -z-10"
+                    animate={{
+                      backgroundColor: currentMobile.shapeColor || "#00b6bc",
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      backgroundColor: { duration: 0.5 },
+                      scale: {
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                      },
+                    }}
+                  />
+
+                  {/* Image */}
+                  <motion.div
+                    className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl bg-white"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {currentMobile.mediaType === "video" ? (
+                      <video
+                        src={currentMobile.mediaSrc}
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={
+                          currentMobile.mediaSrc || "/api/placeholder/400/300"
+                        }
+                        alt={currentMobile.mediaAlt}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                  </motion.div>
                 </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Dots navigation */}
+          <div className="flex justify-center gap-2 mt-8">
+            {items.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setMobileSlide(idx)}
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300",
+                  idx === mobileSlide ? "w-8 bg-gray-800" : "w-2 bg-gray-300"
+                )}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // DESKTOP VERSION - Sticky Scroll (unchanged)
+  return (
+    <section
+      className={cn(
+        "relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20",
+        className
+      )}
+    >
+      <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+        {/* LEFT: Scrolling text content */}
+        <div className="flex flex-col gap-8 md:gap-0">
+          {items.map((item, i) => (
+            <motion.article
+              key={item.id}
+              ref={(el) => (sectionRefs.current[i] = el)}
+              data-index={i}
+              className={cn(
+                "py-12 md:py-20 lg:py-24 transition-opacity duration-300",
+                i === active ? "opacity-100" : "opacity-40"
+              )}
+              aria-current={i === active ? "true" : undefined}
+              initial="hidden"
+              animate={i === active ? "visible" : "hidden"}
+              variants={textVariants}
+            >
+              <motion.header className="mb-4" variants={textVariants}>
+                <motion.h3
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900"
+                  variants={textVariants}
+                >
+                  {item.heading}
+                </motion.h3>
+              </motion.header>
+
+              <motion.p
+                className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4"
+                variants={textVariants}
+              >
+                {item.description}
+              </motion.p>
+
+              {item.bullets?.length ? (
+                <motion.ul className="mt-6 space-y-3 text-sm sm:text-base">
+                  {item.bullets.map((b, idx) => (
+                    <motion.li
+                      key={idx}
+                      className="flex items-start gap-3 text-gray-700 leading-relaxed"
+                      custom={idx}
+                      variants={bulletVariants}
+                      initial="hidden"
+                      animate={i === active ? "visible" : "hidden"}
+                    >
+                      <span className="text-cyan-600 font-bold mt-1">•</span>
+                      <span>{b}</span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              ) : null}
+            </motion.article>
+          ))}
+        </div>
+
+        {/* RIGHT: Sticky media - DESKTOP */}
+        <div className="relative" style={{ height: `${items.length * 100}vh` }}>
+          <div className="sticky top-24 h-[70vh] flex items-center justify-center">
+            <div className="relative w-full max-w-lg">
+              {/* Decorative shape - MUCH BIGGER */}
+              {current.shapeImageSrc ? (
+                <motion.img
+                  src={current.shapeImageSrc}
+                  alt=""
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-32 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[50rem] lg:h-[50rem] select-none opacity-70"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    rotate: [0, 5, -5, 0],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
+                />
+              ) : (
+                current.shapeColor && (
+                  <motion.div
+                    aria-hidden
+                    className="absolute -right-32 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[50rem] lg:h-[50rem] rounded-[5rem] opacity-25"
+                    animate={{
+                      backgroundColor: current.shapeColor,
+                      scale: [1, 1.05, 1],
+                      rotate: [0, 5, -5, 0],
+                    }}
+                    transition={{
+                      backgroundColor: { duration: 0.6 },
+                      scale: {
+                        duration: 2.5,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                      },
+                      rotate: {
+                        duration: 2.5,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                      },
+                    }}
+                  />
+                )
+              )}
+
+              {/* Media container */}
+              <div className="relative aspect-[16/10] w-full rounded-2xl bg-white shadow-2xl overflow-hidden">
+                <AnimatePresence mode="wait">
+                  {showMedia && (
+                    <>
+                      {current.mediaType === "video" ? (
+                        <motion.video
+                          key={`video-${current.mediaSrc}-${active}`}
+                          src={current.mediaSrc}
+                          className="h-full w-full object-cover"
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          aria-label={current.mediaAlt}
+                          variants={mediaVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                        />
+                      ) : (
+                        <motion.img
+                          key={`image-${current.mediaSrc}-${active}`}
+                          src={current.mediaSrc || "/api/placeholder/800/500"}
+                          alt={current.mediaAlt}
+                          className="h-full w-full object-cover"
+                          variants={mediaVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                        />
+                      )}
+                    </>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
-        </section>
-    )
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
