@@ -4,12 +4,7 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        navBg: "var(--navBg)",   // 👈 Tailwind class ko CSS variable ke saath map
-        navdemobuttonBg: "var(--navdemobuttonBg)",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };

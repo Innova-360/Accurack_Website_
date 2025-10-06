@@ -1,35 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
 @import "tailwindcss";
 
+/* ===========================
+   🎨 Custom Theme
+   =========================== */
+@theme {
+  /* Base Colors */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-heading: #03414b;
+  --color-text: #000000;
+  --color-sectionBg: #F0F3F6;
+  --color-line: #0B6D7E;
+  --color-iconbg: #0B6D7E1A;
+  --color-desc: #2B3954;
+  --color-border: #E0E0E0;
+  --color-light: #808080;
+  --color-bgpic2: #074854;
+  --color-light2: #FCFCFCE5;
+  --color-shade: #494949;
+  --color-feature1:#E2EEF0;
+  --color-feature2: #F0F3F6;
+  --color-feature3: #E2EEF0;
+  --color-feature4: #F0F3F6;
+  --color-cardshade: #83DCEC;
+  --color-icon: #002A32;
+  --color-cardbg: #F9F9FB;
+  --color-new: #043841;
+  --color-dropdownnav: #64C5B4;
+  --color-dropdownnavtext: #004F3F;
+  --color-dropdownnavhover: #69EBD4D4;
+  --color-navbuttontext: #0C4752;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --navBg: #F5FDFE;
-  --navdemobuttonBg: #074854;
+  /* Extended Palette */
+  --color-border: #e0e0e0;
+  --color-light: #808080;
+  --color-bgpic: #0a2626;
+  --color-bgpic2: #074854;
+  --color-light2: #fcfcfce5;
+  --color-shade: #494949;
+
+  /* Feature Backgrounds */
+  --color-feature1: #e2eef0;
+  --color-feature2: #f0f3f6;
+  --color-feature3: #e2eef0;
+  --color-feature4: #f0f3f6;
+
+  /* Gradient Backgrounds */
+  --color-bg1: #85deed;
+  --color-bg2: #85edd8;
+  --color-bg3: #add6ff;
+  --color-bg4: #e5dfb1;
+  --color-bg5: #ecdaFA;
+
+  /* Primary Palette */
+  --color-primary: #02404b;
+  --color-primary-light: #e5f6f8;
+  --color-primary-bright: #0db8d6;
+  --color-primary-hover: #012a30;
+
+  /* Gradient Accents */
+  --color-gradient-primary-1: #00b6bc;
+  --color-gradient-primary-2: #0c6676;
+
+  /* Dark Mode Inverse */
+  --color-surface-inverse: #0b0b0b;
+  --color-text-inverse: #ffffff;
+
+  /* Fonts */
+  --font-heading: "Lora", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-title: "Base Neue", monospace;
+  --font-text: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-navBg: var(--navBg);
-  --color-navdemobuttonBg: var(--navdemobuttonBg);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ===========================
+   🔤 Font Face
+   =========================== */
+@font-face {
+  font-family: "Base Neue";
+  src: url("/fonts/base-neue/BaseNeueTrial-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ===========================
+   🧭 Scrollbar Utilities
+   =========================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
 }
-
-
-
-
