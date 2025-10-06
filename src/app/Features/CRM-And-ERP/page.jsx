@@ -2,9 +2,7 @@ import Ratings from "@/components/common/Ratings";
 import Hero from "@/components/ui/HeroSection/Hero";
 import TransformSection from "@/components/common/Transform";
 import Testimonials from "@/components/common/Testimonials";
-import Card from "@/components/ui/Card/Card";
-import Header from "@/components/ui/Headers/Header";
-import InventoryFeatures from "@/components/Solutions/AllinoneSolutions/CardSection";
+import InventoryFeatures from "@/app/Solutions/AllinoneSolutions/_components/CardSection";
 
 const cardData = [
     {

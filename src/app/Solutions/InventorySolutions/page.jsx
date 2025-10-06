@@ -1,8 +1,7 @@
 import SurSection from "@/components/common/Ratings";
-import Inventory from "../../../components/Solutions/InventorySolution/InventorySolutions"
-import AdvancedFeatures from "../../../components/Solutions/InventorySolution/MangementFeatures"
 import TransformSection from "@/components/common/Transform"
-import Section from "@/components/ui/HeroSection/Hero"
+import Hero from "@/components/ui/HeroSection/Hero"
+import AdvancedFeatures from "./_components/MangementFeatures";
 
 
 
@@ -11,7 +10,7 @@ export default function InSolutions() {
   return (
       <>
         
-        <Section
+        <Hero
           badgeText="Never Miss a Beat"
           heading={<>Precision <br /> Inventory <br /> Management</>}
           description="Optimize stock, streamline operations, and enhance efficiency with Accurack's intelligent AI Warehouse Suite."

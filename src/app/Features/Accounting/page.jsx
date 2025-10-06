@@ -1,9 +1,9 @@
 import Ratings from "@/components/common/Ratings";
 import Hero from "@/components/ui/HeroSection/Hero";
 import TransformSection from "@/components/common/Transform";
-import ImpactStory from "@/components/Solutions/AllinoneSolutions/ImpactStory";
 import Card from "@/components/ui/Card/Card";
 import Header from "@/components/ui/Headers/Header";
+import ImpactStory from "@/components/common/ImpactStory";
 
 const cardData = [
     {

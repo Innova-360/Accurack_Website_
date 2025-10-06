@@ -301,7 +301,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
     >
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
         {/* LEFT: Scrolling text content */}
-        <div className="flex flex-col gap-8 md:gap-0">
+        <div className="flex flex-col lg:gap-55 md:gap-0">
           {items.map((item, i) => (
             <motion.article
               key={item.id}
@@ -363,7 +363,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
                   src={current.shapeImageSrc}
                   alt=""
                   aria-hidden="true"
-                  className="pointer-events-none absolute -right-32 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[50rem] lg:h-[50rem] select-none opacity-70"
+                  className="pointer-events-none absolute -right-32 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[26rem] lg:h-[30rem] select-none opacity-70"
                   animate={{
                     scale: [1, 1.05, 1],
                     rotate: [0, 5, -5, 0],

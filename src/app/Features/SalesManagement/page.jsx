@@ -1,17 +1,17 @@
 import Ratings from "@/components/common/Ratings";
 import Hero from "@/components/ui/HeroSection/Hero";
 import TransformSection from "@/components/common/Transform";
-import ForecastingSection from "@/components/Solutions/Performancesuite/Forecasting";
-import ImpactStory from "@/components/common/ImpactStory";
-import WarehouseAndLogisticsManagement from "@/components/Features/Warehousing/WarehouseAndLogisticsManagement";
+import ForecastingSection from "@/components/common/Forecasting";
+import Testimonials from "@/components/common/Testimonials";
+import FourCardSection from "@/components/common/FourCardSection";
 
 export default function page() {
     return (
         <div>
             <Hero
-                badgeText="Efficient Multi-Warehouse Management"
-                heading="Smarter Storage, Faster Fulfillment."
-                description="Optimize stock across all locations with AI-driven insights and streamlined operations."
+                badgeText="Optimization"
+                heading="Optimize Your Sales Process: From Order to Delivery."
+                description="C Streamline order management, gain customer insights, and boost sales efficiency."
                 primaryBtnText="Book a Demo"
                 primaryBtnLink="/book-demo"
                 secondaryBtnText="Start Free Trial"
@@ -30,9 +30,8 @@ export default function page() {
             <Ratings />
 
 
-
-            <WarehouseAndLogisticsManagement />
-            <ImpactStory />
+            <FourCardSection />
+            <Testimonials />
             <ForecastingSection />
             <TransformSection />
         </div>

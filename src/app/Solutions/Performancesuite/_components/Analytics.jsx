@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Card from "../../ui/Card/Card"; // ✅ apna card component import karna
 import Header from "@/components/ui/Headers/Header";
+import Card from "@/components/ui/Card/Card";
 
 
 

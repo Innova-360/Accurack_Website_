@@ -1,8 +1,8 @@
 import Ratings from "@/components/common/Ratings";
 import Hero from "@/components/ui/HeroSection/Hero";
-import InventoryFeatures from "@/components/Solutions/AllinoneSolutions/CardSection";
 import ImpactStory from "@/components/common/ImpactStory";
 import TransformSection from "@/components/common/Transform";
+import InventoryManagementFeaturesCards from "../InventoryManagement/_components/InventoryManagementFeaturesCards";
 
 export default function page() {
     return (
@@ -27,7 +27,7 @@ export default function page() {
                 reverse={false}
             />
             <Ratings />
-            <InventoryFeatures />
+            <InventoryManagementFeaturesCards />
             <ImpactStory
                 bgImage="/Images/Dropdownassests/Solutions/AllinoneSolutions/Bgimpact.jpg"
                 overlayColor="bg-bgpic2/90"

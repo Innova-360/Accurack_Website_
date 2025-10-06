@@ -1,8 +1,8 @@
 import SurSection from "@/components/common/Ratings";
-import CommunitySection from "../../../components/Solutions/Aiwarehouse/Community";
 import TeamSection from "@/components/common/Officer";
 import TransformSection from "@/components/common/Transform";
 import Hero from "@/components/ui/HeroSection/Hero";
+import CommunitySection from "./_components/Community";
 
 export default function Aiwarehouse() {
   return (

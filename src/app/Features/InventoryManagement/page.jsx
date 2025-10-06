@@ -1,7 +1,7 @@
 import Ratings from "@/components/common/Ratings";
 import Testimonials from "@/components/common/Testimonials";
 import TransformSection from "@/components/common/Transform";
-import InventoryManagementFeaturesCards from "@/components/Features/InventoryManagement/inventoryManagementFeaturesCards";
+import InventoryManagementFeaturesCards from "@/app/Features/InventoryManagement/_components/InventoryManagementFeaturesCards";
 import Hero from "@/components/ui/HeroSection/Hero";
 
 export default function page() {
