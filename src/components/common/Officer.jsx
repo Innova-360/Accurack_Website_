@@ -1,7 +1,6 @@
 "use client";
 
-import Img from "@/components/ui/Image";
-import { Plus_Jakarta_Sans, Lora } from "next/font/google";
+import Img from "../ui/Image/Image";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function TeamSection() {
@@ -82,7 +81,7 @@ export default function TeamSection() {
                 {/* Bottom Gradient Background */}
                 <div className="absolute bottom-0 left-0 w-full h-[120px] bg-gradient-to-t from-cardshade to-transparent"></div>
 
-                {/* Icons at Bottom */}
+                {/* Icons */}
                 <div className="relative flex gap-[13.73px] mb-4">
                   <div className="w-[41.18px] h-[41.18px] flex items-center justify-center rounded-full border border-icon text-icon">
                     <FaFacebookF size={18} />

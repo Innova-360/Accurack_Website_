@@ -108,7 +108,7 @@ export default function ContactSection() {
           preserveAspectRatio="none"
         >
           <path
-            fill="#D5ECF0"
+            fill="#DCEFF3"
             fillOpacity="1"
             d="M0,280 C480,0 960,0 1440,280 L1440,320 L0,320 Z"
           />

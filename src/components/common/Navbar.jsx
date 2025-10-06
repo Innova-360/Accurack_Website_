@@ -62,37 +62,37 @@ export default function Navbar() {
       dropdown: [
         {
           name: "Inventory Management",
-          href: "#",
+          href: "/Features/InventoryManagement",
           icon: "/Images/Navassests/icons/Invent.png",
           isIcon: false,
         },
         {
           name: "Supplier Integrations",
-          href: "#",
+          href: "/Features/SupplierIntegration",
           icon: "/Images/Navassests/icons/Supp.png",
           isIcon: false,
         },
         {
           name: "Sales Management",
-          href: "#",
+          href: "/Features/SalesManagement",
           icon: "/Images/Navassests/icons/Dollars.png",
           isIcon: false,
         },
         {
           name: "Warehousing",
-          href: "#",
+          href: "/Features/Warehousing",
           icon: "/Images/Navassests/icons/Ware.png",
           isIcon: false,
         },
         {
           name: "Accounting",
-          href: "#",
+          href: "/Features/Accounting",
           icon: "/Images/Navassests/icons/Accounting.png",
           isIcon: false,
         },
         {
           name: "CRM & ERP",
-          href: "#",
+          href: "/Features/CRM-And-ERP",
           icon: "/Images/Navassests/icons/profile.png",
           isIcon: false,
         },

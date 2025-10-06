@@ -2,12 +2,9 @@
 
 import Image from "next/image";
 import { Play } from "lucide-react"; 
-import { Lora } from "next/font/google";
 
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["500"],
-});
+
+
 
 export default function ForecastingSection() {
   return (

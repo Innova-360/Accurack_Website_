@@ -19,9 +19,9 @@ export default function Card({
   iconWrapperClass,   // 🔹 wrapper around icon (e.g. rounded bg)
   iconWidth = 58,     // 🔹 default width (overridable)
   iconHeight = 58,    // 🔹 default height (overridable)
-  iconGlow = false,
-  variant = 'dark',
-  rounded = false
+  iconGlow = false,   // 🔹 glow behind icon
+  variant = "dark",
+  rounded = false,    // 🔹 NEW: rounded prop
 }) {
   // Base styles per variant
   const variantStyles = {
@@ -64,23 +64,20 @@ export default function Card({
   const v = variantStyles[variant];
 
   return (
-    <div className={clsx("rounded-[20px] overflow-hidden", className)}>
-      <div className={clsx("flex flex-col h-full", contentClass)}>
-
-
+    <div className={clsx(v.wrapper, className)}>
+      <div className={clsx(v.content, contentClass)}>
+        {/* 🔹 Icon */}
         {icon && (
           <div
             className={clsx(
               "relative flex items-center justify-center mb-4",
+              v.iconWrapper,
               iconWrapperClass
             )}
           >
-            {/* 🔹 Conditional Glow Behind Icon */}
             {iconGlow && (
               <div className="absolute inset-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-[#00B6BC]/30 blur-xl" />
             )}
-
-            {/* 🔹 Icon (handles both string src and JSX icon) */}
             {typeof icon === "string" ? (
               <Image
                 src={icon}
@@ -97,16 +94,12 @@ export default function Card({
 
         {/* 🔹 Title */}
         {title && (
-          <h3 className={clsx("font-semibold text-lg", titleClass)}>
-            {title}
-          </h3>
+          <h3 className={clsx(v.title, titleClass)}>{title}</h3>
         )}
 
         {/* 🔹 Text */}
         {text && (
-          <p className={clsx("mt-2 text-sm leading-6", textClass)}>
-            {text}
-          </p>
+          <p className={clsx(v.text, textClass)}>{text}</p>
         )}
 
         {/* 🔹 Extra Icon + Text */}

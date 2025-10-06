@@ -58,7 +58,7 @@ export default function InventoryDesign() {
       transition: { when: "beforeChildren", staggerChildren: 0.08 },
     },
   };
-  
+
   const item = {
     hidden: { opacity: 0, y: 16 },
     visible: {
@@ -118,7 +118,7 @@ export default function InventoryDesign() {
           <div
             ref={listRef}
             className="grid grid-flow-col auto-cols-[minmax(280px,1fr)] gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {items.map((it, i) => (
               <motion.div
@@ -152,11 +152,11 @@ export default function InventoryDesign() {
           preserveAspectRatio="none"
         >
           <path
-            fill="rgba(216, 236, 240, 1)"
+            fill="#DCEFF3"
             fillOpacity="1"
             d="M0,280 C480,0 960,0 1440,280 L1440,320 L0,320 Z"
           />
-        </svg>
+        </svg>{" "}
       </div>
     </section>
   );

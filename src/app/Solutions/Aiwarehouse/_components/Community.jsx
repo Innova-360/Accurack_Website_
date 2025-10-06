@@ -1,35 +1,17 @@
 "use client";
 
 import Img from "@/components/ui/Image";
-import { Plus_Jakarta_Sans, Lora } from "next/font/google";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 export default function CommunitySection() {
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-background py-16">
       {/* Top Heading + Paragraph */}
       <div className="max-w-[800px] mx-auto text-center px-4">
-        <h2
-          style={{ fontFamily: "var(--font-lora)" }}
-          className="font-medium text-[48px] leading-[61px] text-black"
-        >
+        <h2 className="font-medium font-heading text-[48px] leading-[61px] text-text">
           Community Involvement
         </h2>
-        <p
-          style={{ fontFamily: "var(--font-jakarta)" }}
-          className="mt-6 text-[16px] leading-[24px] text-gray-500 font-normal"
-        >
+        <p className="mt-6 font-body text-[16px] leading-[24px] text-light font-normal">
           Discover why businesses partner with us to overcome challenges and fuel
           growth. From streamlining inventory to expanding into new markets,
           these success stories show how Cin7 helps companies reach new heights.
@@ -42,7 +24,7 @@ export default function CommunitySection() {
           heading="AI Forecasting & Demand Prediction"
           text="Leverage advanced AI algorithms to accurately predict future demand, optimize stock levels, and minimize both stockouts and excess inventory. Make data-driven decisions, not guesses."
           image="/Images/Dropdownassests/Solutions/Aiwarehouse/Ai.png"
-          bg="#E2EEF0"
+          bg="bg-feature1"
           reverse={false}
         />
 
@@ -50,7 +32,7 @@ export default function CommunitySection() {
           heading="AI-Driven Stock Transfers"
           text="Automate and optimize stock transfers between warehouses based on AI-driven demand predictions and inventory levels, shipment,  logitics, ensuring optimal distribution and reducing shipping costs."
           image="/Images/Dropdownassests/Solutions/Aiwarehouse/Driven.jpg"
-          bg="#F0F3F6"
+          bg="bg-feature2"
           reverse={true}
         />
 
@@ -58,7 +40,7 @@ export default function CommunitySection() {
           heading="Warehouse Mapping"
           text="Gain a comprehensive, real-time overview of inventory across all your warehouse locations. Track goods in transit and manage stock allocation from a single dashboard."
           image="/Images/Dropdownassests/Solutions/Aiwarehouse/Warehouse.jpg"
-          bg="#E2EEF0"
+          bg="bg-feature3"
           reverse={false}
         />
 
@@ -66,7 +48,7 @@ export default function CommunitySection() {
           heading="Operational Efficiency & Cost Reduction"
           text="Accurack's AI optimizes picking paths, storage layouts, and replenishment schedules, leading to significant reductions in labor costs, carrying costs, and improved order fulfillment times."
           image="/Images/Dropdownassests/Solutions/Aiwarehouse/Cost.jpg"
-          bg="#F0F3F6"
+          bg="bg-feature4"
           reverse={true}
         />
       </div>
@@ -78,39 +60,37 @@ export default function CommunitySection() {
 function FeatureBlock({ heading, text, image, bg, reverse }) {
   return (
     <div
-      className={`w-full max-w-[1312px] mx-auto rounded-[25px] flex flex-col lg:flex-row ${
-        reverse ? "lg:flex-row-reverse" : ""
-      }`}
-      style={{ backgroundColor: bg, minHeight: "304px" }}
+      className={`w-full max-w-[1312px] mx-auto min-h-[304px] rounded-[25px] flex ${bg} 
+        flex-col lg:flex-row ${reverse ? "lg:flex-row-reverse" : ""}`}
     >
-      {/* Text */}
+      {/* Text Block */}
       <div
-        className={`flex-1 flex flex-col justify-start p-6 sm:p-10 lg:p-12 ${
+        className={`flex-1 flex flex-col justify-start p-5 sm:p-8 lg:p-12 
+        ${
           reverse
-            ? "lg:items-end lg:text-right lg:-translate-y-2 lg:translate-x-4"
-            : "lg:items-start lg:text-left lg:-translate-y-0 lg:translate-x-0"
+            ? "items-end text-right sm:items-end sm:text-right"
+            : "items-start text-left sm:items-start sm:text-left"
         }`}
       >
-        <h3
-          style={{ fontFamily: "var(--font-jakarta)" }}
-          className="font-medium text-[24px] leading-[32px] text-gray-900 mb-4 whitespace-nowrap"
-        >
+        <h3 className="font-medium text-[24px] leading-[32px] text-text font-body mb-4 whitespace-normal">
           {heading}
         </h3>
-        <p
-          style={{ fontFamily: "var(--font-jakarta)" }}
-          className="text-[16px] leading-[24px] text-gray-600 font-normal"
-        >
+        <p className="text-[16px] leading-[24px] font-body text-shade font-normal">
           {text}
         </p>
       </div>
 
-      {/* Image - Fixed Position, no movement */}
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-10 lg:p-12">
-        <div
-          className="rounded-[19px] border-2 border-white shadow-[10px_9px_0px_0px_rgba(8,6,76,0.31)] overflow-hidden"
-          style={{ width: "412px", height: "211px" }}
-        >
+      {/* Image Block */}
+      <div
+        className={`flex-1 flex items-end lg:items-center lg:justify-center 
+        p-3 sm:p-6 md:p-8 lg:p-12
+        ${
+          reverse
+            ? "justify-start sm:justify-start md:pl-2" // 👈 left-corner image ko aur chipkaya
+            : "justify-end sm:justify-end md:pr-2" // right-corner image same hi rakhi
+        }`}
+      >
+        <div className="w-[260px] sm:w-[320px] md:w-[360px] lg:w-[412px] h-[170px] sm:h-[190px] lg:h-[211px] rounded-[19px] border-2 border-background shadow-[10px_9px_0px_0px_rgba(8,6,76,0.31)] overflow-hidden">
           <Img
             src={image}
             alt="Feature"

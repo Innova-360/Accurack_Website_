@@ -1,10 +1,8 @@
-import Perfomance from "../../../components/Solutions/Performancesuite/Perfomance"
 import SurSection from "@/components/common/Ratings";
-import AnalyticsSection from "../../../components/Solutions/Performancesuite/Analytics"
 import TeamSection from "@/components/common/Officer"
-import ForecastingSection from "../../../components/Solutions/Performancesuite/Forecasting"
 import Hero from "@/components/ui/HeroSection/Hero";
-
+import AnalyticsSection from "./_components/Analytics";
+import ForecastingSection from "@/components/common/Forecasting";
 
 
 

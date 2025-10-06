@@ -1,11 +1,8 @@
 import HeroSection from "@/components/Home/Hero";
-import CardSection from "@/components/Home/CardGroup";
 import CustomerStoriesSection from "@/components/Home/CustomerStories";
-import IntegrationsSection from "@/components/Home/IntegrationsSection";
 import ForecastingSection from "@/components/Home/ForecastingSection";
 import Marquee from "@/components/common/Marquee";
 import { BlogsSection } from "@/components/Home/BlogSection";
-import ContactForm from "@/components/Home/ContactForm";
 import ContactSection from "@/components/Home/ContectSection";
 import { TrialCtaSection } from "@/components/Home/CtaTrial";
 import FAQSection from "@/components/Home/FaqSection";
@@ -19,8 +16,8 @@ export default function Home() {
     <>
       <HeroSection />
       <Marquee />
-      <CardSection />
-      <IntegrationsSection />
+      {/* <CardSection /> */}
+      {/* <IntegrationsSection /> */}
       <ForecastingSection />
       <Info />
       <Industries />
@@ -30,7 +27,6 @@ export default function Home() {
       <BlogsSection />
       <FAQSection />
       <ContactSection />
-      <ContactForm />
       <TrialCtaSection />
     </>
   );

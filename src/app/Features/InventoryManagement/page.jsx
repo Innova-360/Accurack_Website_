@@ -1,5 +1,7 @@
 import Ratings from "@/components/common/Ratings";
-import InventoryManagementFeaturesCards from "@/components/Features/InventoryManagement/inventoryManagementFeaturesCards";
+import Testimonials from "@/components/common/Testimonials";
+import TransformSection from "@/components/common/Transform";
+import InventoryManagementFeaturesCards from "@/app/Features/InventoryManagement/_components/InventoryManagementFeaturesCards";
 import Hero from "@/components/ui/HeroSection/Hero";
 
 export default function page() {
@@ -18,7 +20,7 @@ export default function page() {
                 bgColor="bg-background"
                 textColor="text-primary"
                 descColor="text-foreground/70"
-                badgeColor="border border-primary text-primary bg-primary/10"
+                badgeColor="border border-primary text-primary "
                 headingSize="text-4xl sm:text-5xl lg:text-6xl leading-[1.1]"
                 descSize="text-base sm:text-lg"
                 containerPadding="px-6 md:px-12"
@@ -26,6 +28,8 @@ export default function page() {
             />
             <Ratings />
             <InventoryManagementFeaturesCards />
+            <Testimonials />
+            <TransformSection />
         </div>
     )
 }
