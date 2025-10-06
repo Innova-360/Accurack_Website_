@@ -3,11 +3,6 @@
 import Button from "@/components/ui/Button";
 import Img from "@/components/ui/Image";
 import { motion } from "motion/react";
-<<<<<<<< HEAD:src/components/Solutions/Performancesuite/Perfomance.jsx
-import Img from "../../ui/Image/Image";
-import Button from "../../ui/Button/Button";
-========
->>>>>>>> 62c96f559615249fda17de6e408f6cbdb9d61d7e:src/app/Solutions/AllinoneSolutions/_components/UnifiedHub.jsx
 
 export default function Perfomance() {
   return (
@@ -36,12 +31,8 @@ export default function Perfomance() {
               padding: "6px 16px",
             }}
           >
-<<<<<<<< HEAD:src/components/Solutions/Performancesuite/Perfomance.jsx
             Performance Suite
-========
-            All in one Solution
->>>>>>>> 62c96f559615249fda17de6e408f6cbdb9d61d7e:src/app/Solutions/AllinoneSolutions/_components/UnifiedHub.jsx
-          </span>
+        </span>
 
           {/* Heading + Paragraph */}
           <h1
@@ -74,11 +65,7 @@ export default function Perfomance() {
 
           {/* Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center w-full">
-<<<<<<<< HEAD:src/components/Solutions/Performancesuite/Perfomance.jsx
-========
-            {/* Book a Demo */}
->>>>>>>> 62c96f559615249fda17de6e408f6cbdb9d61d7e:src/app/Solutions/AllinoneSolutions/_components/UnifiedHub.jsx
-            <Button
+           <Button
               href="/book-demo"
               className="group relative w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] 
                          font-jakarta font-bold text-[16px] leading-[100%] text-white 
