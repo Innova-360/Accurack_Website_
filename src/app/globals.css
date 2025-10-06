@@ -16,6 +16,20 @@
   --color-iconbg: #0b6d7e1a;
   --color-desc: #2b3954;
 
+  /* Extended Palette */
+  --color-border: #e0e0e0;
+  --color-light: #808080;
+  --color-bgpic: #0a2626;
+  --color-bgpic2: #074854;
+  --color-light2: #fcfcfce5;
+  --color-shade: #494949;
+
+  /* Feature Backgrounds */
+  --color-feature1: #e2eef0;
+  --color-feature2: #f0f3f6;
+  --color-feature3: #e2eef0;
+  --color-feature4: #f0f3f6;
+
   /* Gradient Backgrounds */
   --color-bg1: #85deed;
   --color-bg2: #85edd8;
@@ -41,6 +55,7 @@
   --font-heading: "Lora", serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
   --font-title: "Base Neue", monospace;
+  --font-text: "Inter", sans-serif;
 }
 
 /* ===========================

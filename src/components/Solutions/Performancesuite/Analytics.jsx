@@ -55,12 +55,9 @@ export default function AnalyticsSection() {
               icon={card.icon}
               title={card.title}
               text={card.text}
-              className="p-6 border border-gray-100 shadow-sm rounded-2xl bg-gray-50"
-              iconWrapperClass="w-[32px] h-[32px] rounded-full border border-[var(--color-gradient-primary-2)] flex items-center justify-center"
               iconWidth={16}
               iconHeight={16}
-              titleClass={`font-medium text-[24px] leading-[32px] text-gray-900`}
-              textClass={`text-[16px] leading-[24px] text-gray-500`}
+              variant="classic"
             />
           ))}
         </div>
