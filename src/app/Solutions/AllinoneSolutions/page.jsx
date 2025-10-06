@@ -1,8 +1,9 @@
 import UnifiedHub from "./_components/UnifiedHub"
-import SliderSection from "./_components/Slider"
+import SurSection  from "@/components/common/Ratings"
 import InventoryFeatures from "./_components/CardSection"
 import ImpactStory from "./_components/ImpactStory";
-import TransformSection from "./_components/Management"
+import TransformSection from "@/components/common/Transform"
+import Hero from "@/components/ui/HeroSection/Hero";
 
 
 

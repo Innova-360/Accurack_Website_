@@ -1,8 +1,9 @@
 import Warehousing from "./_components/WareHousing";
-import SurSection from "./_components/Slider";
 import CommunitySection from "./_components/Community";
-import TeamSection from "./_components/Officer";
-import TransformSection from "./_components/Transform";
+import TransformSection from "@/components/common/Transform";
+import TeamSection from "@/components/common/Officer";
+import SurSection from "@/components/common/Ratings";
+import Hero from "@/components/ui/HeroSection/Hero";
 
 export default function Aiwarehouse() {
   return (

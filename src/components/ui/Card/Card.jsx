@@ -19,7 +19,9 @@ export default function Card({
   iconWrapperClass,   // 🔹 wrapper around icon (e.g. rounded bg)
   iconWidth = 58,     // 🔹 default width (overridable)
   iconHeight = 58,    // 🔹 default height (overridable)
-  iconGlow = false, // 🔹 New prop
+  iconGlow = false,
+  variant = 'dark',
+  rounded = false
 }) {
   // Base styles per variant
   const variantStyles = {
