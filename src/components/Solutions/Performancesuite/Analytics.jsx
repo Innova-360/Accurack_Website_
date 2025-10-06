@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Card from "../../ui/Card/Card"; // ✅ apna card component import karna
+import Card from "../../ui/Card/Card"; 
 import Header from "@/components/ui/Headers/Header";
 
 
@@ -31,7 +31,7 @@ export default function AnalyticsSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-20 px-4 sm:px-8 lg:px-16">
+    <section className="w-full bg-background py-20 px-4 sm:px-8 lg:px-16">
       <Header title="Analytics & Reporting" />
 
       {/* ✅ Main Layout */}

@@ -11,10 +11,10 @@ const lora = Lora({
 
 export default function ForecastingSection() {
   return (
-    <section className="w-full bg-white py-16 px-4 sm:px-8 lg:px-12 flex flex-col items-center">
+    <section className="w-full bg-background py-16 px-4 sm:px-8 lg:px-12 flex flex-col items-center">
       {/* ✅ Heading */}
       <h2
-        className={`${lora.className} text-[32px] sm:text-[40px] lg:text-[48px] leading-[100%] text-primary text-center max-w-[1200px]`}
+        className={`text-[32px] font-heading sm:text-[40px] lg:text-[48px] leading-[100%] text-new text-center max-w-[1200px]`}
       >
         AI-Driven Demand Forecasting for Smarter Inventory Management
       </h2>
@@ -32,10 +32,10 @@ export default function ForecastingSection() {
         {/* ✅ Play Button */}
         <div className="absolute inset-0 flex items-center justify-center">
           <button
-            className="w-[70px] h-[70px] rounded-full bg-white border-[4px] border-black/32 flex items-center justify-center hover:scale-110 transition-transform duration-300"
+            className="w-[70px] h-[70px] rounded-full bg-background border-[4px] border-text/32 flex items-center justify-center hover:scale-110 transition-transform duration-300"
           >
             {/* 🔹 Play Icon Pure Black */}
-            <Play className="w-8 h-8 text-black fill-black" />
+            <Play className="w-8 h-8 text-text fill-text" />
           </button>
         </div>
       </div>

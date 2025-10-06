@@ -7,7 +7,26 @@ import TransformSection from "./_components/Transform";
 export default function Aiwarehouse() {
   return (
     <>
-      <Warehousing />
+      <Hero
+        badgeText="Predictive AI"
+        heading="Smarter Warehousing: Powered by Predictive AI"
+        description="Optimize stock, streamline operations, and enhance
+efficiency with Accurack's intelligent AI Warehouse Suite."
+        primaryBtnText="Book a Demo"
+        primaryBtnLink="/book-demo"
+        secondaryBtnText="Start Free Trial"
+        secondaryBtnLink="/free-trial"
+        imageSrc="/Images/Dropdownassests/Solutions/Aiwarehouse/Warehouse2.png"
+        imageAlt="Accurack dashboard preview"
+        bgColor="bg-background"
+        textColor="text-primary"
+        descColor="text-foreground/70"
+        badgeColor="border border-primary text-primary"
+        headingSize="text-4xl sm:text-5xl lg:text-6xl leading-[1.1]"
+        descSize="text-base sm:text-lg"
+        containerPadding="px-6 md:px-12"
+        reverse={false}
+      />
       <SurSection />
       <CommunitySection />
       <TeamSection />
