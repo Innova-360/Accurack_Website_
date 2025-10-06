@@ -1,0 +1,41 @@
+"use client";
+
+import Image from "next/image";
+import { Play } from "lucide-react"; 
+
+
+
+
+export default function ForecastingSection() {
+  return (
+    <section className="w-full bg-background py-16 px-4 sm:px-8 lg:px-12 flex flex-col items-center">
+      {/* ✅ Heading */}
+      <h2
+        className={`text-[32px] font-heading sm:text-[40px] lg:text-[48px] leading-[100%] text-new text-center max-w-[1200px]`}
+      >
+        AI-Driven Demand Forecasting for Smarter Inventory Management
+      </h2>
+
+      {/* ✅ Image with overlay */}
+      <div className="relative w-full max-w-[1200px] mt-8">
+        <Image
+          src="/Images/Dropdownassests/Solutions/Perfomancesuite/Forecasting.jpg"
+          alt="Forecasting"
+          width={1200}
+          height={443}
+          className="w-full h-[443px] sm:h-[360px] lg:h-[443px] object-cover rounded-[20px]"
+        />
+
+        {/* ✅ Play Button */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <button
+            className="w-[70px] h-[70px] rounded-full bg-background border-[4px] border-text/32 flex items-center justify-center hover:scale-110 transition-transform duration-300"
+          >
+            {/* 🔹 Play Icon Pure Black */}
+            <Play className="w-8 h-8 text-text fill-text" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}

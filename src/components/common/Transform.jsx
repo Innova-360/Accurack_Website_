@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Button from "../ui/Button/Button";
-import Img from "../ui/Image/Image";
 
 export default function TransformSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
@@ -19,17 +18,19 @@ export default function TransformSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-[var(--color-primary-hover)] opacity-95"></div>
+        <div className="absolute inset-0 bg-bgpic opacity-95"></div>
       </div>
 
       {/* Content */}
       <div className="w-full px-6 lg:px-20 py-16 flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Left Text */}
         <div className="max-w-[744px] text-center lg:text-left">
-          <h2 className="font-[Lora] font-medium text-[48px] leading-[60px] tracking-[-0.02em] text-white">
+          <h2
+            className="font-heading font-medium text-[28px] leading-[36px] md:text-[36px] md:leading-[44px] lg:text-[48px] lg:leading-[60px]  tracking-[-0.02em] text-background"
+          >
             Ready to Transform Your Inventory Management?
           </h2>
-          <p className="font-inter font-normal text-[16px] leading-[24px] text-white mt-4 max-w-[612px]">
+          <p className="font-text font-normal text-[16px] leading-[24px] text-background mt-4 max-w-[612px]">
             Join hundreds of businesses optimizing their operations with
             Accurack.
           </p>
@@ -41,50 +42,27 @@ export default function TransformSection() {
           <div
             onMouseEnter={() => setHoveredBtn("demo")}
             onMouseLeave={() => setHoveredBtn(null)}
-            className="transition-all duration-300 ease-in-out origin-left flex-shrink-0"
-            style={{
-              backgroundColor: "#FFFFFF",
-              transform:
-                hoveredBtn === "demo" ? "scaleX(1.12)" : "scaleX(1)", // expand only to the right
-              height: "50px",
-              borderRadius: "44px",
-              border:
-                hoveredBtn === "demo"
-                  ? "2px solid #0C6676E5"
-                  : "1.5px solid #E0E0E0",
-              padding: "0 25px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "17px",
-            }}
+            className={`transition-all duration-300 ease-in-out origin-left flex-shrink-0 flex items-center justify-center gap-[17px] h-[50px] px-[25px] rounded-[44px] border ${
+              hoveredBtn === "demo"
+                ? "scale-x-[1.12] border-[2px] border-gradient-primary-2"
+                : "scale-x-100 border-[1.5px] border-border"
+            } bg-background`}
           >
             <Button
               href="/"
-              className="!bg-transparent flex items-center justify-center gap-[17px] transition-all duration-300 ease-in-out"
+              className="!bg-background flex items-center justify-center gap-[17px] transition-all duration-300 ease-in-out"
             >
               <span
-                className={`font-jakarta font-bold text-[16px] leading-[100%] whitespace-nowrap transition-colors duration-300 ${
-                  hoveredBtn === "demo" ? "text-[var(--color-gradient-primary-2)]/90" : "text-[var(--color-primary-hover)]"
+                className={`font-body font-bold text-[16px] leading-[100%] whitespace-nowrap transition-colors duration-300 ${
+                  hoveredBtn === "demo"
+                    ? "text-gradient-primary-2"
+                    : "text-bgpic"
                 }`}
               >
                 Request a Quote
               </span>
               {hoveredBtn === "demo" && (
-                <span
-                  className="w-[26px] h-[22px] transition-all duration-300"
-                  style={{
-                    maskImage:
-                      "url(/Images/Homeassests/Heroimage/Ariconre.png)",
-                    WebkitMaskImage:
-                      "url(/Images/Homeassests/Heroimage/Ariconre.png)",
-                    maskRepeat: "no-repeat",
-                    WebkitMaskRepeat: "no-repeat",
-                    maskSize: "contain",
-                    WebkitMaskSize: "contain",
-                    backgroundColor: "#0C6676E5", // exact color apply hoga
-                  }}
-                ></span>
+                <span className="w-[26px] h-[22px] bg-gradient-primary-2 transition-all duration-300 mask-[url('/Images/Homeassests/Heroimage/Ariconre.png')] mask-no-repeat mask-contain"></span>
               )}
             </Button>
           </div>
@@ -93,43 +71,19 @@ export default function TransformSection() {
           <div
             onMouseEnter={() => setHoveredBtn("features")}
             onMouseLeave={() => setHoveredBtn(null)}
-            className="transition-all duration-300 ease-in-out origin-left flex-shrink-0"
-            style={{
-              backgroundColor: "transparent",
-              transform:
-                hoveredBtn === "features" ? "scaleX(1.12)" : "scaleX(1)", // expand only to the right
-              height: "50px",
-              borderRadius: "555px",
-              border: "1.5px solid #FFFFFF",
-              padding: "0 25px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "21px",
-            }}
+            className={`transition-all duration-300 ease-in-out origin-left flex-shrink-0 flex items-center justify-center gap-[21px] h-[50px] px-[25px] rounded-[555px] border border-background ${
+              hoveredBtn === "features" ? "scale-x-[1.12]" : "scale-x-100"
+            } bg-transparent`}
           >
             <Button
               href="/"
               className="!bg-transparent flex items-center justify-center gap-[21px] transition-all duration-300 ease-in-out"
             >
-              <span className="font-jakarta font-bold text-[16px] leading-[100%] whitespace-nowrap text-white">
+              <span className="font-body font-bold text-[16px] leading-[100%] whitespace-nowrap text-background">
                 EXPLORE FEATURES
               </span>
               {hoveredBtn === "features" && (
-                <span
-                  className="w-[26px] h-[22px] transition-all duration-300"
-                  style={{
-                    maskImage:
-                      "url(/Images/Homeassests/Heroimage/Ariconre.png)",
-                    WebkitMaskImage:
-                      "url(/Images/Homeassests/Heroimage/Ariconre.png)",
-                    maskRepeat: "no-repeat",
-                    WebkitMaskRepeat: "no-repeat",
-                    maskSize: "contain",
-                    WebkitMaskSize: "contain",
-                    backgroundColor: "#0C6676E5",
-                  }}
-                ></span>
+                <span className="w-[26px] h-[22px] bg-gradient-primary-2 transition-all duration-300 mask-[url('/Images/Homeassests/Heroimage/Ariconre.png')] mask-no-repeat mask-contain"></span>
               )}
             </Button>
           </div>
