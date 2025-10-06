@@ -1,7 +1,27 @@
 "use client";
 
-import Img from "../Image/Image";
-import Button from "../Button/Button";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+function Button({ href, className, children }) {
+  const Component = href ? 'a' : 'button';
+  return <Component href={href} className={className}>{children}</Component>;
+}
+
+function Img({ src, alt, width, height, className, fallback }) {
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      className={className}
+      onError={(e) => {
+        if (fallback) e.target.src = fallback;
+      }}
+    />
+  );
+}
 
 export default function Hero({
   badgeText,
@@ -13,7 +33,6 @@ export default function Hero({
   secondaryBtnLink,
   imageSrc,
   imageAlt,
-
   bgColor,
   textColor,
   descColor,
@@ -34,44 +53,59 @@ export default function Hero({
         <div className="flex flex-col justify-center text-center lg:text-left lg:items-start items-center">
           {/* Badge */}
           {badgeText && (
-            <span
+            <motion.span
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               className={`inline-block rounded-md border -mt-6 px-4 py-1 mb-3 font-heading text-[16px] font-medium 
               ${badgeColor || ""}`}
             >
               {badgeText}
-            </span>
+            </motion.span>
           )}
 
           {/* Heading */}
           {heading && (
-            <h1
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
               className={`font-title font-bold lg:mb-12 tracking-wider max-w-[663px] 
               ${textColor || ""} ${headingSize || ""}`}
             >
               {heading}
-            </h1>
+            </motion.h1>
           )}
 
           {/* Description */}
           {description && (
-            <p
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className={`mt-6 max-w-[530px] -lg:mt-10 font-body font-normal 
               ${descSize || ""} ${descColor || ""}`}
             >
               {description}
-            </p>
+            </motion.p>
           )}
 
           {/* Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center"
+          >
             {/* Primary Button */}
             {primaryBtnText && (
               <Button
                 href={primaryBtnLink}
                 className="group relative w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
-                           font-body font-bold text-[15px] sm:text-[16px] text-background 
-                           bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 
-                           flex items-center justify-center overflow-hidden"
+                           font-body font-bold text-[15px] sm:text-[16px] text-white
+                           bg-gradient-to-r from-cyan-400 to-teal-600
+                           flex items-center justify-center overflow-hidden
+                           hover:shadow-lg transition-shadow duration-300"
               >
                 <span className="mr-7 lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6">
                   {primaryBtnText}
@@ -80,7 +114,7 @@ export default function Hero({
                 {/* Arrow container */}
                 <span
                   className="absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
-                             w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-background
+                             w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-white
                              lg:transition-all lg:duration-700 lg:ease-in-out 
                              lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
                 >
@@ -98,35 +132,59 @@ export default function Hero({
               <Button
                 href={secondaryBtnLink}
                 className="w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
-                           font-body font-bold text-[15px] sm:text-[16px] text-gradient-primary-2 
-                           border border-gradient-primary-2 bg-background flex items-center justify-center"
+                           font-body font-bold text-[15px] sm:text-[16px] text-teal-600
+                           border border-teal-600 bg-white flex items-center justify-center
+                           hover:bg-teal-50 transition-colors duration-300"
               >
                 {secondaryBtnText}
               </Button>
             )}
-          </div>
+          </motion.div>
         </div>
 
         {/* Right Side Image */}
         {imageSrc && (
-          <div className="relative flex justify-center items-center h-full">
+          <motion.div
+            initial={{ opacity: 0, x: reverse ? -50 : 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative flex justify-center items-center h-full"
+          >
             <div className="relative w-full max-w-[700px]">
-              {/* Decorative borders */}
-              <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[3px] border-teal-400 rotate-[4deg] z-0"></div>
-              <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400/60 rotate-[7deg] z-0"></div>
-              <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400/30 rotate-[10deg] z-0"></div>
-
-              {/* Image */}
-              <Img
-                src={imageSrc}
-                alt={imageAlt}
-                width={709}
-                height={473}
-                className="relative w-full h-auto object-cover rounded-[30px] sm:rounded-[42px] border-[4px] sm:border-[5px] border-primary z-10"
-                fallback="/Images/Homeassests/Heroimage/back.jpg"
+              {/* Decorative borders with staggered animation */}
+              <motion.div
+                initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+                animate={{ opacity: 1, rotate: 4, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[3px] border-teal-400 z-0"
               />
+              <motion.div
+                initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+                animate={{ opacity: 0.6, rotate: 7, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400 z-0"
+              />
+              <motion.div
+                initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+                animate={{ opacity: 0.3, rotate: 10, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400 z-0"
+              />
+
+              {/* Image with scale animation */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <img
+                  src={imageSrc || "/api/placeholder/709/473"}
+                  alt={imageAlt}
+                  className="relative w-full h-auto object-cover rounded-[30px] sm:rounded-[42px] border-[4px] sm:border-[5px] border-teal-700 z-10"
+                />
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

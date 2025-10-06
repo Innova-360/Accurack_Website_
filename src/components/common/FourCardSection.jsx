@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Header from "../ui/Headers/Header";
 
-export default function FourCardSection({ title, cards }) {
+export default function FourCardSection({ title, cards, imageClassName }) {
   return (
     <div className="w-full max-w-6xl mx-auto px-6 py-10">
       <Header title={title} />
@@ -20,7 +20,7 @@ export default function FourCardSection({ title, cards }) {
                 src={card.image}
                 alt={card.title}
                 fill
-                className="object-cover"
+                className={`${imageClassName}`}
               />
               <div
                 className={`absolute inset-0 flex ${

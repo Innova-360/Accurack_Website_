@@ -1,5 +1,7 @@
 import FourCardSection from "@/components/common/FourCardSection";
 import Ratings from "@/components/common/Ratings";
+import Testimonials from "@/components/common/Testimonials";
+import TransformSection from "@/components/common/Transform";
 import Hero from "@/components/ui/HeroSection/Hero";
 import React from "react";
 
@@ -53,7 +55,14 @@ const page = () => {
         reverse={false}
       />
       <Ratings />
-      <FourCardSection title="Sales & Customer Management" cards={cardData} />;
+      <FourCardSection
+        imageClassName={"object-cover"}
+        title="Sales & Customer Management"
+        cards={cardData}
+      />
+      ;
+      <Testimonials />
+      <TransformSection />
     </>
   );
 };

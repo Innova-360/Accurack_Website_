@@ -57,7 +57,7 @@ export default function page() {
             <Ratings />
 
 
-            <FourCardSection title="Sales & Customer Management" cards={cardData} />;
+            <FourCardSection imageClassName={"object-cover"} title="Sales & Customer Management" cards={cardData} />;
             <Testimonials />
             <ForecastingSection />
             <TransformSection />
