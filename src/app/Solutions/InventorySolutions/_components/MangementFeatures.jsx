@@ -73,7 +73,7 @@ export default function AdvancedFeatures() {
           className={`mt-12 flex flex-col lg:flex-row items-start gap-10 p-8 rounded-lg ${backgrounds[active]}`}
         >
           {/* Mobile Image First */}
-          <div className="block lg:hidden w-full flex justify-center mb-6">
+          <div className="lg:hidden w-full flex justify-center mb-6">
             <div className="w-[300px] sm:w-[368px] h-auto shadow-[12px_12px_0_rgba(0,0,0,0.25)]">
               <Img
                 key={active}
