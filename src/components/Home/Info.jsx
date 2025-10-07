@@ -1,4 +1,5 @@
 import { BackgroundVector } from "./BackgroundVector";
+import InfoTabs from "./InfoTab";
 import { ScrollStickyShowcase } from "./Scroll-Sticky-Showcase";
 
 export default function Info() {
@@ -57,8 +58,8 @@ export default function Info() {
   return (
     <main className="relative bg-white mx-auto max-w-8xl h-full space-y-8 py-16 md:space-y-16 md:py-24 lg:py-32">
       <BackgroundVector>
-        <div className="relative w-full mx-auto z-100 h-full flex max-w-6xl flex-col items-center">
-          <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-2">
+        <div className="relative w-full mx-auto z-100 h-full flex max-w-6xl flex-col  items-center">
+          <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-6">
             <div className="inline-flex font-heading items-center bg-white text-black  justify-center  font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px]">
               Discover Accurack
             </div>
@@ -71,6 +72,7 @@ export default function Info() {
               industry and alleviate unnecessary pain points, saving you
               valuable time and money.
             </p>
+            <InfoTabs />
           </div>
           <ScrollStickyShowcase items={items} />
         </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Header from "@/components/ui/Headers/Header";
 import Card from "@/components/ui/Card/Card";
+import { motion } from "framer-motion";
 
 export default function AutomationFeaturesSection() {
   const cards = [
@@ -28,58 +29,59 @@ export default function AutomationFeaturesSection() {
     },
   ];
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  };
-
   return (
-    <section>
-      <Header title="Connect & Automate Your Business" />
+    <section className="w-full bg-background py-20 px-4 sm:px-8 lg:px-16">
+      <Header title="Food & Beverage Solutions" />
 
-      {/* ✅ Main Layout */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
+      {/* Main Layout */}
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
         {/* Left Image */}
-        <motion.div variants={item}>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex-shrink-0"
+        >
           <Image
-            src="/Images/Dropdownassests/Solutions/InventorySolutions/Sideimg.png"
-            alt="Feature"
-            width={500}
-            height={500}
+            src="/Images/Dropdownassests/Solutions/Perfomancesuite/Sideimg.png"
+            alt="Analytics"
+            width={352}
+            height={587}
+            className="rounded-3xl object-cover"
+            onError={(e) => {
+              e.target.src = "/api/placeholder/352/587";
+            }}
           />
         </motion.div>
 
         {/* Right Cards */}
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-[900px]">
           {cards.map((card, idx) => (
-            <motion.div key={idx} variants={item}>
-              <Card icon={card.icon} title={card.title} text={card.text} />
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.5,
+                delay: idx * 0.1,
+                ease: "easeOut",
+              }}
+              className="w-full max-w-[400px]"
+            >
+              <Card
+                icon={card.icon}
+                title={card.title}
+                text={card.text}
+                iconWidth={16}
+                iconHeight={16}
+                variant="classic"
+              />
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

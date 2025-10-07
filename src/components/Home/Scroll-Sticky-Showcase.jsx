@@ -170,7 +170,6 @@ export function ScrollStickyShowcase({ items = [], className }) {
         className={cn("relative w-full px-4 py-12 overflow-visible", className)}
       >
         <div className="max-w-md mx-auto overflow-visible">
-
           {/* Slider content */}
           <div className="relative overflow-visible">
             <AnimatePresence mode="wait" custom={mobileSlide}>
@@ -188,12 +187,12 @@ export function ScrollStickyShowcase({ items = [], className }) {
                 className="cursor-grab active:cursor-grabbing"
               >
                 {/* Slide heading */}
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold font-heading text-gray-900 mb-3">
                   {currentMobile.heading}
                 </h3>
 
                 {/* Slide description */}
-                <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                <p className="text-sm text-gray-600 font-body mb-6 leading-relaxed">
                   {currentMobile.description}
                 </p>
 
@@ -206,13 +205,13 @@ export function ScrollStickyShowcase({ items = [], className }) {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.1 + idx * 0.08 }}
-                        className="flex items-start gap-3"
+                        className="flex items-start gap-3 font-body"
                       >
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center">
                           <div className="w-5 h-5 rounded-full bg-cyan-500" />
                         </div>
                         <div className="flex-1 pt-2">
-                          <p className="text-sm text-gray-700 leading-relaxed">
+                          <p className="text-sm text-gray-700 font-body leading-relaxed">
                             {bullet}
                           </p>
                         </div>
@@ -222,28 +221,74 @@ export function ScrollStickyShowcase({ items = [], className }) {
                 )}
 
                 {/* Image with shape */}
-                <div className="relative">
-                  {/* Decorative shape */}
-                  <motion.div
-                    className="absolute -bottom-8 -right-4 w-32 h-32 rounded-[2rem] -z-10"
-                    animate={{
-                      backgroundColor: currentMobile.shapeColor || "#00b6bc",
-                      scale: [1, 1.05, 1],
-                    }}
-                    transition={{
-                      backgroundColor: { duration: 0.5 },
-                      scale: {
-                        duration: 2,
+                <div className="relative flex items-center justify-center">
+                  {/* Decorative Shape (background) */}
+                  {currentMobile.shapeImageSrc ? (
+                    <motion.img
+                      src={currentMobile.shapeImageSrc}
+                      alt=""
+                      className="
+        absolute
+        right-[-5%]
+        top-1/2
+        -translate-y-1/2
+        w-[75vw] sm:w-[30vw] md:w-[380px] lg:w-[420px]
+        aspect-square
+        -z-10
+        opacity-90
+        object-contain
+      "
+                      animate={{
+                        scale: [1, 1.05, 1],
+                        rotate: [0, 4, -4, 0],
+                      }}
+                      transition={{
+                        duration: 3,
                         repeat: Infinity,
                         repeatType: "reverse",
                         ease: "easeInOut",
-                      },
-                    }}
-                  />
+                      }}
+                    />
+                  ) : (
+                    <motion.div
+                      className="
+        absolute
+        right-[-5%]
+        top-1/2
+        -translate-y-1/2
+        w-[75vw] sm:w-[50vw] md:w-[380px] lg:w-[420px]
+        aspect-square
+        rounded-[2rem]
+        -z-10
+      "
+                      animate={{
+                        backgroundColor: currentMobile.shapeColor || "#00b6bc",
+                        scale: [1, 1.05, 1],
+                      }}
+                      transition={{
+                        backgroundColor: { duration: 0.5 },
+                        scale: {
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                          ease: "easeInOut",
+                        },
+                      }}
+                    />
+                  )}
 
-                  {/* Image */}
+                  {/* Foreground Image or Video */}
                   <motion.div
-                    className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl bg-white"
+                    className="
+      relative
+      w-[60vw] sm:w-[40vw] md:w-[300px] lg:w-[340px]
+      aspect-[4/3]
+      rounded-2xl
+      overflow-hidden
+      shadow-xl
+      bg-white
+      translate-x-[-8%] sm:translate-x-[-10%]
+    "
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4 }}
@@ -295,13 +340,13 @@ export function ScrollStickyShowcase({ items = [], className }) {
   return (
     <section
       className={cn(
-        "relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20",
+        "relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-20 ",
         className
       )}
     >
-      <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+      <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 ">
         {/* LEFT: Scrolling text content */}
-        <div className="flex flex-col lg:gap-55 md:gap-0">
+        <div className="flex flex-col lg:gap-50 md:gap-0">
           {items.map((item, i) => (
             <motion.article
               key={item.id}
@@ -316,7 +361,10 @@ export function ScrollStickyShowcase({ items = [], className }) {
               animate={i === active ? "visible" : "hidden"}
               variants={textVariants}
             >
-              <motion.header className="mb-4" variants={textVariants}>
+              <motion.header
+                className="mb-4 font-heading"
+                variants={textVariants}
+              >
                 <motion.h3
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900"
                   variants={textVariants}
@@ -326,14 +374,14 @@ export function ScrollStickyShowcase({ items = [], className }) {
               </motion.header>
 
               <motion.p
-                className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4"
+                className="text-gray-600 text-base font-body sm:text-lg leading-relaxed mb-4"
                 variants={textVariants}
               >
                 {item.description}
               </motion.p>
 
               {item.bullets?.length ? (
-                <motion.ul className="mt-6 space-y-3 text-sm sm:text-base">
+                <motion.ul className="mt-6 font-body space-y-3 text-sm sm:text-base">
                   {item.bullets.map((b, idx) => (
                     <motion.li
                       key={idx}
@@ -354,8 +402,8 @@ export function ScrollStickyShowcase({ items = [], className }) {
         </div>
 
         {/* RIGHT: Sticky media - DESKTOP */}
-        <div className="relative" style={{ height: `${items.length * 100}vh` }}>
-          <div className="sticky top-24 h-[70vh] flex items-center justify-center">
+        <div className="relative">
+          <div className="sticky top-54 h-[40vh] flex items-center justify-center">
             <div className="relative w-full max-w-lg">
               {/* Decorative shape - MUCH BIGGER */}
               {current.shapeImageSrc ? (
@@ -379,7 +427,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
                 current.shapeColor && (
                   <motion.div
                     aria-hidden
-                    className="absolute -right-32 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[50rem] lg:h-[50rem] rounded-[5rem] opacity-25"
+                    className="absolute -right-32 top-3/4 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[50rem] lg:h-[50rem] rounded-[5rem] opacity-25"
                     animate={{
                       backgroundColor: current.shapeColor,
                       scale: [1, 1.05, 1],

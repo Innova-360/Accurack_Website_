@@ -32,7 +32,9 @@ export function Lisiting({
   };
 
   return (
-    <section className={`w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 ${containerClassName}`}>
+    <section
+      className={`w-full py-16 md:py-24 bg-gradient-to-b from-white to-gray-50 ${containerClassName}`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.h2
@@ -58,11 +60,7 @@ export function Lisiting({
           }
         >
           {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              variants={item}
-              className="group"
-            >
+            <motion.div key={index} variants={item} className="group">
               <div className="flex flex-col sm:flex-row items-start gap-6 p-6 md:p-8 bg-white rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300">
                 {/* Image */}
                 <div className="flex-shrink-0">
