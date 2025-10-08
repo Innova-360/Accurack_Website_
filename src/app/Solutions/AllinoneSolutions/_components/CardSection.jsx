@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Card from "@/components/ui/Card";
+import Card from "@/components/ui/Card/Card";
+
 
 export default function InventoryFeatures({
   title = "Advanced Inventory Management Features",
