@@ -22,13 +22,24 @@ export default function Hero({
   descSize,
   containerPadding,
   reverse,
+
+ 
+  imageWrapperClass,
+  imageWrapperClass2, 
+  primaryBtnClass, 
+  secondaryBtnClass, 
+  imageStyleType,
 }) {
   return (
     <section className={`w-full mt-16 mb-10 ${bgColor || ""}`}>
       <div
         className={`max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center 
           ${containerPadding || ""} 
-          ${reverse ? "lg:flex-row-reverse flex flex-col-reverse lg:flex-row" : ""}`}
+          ${
+            reverse
+              ? "lg:flex-row-reverse flex flex-col-reverse lg:flex-row"
+              : ""
+          }`}
       >
         {/* Left Side */}
         <div className="flex flex-col justify-center text-center lg:text-left lg:items-start items-center">
@@ -68,21 +79,38 @@ export default function Hero({
             {primaryBtnText && (
               <Button
                 href={primaryBtnLink}
-                className="group relative w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
-                           font-body font-bold text-[15px] sm:text-[16px] text-background 
-                           bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 
-                           flex items-center justify-center overflow-hidden"
+                className={`group relative h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
+                 font-body font-bold text-[15px] sm:text-[16px] text-background 
+                 bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 
+                 flex items-center justify-center overflow-hidden whitespace-nowrap
+                 ${primaryBtnClass || "min-w-[180px] sm:min-w-[193px]"} 
+                 ${
+                   primaryBtnText.length > 16
+                     ? "px-8 sm:px-10 group/no-hover"
+                     : ""
+                 }`}
               >
-                <span className="mr-7 lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6">
+                {/* Button Text */}
+                <span
+                  className={`mr-7
+        ${
+          primaryBtnText.length > 16
+            ? "mr-10 sm:mr-12" // extra gap only for responsive (mobile/tablet)
+            : "lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6"
+        }`}
+                >
                   {primaryBtnText}
                 </span>
 
                 {/* Arrow container */}
                 <span
-                  className="absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
-                             w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-background
-                             lg:transition-all lg:duration-700 lg:ease-in-out 
-                             lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
+                  className={`absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
+                   w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-background
+                   ${
+                     primaryBtnText.length > 16
+                       ? "sm:right-[16px]" // responsive adjustment only
+                       : "lg:transition-all lg:duration-700 lg:ease-in-out lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
+                   }`}
                 >
                   {/* Mobile Arrow (static right-facing) */}
                   <span className="block lg:hidden w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
@@ -97,9 +125,10 @@ export default function Hero({
             {secondaryBtnText && (
               <Button
                 href={secondaryBtnLink}
-                className="w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
+                className={`h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
                            font-body font-bold text-[15px] sm:text-[16px] text-gradient-primary-2 
-                           border border-gradient-primary-2 bg-background flex items-center justify-center"
+                           border border-gradient-primary-2 bg-background flex items-center justify-center
+                           ${secondaryBtnClass || "w-[180px] sm:w-[193px]"}`} // Custom width support
               >
                 {secondaryBtnText}
               </Button>
@@ -109,23 +138,58 @@ export default function Hero({
 
         {/* Right Side Image */}
         {imageSrc && (
-          <div className="relative flex justify-center items-center h-full">
-            <div className="relative w-full max-w-[700px]">
-              {/* Decorative borders */}
-              <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[3px] border-teal-400 rotate-[4deg] z-0"></div>
-              <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400/60 rotate-[7deg] z-0"></div>
-              <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400/30 rotate-[10deg] z-0"></div>
+          <div
+            className={`relative flex justify-center items-center h-full ${
+              imageWrapperClass || ""
+            }`}
+          >
+            {/* Default (or when no prop provided) */}
+            {(!imageStyleType || imageStyleType === "default") && (
+              <div className="relative w-full max-w-[700px]">
+                {/* Decorative borders */}
+                <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[3px] border-teal-400 rotate-[4deg] z-0"></div>
+                <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400/60 rotate-[7deg] z-0"></div>
+                <div className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400/30 rotate-[10deg] z-0"></div>
 
-              {/* Image */}
-              <Img
-                src={imageSrc}
-                alt={imageAlt}
-                width={709}
-                height={473}
-                className="relative w-full h-auto object-cover rounded-[30px] sm:rounded-[42px] border-[4px] sm:border-[5px] border-primary z-10"
-                fallback="/Images/Homeassests/Heroimage/back.jpg"
-              />
-            </div>
+                {/* Image */}
+                <Img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  width={709}
+                  height={473}
+                  className="relative w-full h-auto object-cover rounded-[30px] sm:rounded-[42px] border-[4px] sm:border-[5px] border-primary z-10"
+                  fallback="/Images/Homeassests/Heroimage/back.jpg"
+                />
+              </div>
+            )}
+
+            {/* None style */}
+            {imageStyleType === "none" && (
+              <div className="relative w-full max-w-[700px]">
+                <Img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  width={709}
+                  height={473}
+                  className="w-full h-auto object-cover rounded-[20px] sm:rounded-[28px] z-10"
+                  fallback="/Images/Homeassests/Heroimage/back.jpg"
+                />
+              </div>
+            )}
+
+            {/* Custom style */}
+            {imageStyleType === "custom" && (
+              <div className={`relative w-full ${imageWrapperClass2 || ""}`}>
+                <Img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  width={709}
+                  height={473}
+                  className="w-full h-auto object-cover z-10"
+                  fallback="/Images/Homeassests/Heroimage/back.jpg"
+                />
+              </div>
+            )}
           </div>
         )}
       </div>

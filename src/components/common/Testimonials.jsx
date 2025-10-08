@@ -36,7 +36,9 @@ export default function Testimonials() {
 
   return (
     <div className="w-full py-20 max-w-6xl mx-auto px-6">
+      <div className="sm:max-w-full sm:whitespace-nowrap mx-auto">
       <Header title="Customer Success Stories" />
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-12">
         {testimonials.map((t, index) => (
