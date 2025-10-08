@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, useAnimation, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { InventoryCard } from "./InventoryCard";
-import { ArrowButton } from "./ArrowButton";
+import SuspenseWrapper from "../common/SuspenseWrapper";
 
 const items = [
   {
@@ -33,23 +33,14 @@ const items = [
   },
 ];
 
-export default function InventoryDesign() {
-  const listRef = useRef(null);
+function InventoryDesignInner() {
   const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-20% 0px" });
+  const inView = useInView(sectionRef, { once: true });
   const controls = useAnimation();
 
-  if (inView) controls.start("visible");
-
-  const scroll = (dir) => {
-    const el = listRef.current;
-    if (!el) return;
-    const amount = el.clientWidth * 0.8;
-    el.scrollBy({
-      left: dir === "left" ? -amount : amount,
-      behavior: "smooth",
-    });
-  };
+  useEffect(() => {
+    if (inView) controls.start("visible");
+  }, [inView, controls]);
 
   const container = {
     hidden: { opacity: 0 },
@@ -61,37 +52,24 @@ export default function InventoryDesign() {
 
   const item = {
     hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.45, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
   };
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen bg-[linear-gradient(180deg,_#FFFFFF_0%,_#D5ECF0_115.91%)] overflow-hidden"
-      aria-labelledby="industries-heading"
     >
-      <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24 text-center">
         <motion.div
           variants={container}
           initial="hidden"
           animate={controls}
-          className="flex flex-col items-center text-center"
+          className="flex flex-col items-center"
         >
-          <motion.div
-            variants={item}
-            className="mb-6 inline-flex items-center rounded-full border border-black/10 bg-white/70 px-4 py-1.5 text-xs font-medium text-gray-700 backdrop-blur-sm"
-          >
-            For Everyone
-          </motion.div>
-
           <motion.h2
-            id="industries-heading"
             variants={item}
-            className="text-balance text-3xl font-bold leading-tight text-gray-900 md:text-5xl"
+            className="text-3xl md:text-5xl font-bold text-gray-900"
           >
             An inventory software designed to
             <br />
@@ -100,7 +78,7 @@ export default function InventoryDesign() {
 
           <motion.p
             variants={item}
-            className="mt-4 max-w-2xl text-pretty text-sm leading-6 text-gray-600 md:text-base"
+            className="mt-4 max-w-2xl text-gray-600 text-sm md:text-base"
           >
             Accurack's advanced features meet the challenging demands of your
             industry and alleviate unnecessary pain points, saving you valuable
@@ -108,56 +86,55 @@ export default function InventoryDesign() {
           </motion.p>
         </motion.div>
 
-        {/* Cards */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate={controls}
-          className="mt-12"
-        >
-          <div
-            ref={listRef}
-            className="grid grid-flow-col auto-cols-[minmax(280px,1fr)] gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        {/* Infinite Scrolling Cards */}
+        <div className="mt-12 relative w-full overflow-hidden">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: ["0%", "-50%"], // scroll left continuously
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 25, // adjust speed here
+              ease: "linear",
+            }}
           >
-            {items.map((it, i) => (
-              <motion.div
-                key={it.title}
-                variants={item}
-                className="snap-center"
-              >
+            {[...items, ...items].map((it, i) => (
+              <div key={i} className="min-w-[280px]">
                 <InventoryCard
                   title={it.title}
                   description={it.desc}
                   imageSrc={it.img}
-                  index={i}
                 />
-              </motion.div>
+              </div>
             ))}
-          </div>
-        </motion.div>
-
-        {/* Navigation buttons */}
-        <div className="mt-8 flex justify-center gap-3">
-          <ArrowButton direction="left" onClick={() => scroll("left")} />
-          <ArrowButton direction="right" onClick={() => scroll("right")} />
+          </motion.div>
         </div>
       </div>
 
-      {/* Curved SVG Bottom Section */}
-      <div className="relative h-32 w-full bg-[#F5F3F0] overflow-hidden">
+      {/* Curved Bottom SVG */}
+      <div className="relative h-32 w-full bg-[#F3F3F3] overflow-hidden">
         <svg
           className="absolute top-0 left-0 w-full h-24 scale-y-[-1]"
           viewBox="0 0 1440 320"
           preserveAspectRatio="none"
         >
           <path
-            fill="#DCEFF3"
+            fill="#DBEFF3"
             fillOpacity="1"
             d="M0,280 C480,0 960,0 1440,280 L1440,320 L0,320 Z"
           />
-        </svg>{" "}
+        </svg>
       </div>
     </section>
+  );
+}
+
+// ✅ Only one default export
+export default function InventoryDesign() {
+  return (
+    <SuspenseWrapper fallback={<div className="text-center py-20">Loading Inventory Section...</div>}>
+      <InventoryDesignInner />
+    </SuspenseWrapper>
   );
 }

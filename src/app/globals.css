@@ -11,22 +11,22 @@
   --color-foreground: #171717;
   --color-heading: #03414b;
   --color-text: #000000;
-  --color-sectionBg: #F0F3F6;
-  --color-line: #0B6D7E;
-  --color-iconbg: #0B6D7E1A;
-  --color-desc: #2B3954;
-  --color-border: #E0E0E0;
+  --color-sectionBg: #f0f3f6;
+  --color-line: #0b6d7e;
+  --color-iconbg: #0b6d7e1a;
+  --color-desc: #2b3954;
+  --color-border: #e0e0e0;
   --color-light: #808080;
   --color-bgpic2: #074854;
-  --color-light2: #FCFCFCE5;
+  --color-light2: #fcfcfce5;
   --color-shade: #494949;
-  --color-feature1:#E2EEF0;
-  --color-feature2: #F0F3F6;
-  --color-feature3: #E2EEF0;
-  --color-feature4: #F0F3F6;
-  --color-cardshade: #83DCEC;
-  --color-icon: #002A32;
-  --color-cardbg: #F9F9FB;
+  --color-feature1: #e2eef0;
+  --color-feature2: #f0f3f6;
+  --color-feature3: #e2eef0;
+  --color-feature4: #f0f3f6;
+  --color-cardshade: #83dcec;
+  --color-icon: #002a32;
+  --color-cardbg: #f9f9fb;
   --color-new: #043841;
   --color-dropdownnav: #64C5B4;
   --color-dropdownnavtext: #004F3F;
@@ -61,7 +61,7 @@
   --color-bg2: #85edd8;
   --color-bg3: #add6ff;
   --color-bg4: #e5dfb1;
-  --color-bg5: #ecdaFA;
+  --color-bg5: #ecdafa;
 
   /* Primary Palette */
   --color-primary: #02404b;
@@ -102,6 +102,11 @@
   display: none;
 }
 .no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+* {
   -ms-overflow-style: none; /* IE/Edge */
   scrollbar-width: none; /* Firefox */
 }
