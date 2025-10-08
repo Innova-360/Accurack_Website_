@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarSolid, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 
 export default function Ratings() {
-  // ✅ Rating Stars Component (mobile chhote, desktop normal)
   const RatingStars = () => (
     <div className="flex gap-[2px] sm:gap-1 justify-center">
       {[...Array(4)].map((_, i) => (
@@ -21,7 +20,6 @@ export default function Ratings() {
     </div>
   );
 
-  // ✅ Utility: PNG mask with CSS variable color (responsive sizes)
   const ColoredIcon = ({ src, alt }) => (
     <div
       className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 flex items-center justify-center bg-primary flex-shrink-0"
@@ -39,7 +37,6 @@ export default function Ratings() {
     />
   );
 
-  // ✅ Section Block
   const Item = ({ icon, title, rating }) => (
     <div className="flex flex-col items-center justify-center w-full">
       {/* icon + title */}

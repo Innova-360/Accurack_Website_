@@ -6,15 +6,18 @@ const props = {
 };
 
 export default function Header(
-    { title, description } = props
+    { title, description, className, headingClassName } = props
 ) {
     return (
-        <div className="flex justify-center text-center mb-12 w-full" >
+        <div className={`flex justify-center flex-col text-center items-center mb-12 w-full ${className}`}>
             <h2
-                className={`font-heading font-medium text-[48px] w-full leading-[60px] tracking-[-0.02em] text-gray-900 max-w-[544px]`}
+                className={`font-heading font-medium text-[48px] w-full leading-[60px] tracking-[-0.02em] text-gray-900 max-w-[544px] ${headingClassName}`}
             >
                 {title}
             </h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl">
+                {description}
+            </p>
         </div >
     )
 }
