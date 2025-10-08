@@ -5,34 +5,35 @@ import clsx from "clsx";
 
 export default function Card({
   icon,
+  heading,              // ✅ NEW PROP added for heading
   title,
   text,
   extraIcon,
   extraText,
   bottomIcon,
-  className,          // 🔹 main wrapper styling
-  contentClass,       // 🔹 inner content box styling
-  titleClass,         // 🔹 title styling
-  textClass,          // 🔹 paragraph styling
-  extraClass,         // 🔹 extra icon + text styling
-  bottomClass,        // 🔹 bottom icon styling
-  iconWrapperClass,   // 🔹 wrapper around icon (e.g. rounded bg)
-  iconWidth = 58,     // 🔹 default width (overridable)
-  iconHeight = 58,    // 🔹 default height (overridable)
-  iconGlow = false,   // 🔹 glow behind icon
+  className,          
+  contentClass,       
+  titleClass,         
+  textClass,          
+  extraClass,         
+  bottomClass,        
+  iconWrapperClass,   
+  iconWidth = 58,     
+  iconHeight = 58,    
+  iconGlow = false,   
   variant = "dark",
-  rounded = false,    // 🔹 NEW: rounded prop
+  iconType = "1",
+  rounded = false,    
 }) {
-  // Base styles per variant
   const variantStyles = {
     dark: {
       wrapper:
         "w-full h-auto min-h-[327px] bg-white/5 backdrop-blur-md rounded-[20px] p-6 flex flex-col items-start text-left border border-white/15",
       content: "flex flex-col items-start text-left",
       title:
-        "font-jakarta font-body text-[20px] leading-[120%] text-white mt-6 mb-4",
+        "font-body text-[20px] leading-[120%] text-white mt-6 mb-4",
       text:
-        "font-jakarta font-body text-[16px] leading-[140%] text-white max-w-[350px]",
+        "font-body text-[16px] leading-[140%] text-white max-w-[350px]",
       iconWrapper:
         "w-[63.23px] h-[58px] rounded-[158.08px] bg-white/10 flex items-center justify-center p-[12.65px] mb-2",
     },
@@ -47,18 +48,24 @@ export default function Card({
       wrapper:
         "p-6 border border-gray-100 shadow-sm rounded-2xl bg-cardbg",
       content: "flex flex-col",
-      title: "font-medium font-body text-[24px] leading-[32px] text-gray-900",
+      title: "font-medium font-body text-[24px] leading-[32px] mb-3 text-gray-900",
       text: "text-[16px] font-body leading-[24px] text-gray-500",
       iconWrapper:
         "w-[32px] h-[32px] rounded-full border border-line flex items-center justify-center",
+      iconWrapper2:
+        "w-[32px] h-[32px] flex items-center justify-center",
     },
-    simple: {
-      wrapper: "p-4 border border-gray-300 rounded-2xl",
-      content: "flex flex-col",
-      title: "font-medium text-2xl",
-      text: "font-normal text-md text-gray-600 mt-2",
-      iconWrapper: rounded ? "*:rounded-2xl bg-primary rounded-2xl" : "*:w-full rounded-xl *:rounded-xl",
-    },
+   simple: {
+  wrapper: "p-4 border border-gray-300 rounded-2xl",
+  content: "flex flex-col",
+  title: "font-medium font-body  text-text text-2xl",
+  text: "font-normal font-body text-md text-light mt-2",
+  iconWrapper: clsx(
+    "flex items-center justify-center",
+    rounded ? "bg-primary rounded-2xl p-2" : "rounded-xl"
+  ),
+},
+
   };
 
   const v = variantStyles[variant];
@@ -66,41 +73,53 @@ export default function Card({
   return (
     <div className={clsx(v.wrapper, className)}>
       <div className={clsx(v.content, contentClass)}>
-        {/* 🔹 Icon */}
-        {icon && (
-          <div
+
+        {/* ✅ Icon OR Heading — only one will show */}
+        {heading ? (
+          <h3
             className={clsx(
-              "relative flex items-center justify-center mb-4",
-              v.iconWrapper,
-              iconWrapperClass
+              "text-[22px] font-semibold text-line font-heading mb-4",
+              variant === "dark" && "text-white"
             )}
           >
-            {iconGlow && (
-              <div className="absolute inset-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-[#00B6BC]/30 blur-xl" />
-            )}
-            {typeof icon === "string" ? (
-              <Image
-                src={icon}
-                alt={title || "icon"}
-                width={iconWidth}
-                height={iconHeight}
-                className="relative object-contain z-10"
-              />
-            ) : (
-              <div className="relative z-10">{icon}</div>
-            )}
-          </div>
+            {heading}
+          </h3>
+        ) : (
+          icon && (
+            <div
+              className={clsx(
+                "relative flex items-center justify-center mb-4",
+                variant === "classic"
+                  ? iconType === "2"
+                    ? v.iconWrapper2
+                    : v.iconWrapper
+                  : v.iconWrapper,
+                iconWrapperClass
+              )}
+            >
+              {iconGlow && (
+                <div className="absolute inset-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-[#00B6BC]/30 blur-xl" />
+              )}
+              {typeof icon === "string" ? (
+                <Image
+                  src={icon}
+                  alt={title || "icon"}
+                  width={iconWidth}
+                  height={iconHeight}
+                  className="relative object-contain z-10"
+                />
+              ) : (
+                <div className="relative z-10">{icon}</div>
+              )}
+            </div>
+          )
         )}
 
         {/* 🔹 Title */}
-        {title && (
-          <h3 className={clsx(v.title, titleClass)}>{title}</h3>
-        )}
+        {title && <h3 className={clsx(v.title, titleClass)}>{title}</h3>}
 
         {/* 🔹 Text */}
-        {text && (
-          <p className={clsx(v.text, textClass)}>{text}</p>
-        )}
+        {text && <p className={clsx(v.text, textClass)}>{text}</p>}
 
         {/* 🔹 Extra Icon + Text */}
         {extraIcon && (

@@ -1,11 +1,8 @@
 import SurSection from "@/components/common/Ratings";
-import TeamSection from "@/components/common/Officer"
+import TeamSection from "@/components/common/Officer";
 import Hero from "@/components/ui/HeroSection/Hero";
 import AnalyticsSection from "./_components/Analytics";
 import ForecastingSection from "@/components/common/Forecasting";
-
-
-
 
 export default function Perfomancesuite() {
   return (
@@ -32,7 +29,7 @@ efficiency with Accurack's intelligent AI Warehouse Suite."
       />
       <SurSection />
       <AnalyticsSection />
-      <TeamSection />
+      <TeamSection whiteBg />
       <ForecastingSection />
     </>
   );

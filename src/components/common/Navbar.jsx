@@ -103,31 +103,31 @@ export default function Navbar() {
       dropdown: [
         {
           name: "Seamless integrations",
-          href: "#",
+          href: "/Industries/Integration",
           icon: "/Images/Navassests/icons/Seam.png",
           isIcon: false,
         },
         {
           name: "Manufacturing",
-          href: "#",
+          href: "/Industries/Inventory",
           icon: "/Images/Navassests/icons/Setting.png",
           isIcon: false,
         },
         {
           name: "Retail & E-commerce",
-          href: "#",
+          href: "/Industries/Sales",
           icon: "/Images/Navassests/icons/Retail.png",
           isIcon: false,
         },
         {
           name: "Healthcare",
-          href: "#",
+          href: "/Industries/HealthCare",
           icon: "/Images/Navassests/icons/Health.png",
           isIcon: false,
         },
         {
           name: "Food & Beverage (New)",
-          href: "#",
+          href: "/Industries/FoodBaverage",
           icon: "/Images/Navassests/icons/Food.png",
           isIcon: false,
         },
@@ -138,19 +138,19 @@ export default function Navbar() {
       dropdown: [
         {
           name: "Partner Directory (New)",
-          href: "#",
+          href: "/Partner/PartnerDirectory",
           icon: "/Images/Navassests/icons/Partner.png",
           isIcon: false,
         },
         {
           name: "Referral Program (New)",
-          href: "#",
+          href: "/Partner/RefeeralProgram",
           icon: "/Images/Navassests/icons/Referral.png",
           isIcon: false,
         },
         {
           name: "Free Tools (New)",
-          href: "#",
+          href: "/Partner/FreeTools",
           icon: "/Images/Navassests/icons/Free.png",
           isIcon: false,
         },
@@ -187,7 +187,7 @@ export default function Navbar() {
         <div className="fixed inset-0 bg-black/30 backdrop-blur-md z-40 transition-all duration-300"></div>
       )}
 
-      <nav className="sticky top-[23px] z-50 w-full max-w-[1312px] mx-auto flex justify-between items-center px-6 lg:px-10">
+      <nav className="sticky z-50 top-[23px] z-[100] w-full max-w-[1312px] mx-auto flex justify-between items-center px-6 lg:px-10">
         {/* Desktop Navbar */}
         <div
           ref={dropdownRef}
@@ -269,7 +269,7 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-          </div>
+          </div>  
         </div>
 
         {/* Desktop Right Buttons */}
