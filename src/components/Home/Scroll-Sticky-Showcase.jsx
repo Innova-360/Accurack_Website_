@@ -9,6 +9,7 @@ import {
   PanInfo,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function ScrollStickyShowcase({ items = [], className }) {
   const [active, setActive] = useState(0);
@@ -297,7 +298,10 @@ export function ScrollStickyShowcase({ items = [], className }) {
                         playsInline
                       />
                     ) : (
-                      <img
+                      <Image
+                        width={400}
+                        height={300}
+                        loading="lazy"
                         src={
                           currentMobile.mediaSrc || "/api/placeholder/400/300"
                         }

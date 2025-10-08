@@ -197,7 +197,10 @@ function HeroContent({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <img
+                <Image
+                  width={709}
+                  height={473}
+                  loading="lazy"
                   src={imageSrc || "/api/placeholder/709/473"}
                   alt={imageAlt}
                   className="relative w-full h-auto object-cover rounded-[30px] sm:rounded-[42px] border-[4px] sm:border-[5px] border-teal-700 z-10"
