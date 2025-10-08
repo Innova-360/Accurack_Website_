@@ -29,7 +29,7 @@ efficiency with Accurack's intelligent AI Warehouse Suite."
       />
       <SurSection />
       <CommunitySection />
-      <TeamSection />
+      <TeamSection whiteBg />
       <TransformSection />
     </>
   );

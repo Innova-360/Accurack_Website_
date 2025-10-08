@@ -44,7 +44,7 @@ const Industries = () => {
           preserveAspectRatio="none"
         >
           <path
-            fill="white"
+            fill="#EFEFEF"
             fillOpacity="1"
             d="M0,280 C480,0 960,0 1440,280 L1440,320 L0,920 Z"
           />

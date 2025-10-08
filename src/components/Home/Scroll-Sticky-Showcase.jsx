@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 
 export function ScrollStickyShowcase({ items = [], className }) {
   const [active, setActive] = useState(0);
-  const [showMedia, setShowMedia] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileSlide, setMobileSlide] = useState(0);
   const sectionRefs = useRef([]);
@@ -46,11 +45,6 @@ export function ScrollStickyShowcase({ items = [], className }) {
         if (visible) {
           const idx = Number(visible.target.getAttribute("data-index") || 0);
           setActive(idx);
-
-          const ratio = visible.intersectionRatio ?? 0;
-          setShowMedia(ratio > 0.4);
-        } else {
-          setShowMedia(false);
         }
       },
       {
@@ -336,7 +330,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
     );
   }
 
-  // DESKTOP VERSION - Sticky Scroll (unchanged)
+  // DESKTOP VERSION - Sticky Scroll
   return (
     <section
       className={cn(
@@ -346,7 +340,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
     >
       <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 ">
         {/* LEFT: Scrolling text content */}
-        <div className="flex flex-col lg:gap-50 md:gap-0">
+        <div className="flex flex-col lg:gap-15 md:gap-0">
           {items.map((item, i) => (
             <motion.article
               key={item.id}
@@ -403,15 +397,15 @@ export function ScrollStickyShowcase({ items = [], className }) {
 
         {/* RIGHT: Sticky media - DESKTOP */}
         <div className="relative">
-          <div className="sticky top-54 h-[40vh] flex items-center justify-center">
+          <div className="sticky top-40 h-[60vh] flex items-center justify-center">
             <div className="relative w-full max-w-lg">
-              {/* Decorative shape - MUCH BIGGER */}
+              {/* Decorative shape */}
               {current.shapeImageSrc ? (
                 <motion.img
                   src={current.shapeImageSrc}
                   alt=""
                   aria-hidden="true"
-                  className="pointer-events-none absolute -right-32 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[26rem] lg:h-[30rem] select-none opacity-70"
+                  className="pointer-events-none absolute -right-24 top-2/4 -translate-y-1/2 w-[32rem] h-[32rem] lg:w-[36rem] lg:h-[36rem] select-none opacity-70"
                   animate={{
                     scale: [1, 1.05, 1],
                     rotate: [0, 5, -5, 0],
@@ -427,7 +421,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
                 current.shapeColor && (
                   <motion.div
                     aria-hidden
-                    className="absolute -right-32 top-3/4 -translate-y-1/2 w-[40rem] h-[40rem] lg:w-[50rem] lg:h-[50rem] rounded-[5rem] opacity-25"
+                    className="relative z-9000 -right-24 top-1/2 -translate-y-1/2 w-[32rem] h-[32rem] lg:w-[36rem] lg:h-[36rem] rounded-[5rem] opacity-25"
                     animate={{
                       backgroundColor: current.shapeColor,
                       scale: [1, 1.05, 1],
@@ -455,36 +449,32 @@ export function ScrollStickyShowcase({ items = [], className }) {
               {/* Media container */}
               <div className="relative aspect-[16/10] w-full rounded-2xl bg-white shadow-2xl overflow-hidden">
                 <AnimatePresence mode="wait">
-                  {showMedia && (
-                    <>
-                      {current.mediaType === "video" ? (
-                        <motion.video
-                          key={`video-${current.mediaSrc}-${active}`}
-                          src={current.mediaSrc}
-                          className="h-full w-full object-cover"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                          aria-label={current.mediaAlt}
-                          variants={mediaVariants}
-                          initial="hidden"
-                          animate="visible"
-                          exit="exit"
-                        />
-                      ) : (
-                        <motion.img
-                          key={`image-${current.mediaSrc}-${active}`}
-                          src={current.mediaSrc || "/api/placeholder/800/500"}
-                          alt={current.mediaAlt}
-                          className="h-full w-full object-cover"
-                          variants={mediaVariants}
-                          initial="hidden"
-                          animate="visible"
-                          exit="exit"
-                        />
-                      )}
-                    </>
+                  {current.mediaType === "video" ? (
+                    <motion.video
+                      key={`video-${current.mediaSrc}-${active}`}
+                      src={current.mediaSrc}
+                      className="h-full w-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      aria-label={current.mediaAlt}
+                      variants={mediaVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                    />
+                  ) : (
+                    <motion.img
+                      key={`image-${current.mediaSrc}-${active}`}
+                      src={current.mediaSrc || "/api/placeholder/800/500"}
+                      alt={current.mediaAlt}
+                      className="h-full w-full object-cover"
+                      variants={mediaVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                    />
                   )}
                 </AnimatePresence>
               </div>

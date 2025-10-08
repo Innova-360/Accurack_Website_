@@ -1,9 +1,12 @@
+"use client";
+
+import React from "react";
 import InventoryFeatures from "@/app/Solutions/AllinoneSolutions/_components/CardSection";
 import Ratings from "@/components/common/Ratings";
 import Hero from "@/components/ui/HeroSection/Hero";
-import React from "react";
 import TimelineComponent from "./_components/TimeLine";
 import TransformSection from "@/components/common/Transform";
+import SuspenseWrapper from "@/components/common/SuspenseWrapper";
 
 const page = () => {
   const cards1 = [
@@ -24,65 +27,21 @@ const page = () => {
     },
   ];
 
-  const cards2 = [
-    {
-      icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
-      title: "Smart Forecasting",
-      text: "Predict demand Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
-    },
-    {
-      icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
-      title: "Real-Time Tracking",
-      text: "Monitor your Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
-    },
-    {
-      icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
-      title: "Warehouse Automation",
-      text: "Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
-    },
-  ];
+  const cards2 = [...cards1]; // reuse same structure
 
   const timelineData = [
-    {
-      year: "2019",
-      title: "Accurack Founded",
-      description: "Vision to solve inventory challenges with AI.",
-      isPrimary: false,
-    },
-    {
-      year: "2020",
-      title: "Accurack Founded",
-      description: "Vision to solve inventory challenges with AI.",
-      isPrimary: true,
-    },
-    {
-      year: "2021",
-      title: "Accurack Founded",
-      description: "Vision to solve inventory challenges with AI.",
-      isPrimary: true,
-    },
-    {
-      year: "2022",
-      title: "Accurack Founded",
-      description: "Vision to solve inventory challenges with AI.",
-      isPrimary: true,
-    },
-    {
-      year: "2023",
-      title: "Accurack Founded",
-      description: "Vision to solve inventory challenges with AI.",
-      isPrimary: true,
-    },
-    // ... more items
+    { year: "2019", title: "Accurack Founded", description: "Vision to solve inventory challenges with AI.", isPrimary: false },
+    { year: "2020", title: "Accurack Founded", description: "Vision to solve inventory challenges with AI.", isPrimary: true },
+    { year: "2021", title: "Accurack Founded", description: "Vision to solve inventory challenges with AI.", isPrimary: true },
+    { year: "2022", title: "Accurack Founded", description: "Vision to solve inventory challenges with AI.", isPrimary: true },
+    { year: "2023", title: "Accurack Founded", description: "Vision to solve inventory challenges with AI.", isPrimary: true },
   ];
 
   const customerImpactData = {
     title: "Customer Impact",
-    description:
-      "Accurack is built to reduce operational errors, minimize stockouts, and significantly boost efficiency...",
+    description: "Accurack is built to reduce operational errors, minimize stockouts, and significantly boost efficiency...",
     testimonial: {
-      quote:
-        "Accurack has transformed our warehouse operations. We have seen a 30% reduction in errors...",
+      quote: "Accurack has transformed our warehouse operations. We have seen a 30% reduction in errors...",
       name: "Artemisia Udinese",
       role: "Warehouse Manager",
       image: "/Images/AboutAssests/Story/image1.png",
@@ -90,6 +49,7 @@ const page = () => {
     mainImage: "/Images/AboutAssests/Story/image.png",
     imageAlt: "Professional businessman",
   };
+
   return (
     <>
       <Hero
@@ -111,31 +71,44 @@ const page = () => {
         containerPadding="px-6 md:px-12"
         reverse={false}
       />
+
       <Ratings theme="dark" />
-      <InventoryFeatures
-        layout="center"
-        title="A Unified Platform for Wholesale & Retail"
-        subtitle="Discover why businesses partner with us to overcome challenges and fuel growth. From streamlining inventory to expanding into new markets, these success stories show how Cin7 helps companies reach new heights."
-        background="/Images/Dropdownassests/Solutions/AllinoneSolutions/Cardbg.png"
-        className="lg:grid-cols-3"
-        cards={cards1}
-      />
-      <TimelineComponent
-        title="Timeline of key achievements"
-        subtitle="Utilize warehouse management software..."
-        timelineItems={timelineData}
-        customerImpact={customerImpactData}
-        className="my-custom-class"
-      />
-      <InventoryFeatures
-        layout="center"
-        title="Community Involvement"
-        subtitle="Discover why businesses partner with us to overcome challenges and fuel growth. From streamlining inventory to expanding into new markets, these success stories show how Cin7 helps companies reach new heights."
-        background="/Images/Dropdownassests/Solutions/AllinoneSolutions/Cardbg.png"
-        className="lg:grid-cols-3"
-        cards={cards2}
-      />
-      <TransformSection/>
+
+      <SuspenseWrapper>
+        <InventoryFeatures
+          layout="center"
+          title="A Unified Platform for Wholesale & Retail"
+          subtitle="Discover why businesses partner with us to overcome challenges and fuel growth. From streamlining inventory to expanding into new markets, these success stories show how Cin7 helps companies reach new heights."
+          background="/Images/Dropdownassests/Solutions/AllinoneSolutions/Cardbg.png"
+          className="lg:grid-cols-3"
+          cards={cards1}
+        />
+      </SuspenseWrapper>
+
+      <SuspenseWrapper>
+        <TimelineComponent
+          title="Timeline of key achievements"
+          subtitle="Utilize warehouse management software..."
+          timelineItems={timelineData}
+          customerImpact={customerImpactData}
+          className="my-custom-class"
+        />
+      </SuspenseWrapper>
+
+      <SuspenseWrapper>
+        <InventoryFeatures
+          layout="center"
+          title="Community Involvement"
+          subtitle="Discover why businesses partner with us to overcome challenges and fuel growth. From streamlining inventory to expanding into new markets, these success stories show how Cin7 helps companies reach new heights."
+          background="/Images/Dropdownassests/Solutions/AllinoneSolutions/Cardbg.png"
+          className="lg:grid-cols-3"
+          cards={cards2}
+        />
+      </SuspenseWrapper>
+
+      <SuspenseWrapper>
+        <TransformSection />
+      </SuspenseWrapper>
     </>
   );
 };

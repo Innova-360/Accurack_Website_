@@ -58,7 +58,7 @@ export const Card = ({ children, className = "", as = "div" }) => {
   const Comp = as;
   return (
     <Comp
-      className={`rounded-3xl border border-primary/30 bg-background shadow-sm ${className}`}
+      className={`rounded-3xl border border-primary/30 bg-background font-body shadow-sm ${className}`}
     >
       {children}
     </Comp>
@@ -71,17 +71,19 @@ export const StatItem = ({ label, value }) => (
     <div className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-foreground">
       {value}
     </div>
-    <div className="mt-1 text-sm md:text-base text-muted-foreground">{label}</div>
+    <div className="mt-1 text-sm md:text-base text-muted-foreground">
+      {label}
+    </div>
   </div>
 );
 
 // --- COMMUNITY SECTION REUSABLE ---
-export const CommunitySection = ({ 
-  title = "Community Involvement", 
-  description = "", 
-  stats = [], 
-  values = [], 
-  highlightCard = null 
+export const CommunitySection = ({
+  title = "Community Involvement",
+  description = "",
+  stats = [],
+  values = [],
+  highlightCard = null,
 }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-20% 0px" });
@@ -127,7 +129,7 @@ export const CommunitySection = ({
 
   return (
     <section aria-labelledby="community-heading" className="py-14 md:py-24">
-      <div className="container mx-auto px-4">
+      <div className="h-[90vh] mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}

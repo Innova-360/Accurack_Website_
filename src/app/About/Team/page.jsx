@@ -66,7 +66,7 @@ const page = () => {
         rightLayerClassName="bg-[#1E3653]/90"
       />
 
-      <TeamSection />
+      <TeamSection whiteBg />
 
       <ExpertiseList items={expertiseItems} />
 

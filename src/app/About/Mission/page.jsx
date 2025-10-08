@@ -28,22 +28,22 @@ const page = () => {
     {
       title: "Innovation",
       body: "Continuously evolving with cutting–edge AI and technology to solve complex problems.",
-      icon: <GearIcon className="h-7 w-7 text-primary" />,
+      icon: <GearIcon key={"gear"} className="h-7 w-7 text-primary" />,
     },
     {
       title: "Reliability",
       body: "Delivering a robust, secure, and consistently performing platform you can trust.",
-      icon: <ShieldIcon className="h-7 w-7 text-primary" />,
+      icon: <ShieldIcon key={"shield"} className="h-7 w-7 text-primary" />,
     },
     {
       title: "Scalability",
       body: "Building solutions that grow with your business, from startup to enterprise.",
-      icon: <BoxIcon className="h-7 w-7 text-primary" />,
-    },
+      icon: <BoxIcon key={"box"} className="h-7 w-7 text-primary" />,
+    }, 
     {
       title: "Transparency",
       body: "Clear communication, honest practices, and straightforward pricing.",
-      icon: <SearchIcon className="h-7 w-7 text-primary" />,
+      icon: <SearchIcon key={"search"} className="h-7 w-7 text-primary" />,
     },
   ];
 
@@ -119,7 +119,7 @@ const page = () => {
         bottomRightIcon="/Images/Dropdownassests/Solutions/AllinoneSolutions/invertedcommas2.png"
         circleImage="/Images/Dropdownassests/Solutions/AllinoneSolutions/Girl.png"
       />
-      <TeamSection />
+      <TeamSection whiteBg />
       <MissionBanner
         title="Our Promise"
         description="At AccuRack, we don’t just manage your operations — we transform them.

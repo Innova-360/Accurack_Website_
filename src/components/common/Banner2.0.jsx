@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import React from "react";
-
+import SuspenseWrapper from "@/components/common/SuspenseWrapper"; // ✅ make sure path is correct
 
 export const MissionBanner = ({
   title,
@@ -29,42 +29,44 @@ export const MissionBanner = ({
   };
 
   return (
-    <section className="relative w-full overflow-hidden">
-      {/* Background Image Layer */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${backgroundImageUrl})`,
-        }}
-      />
+    <SuspenseWrapper>
+      <section className="relative w-full overflow-hidden">
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${backgroundImageUrl})`,
+          }}
+        />
 
-      {/* Transparent Overlay */}
-      <div
-        className={`absolute inset-0 ${overlayColor} pointer-events-none`}
-        aria-hidden="true"
-      />
+        {/* Transparent Overlay */}
+        <div
+          className={`absolute inset-0 ${overlayColor} pointer-events-none`}
+          aria-hidden="true"
+        />
 
-      {/* Animated Text Content */}
-      <motion.div
-        className="relative z-10 container mx-auto px-6 py-24 md:py-32 text-center text-white"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.4 }}
-      >
-        <motion.h2
-          className="text-4xl md:text-5xl font-serif font-semibold mb-6"
-          variants={itemVariants}
+        {/* Animated Text Content */}
+        <motion.div
+          className="relative z-10 container mx-auto px-6 py-24 md:py-32 text-center text-white"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
         >
-          {title}
-        </motion.h2>
-        <motion.p
-          className="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed text-gray-100"
-          variants={itemVariants}
-        >
-          {description}
-        </motion.p>
-      </motion.div>
-    </section>
+          <motion.h2
+            className="text-4xl md:text-5xl font-serif font-semibold mb-6"
+            variants={itemVariants}
+          >
+            {title}
+          </motion.h2>
+          <motion.p
+            className="max-w-3xl mx-auto text-lg md:text-xl leading-relaxed text-gray-100"
+            variants={itemVariants}
+          >
+            {description}
+          </motion.p>
+        </motion.div>
+      </section>
+    </SuspenseWrapper>
   );
 };

@@ -43,7 +43,7 @@ export default function page() {
                 primaryBtnLink="/book-demo"
                 secondaryBtnText="Start Free Trial"
                 secondaryBtnLink="/free-trial"
-                imageSrc="/Images/Homeassests/Heroimage/accurack-dashboard.png"
+                imageSrc="/Images/Homeassests/Heroimage/Loader.png"
                 imageAlt="Accurack dashboard preview"
                 bgColor="bg-background"
                 textColor="text-primary"

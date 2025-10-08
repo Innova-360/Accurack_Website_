@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import SuspenseWrapper from "@/components/common/SuspenseWrapper"; // adjust path if different
 
-export function TrialCtaSection() {
+function TrialCta() {
   return (
     <section
       aria-labelledby="trial-cta-heading"
@@ -16,16 +17,17 @@ export function TrialCtaSection() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#DDF0F3] ring-1 ring-[hsl(var(--border))]"
       >
-        {/* subtle backdrop glow */}
+        {/* Subtle backdrop glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_400px_at_20%_20%,hsl(var(--primary)/0.12),transparent)]" />
 
         <div className="relative grid items-center gap-10 p-8 md:p-12 lg:grid-cols-12">
+          {/* Left Content */}
           <div className="lg:col-span-7">
             <h2
               id="trial-cta-heading"
               className="font-serif text-3xl leading-tight text-foreground md:text-5xl"
             >
-              {"Try our End-to-End WHM system for "}
+              Try our End-to-End WHM system for{" "}
               <span className="font-semibold">14 days</span>
             </h2>
             <p className="mt-4 max-w-2xl text-[hsl(var(--muted-foreground))]">
@@ -37,30 +39,31 @@ export function TrialCtaSection() {
             <div className="mt-8">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(96.82deg,#00B6BC_-5.65%,#0C6676_105.24%)] px-6 py-3 text-base font-medium text-[hsl(var(--primary-foreground))] shadow-lg shadow-[hsl(var(--primary)/0.25)] transition-colors hover:bg-[hsl(var(--primary)/0.9)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--primary))]"
+                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(96.82deg,#00B6BC_-5.65%,#0C6676_105.24%)] px-6 py-3 text-base font-medium text-white shadow-lg shadow-[hsl(var(--primary)/0.25)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B6BC]"
               >
                 Get My Free Consultation
               </a>
             </div>
           </div>
 
+          {/* Right Image / Mockup */}
           <div className="lg:col-span-5">
-            {/* device frame */}
             <motion.div
               initial={{ opacity: 0, scale: 0.98, x: 20 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mx-auto w-full max-w-[680px] rounded-3xl bg-[hsl(var(--foreground))/0.92] p-3 ring-1 ring-[hsl(var(--foreground))/0.12] shadow-xl"
+              className="mx-auto w-full max-w-[680px] rounded-3xl bg-white p-3 ring-1 ring-black/10 shadow-xl"
               aria-label="Dashboard preview"
             >
-              <div className="overflow-hidden rounded-2xl bg-background">
+              <div className="overflow-hidden rounded-2xl bg-gray-50 aspect-[680/450]">
                 <Image
-                  src={"/Images/Homeassests/CtaSection/screen.png"}
+                  src="/Images/Homeassests/CtaSection/screen.png"
+                  alt="Product dashboard preview"
                   width={680}
                   height={450}
-                  alt="Product dashboard preview"
-                  className="h-auto w-full object-cover"
+                  loading="lazy"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </motion.div>
@@ -68,5 +71,13 @@ export function TrialCtaSection() {
         </div>
       </motion.div>
     </section>
+  );
+}
+
+export default function TrialCtaSection() {
+  return (
+    <SuspenseWrapper>
+      <TrialCta />
+    </SuspenseWrapper>
   );
 }

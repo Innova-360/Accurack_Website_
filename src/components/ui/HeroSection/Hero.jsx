@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import SuspenseWrapper from "@/components/common/SuspenseWrapper"; // ⬅ adjust import path if needed
 
 function Button({ href, className, children }) {
-  const Component = href ? 'a' : 'button';
+  const Component = href ? "a" : "button";
   return <Component href={href} className={className}>{children}</Component>;
 }
 
@@ -23,7 +24,7 @@ function Img({ src, alt, width, height, className, fallback }) {
   );
 }
 
-export default function Hero({
+function HeroContent({
   badgeText,
   heading,
   description,
@@ -118,10 +119,10 @@ export default function Hero({
                              lg:transition-all lg:duration-700 lg:ease-in-out 
                              lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
                 >
-                  {/* Mobile Arrow (static right-facing) */}
+                  {/* Mobile Arrow */}
                   <span className="block lg:hidden w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
 
-                  {/* Desktop Arrow (animated one) */}
+                  {/* Desktop Arrow */}
                   <span className="hidden lg:block w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrow.png')] bg-no-repeat bg-center"></span>
                 </span>
               </Button>
@@ -151,7 +152,7 @@ export default function Hero({
             className="relative flex justify-center items-center h-full"
           >
             <div className="relative w-full max-w-[700px]">
-              {/* Decorative borders with staggered animation */}
+              {/* Decorative borders */}
               <motion.div
                 initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
                 animate={{ opacity: 1, rotate: 4, scale: 1 }}
@@ -171,7 +172,7 @@ export default function Hero({
                 className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400 z-0"
               />
 
-              {/* Image with scale animation */}
+              {/* Image */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -188,5 +189,13 @@ export default function Hero({
         )}
       </div>
     </section>
+  );
+}
+
+export default function Hero(props) {
+  return (
+    <SuspenseWrapper>
+      <HeroContent {...props} />
+    </SuspenseWrapper>
   );
 }
