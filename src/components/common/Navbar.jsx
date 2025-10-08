@@ -138,19 +138,19 @@ export default function Navbar() {
       dropdown: [
         {
           name: "Partner Directory (New)",
-          href: "#",
+          href: "/Partner/PartnerDirectory",
           icon: "/Images/Navassests/icons/Partner.png",
           isIcon: false,
         },
         {
           name: "Referral Program (New)",
-          href: "#",
+          href: "/Partner/RefeeralProgram",
           icon: "/Images/Navassests/icons/Referral.png",
           isIcon: false,
         },
         {
           name: "Free Tools (New)",
-          href: "#",
+          href: "/Partner/FreeTools",
           icon: "/Images/Navassests/icons/Free.png",
           isIcon: false,
         },
@@ -269,7 +269,7 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-          </div>
+          </div>  
         </div>
 
         {/* Desktop Right Buttons */}

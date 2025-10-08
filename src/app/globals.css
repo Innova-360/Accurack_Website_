@@ -28,11 +28,12 @@
   --color-icon: #002a32;
   --color-cardbg: #f9f9fb;
   --color-new: #043841;
-  --color-dropdownnav: #64c5b4;
-  --color-dropdownnavtext: #004f3f;
-  --color-dropdownnavhover: #69ebd4d4;
-  --color-navbuttontext: #0c4752;
-
+  --color-dropdownnav: #64C5B4;
+  --color-dropdownnavtext: #004F3F;
+  --color-dropdownnavhover: #69EBD4D4;
+  --color-navbuttontext: #0C4752;
+  --color-picborder: #D1D1D1;
+  --color-bggradient1: #0F7182;
   /* Extended Palette */
   --color-border: #e0e0e0;
   --color-light: #808080;
@@ -40,6 +41,14 @@
   --color-bgpic2: #074854;
   --color-light2: #fcfcfce5;
   --color-shade: #494949;
+  --color-lightshade: #f5feff;
+  --color-lighttext:#CBCCCD;
+  --color-rowline: #D6D6D6;
+  --color-rowline2: #0D0D0D;
+  --color-foamcolor: #323639;
+  --color-foamborder: #CACCCD;
+  --color-Footertext: #EFEFEF;
+  --color-footerline: #E7E5E4;
 
   /* Feature Backgrounds */
   --color-feature1: #e2eef0;
@@ -63,6 +72,7 @@
   /* Gradient Accents */
   --color-gradient-primary-1: #00b6bc;
   --color-gradient-primary-2: #0c6676;
+  --color-gradient-primary-3: #107D90;
 
   /* Dark Mode Inverse */
   --color-surface-inverse: #0b0b0b;

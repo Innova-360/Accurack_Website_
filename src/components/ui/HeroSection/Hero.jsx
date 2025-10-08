@@ -42,13 +42,24 @@ function HeroContent({
   descSize,
   containerPadding,
   reverse,
+
+ 
+  imageWrapperClass,
+  imageWrapperClass2, 
+  primaryBtnClass, 
+  secondaryBtnClass, 
+  imageStyleType,
 }) {
   return (
     <section className={`w-full mt-16 mb-10 ${bgColor || ""}`}>
       <div
         className={`max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center 
           ${containerPadding || ""} 
-          ${reverse ? "lg:flex-row-reverse flex flex-col-reverse lg:flex-row" : ""}`}
+          ${
+            reverse
+              ? "lg:flex-row-reverse flex flex-col-reverse lg:flex-row"
+              : ""
+          }`}
       >
         {/* Left Side */}
         <div className="flex flex-col justify-center text-center lg:text-left lg:items-start items-center">
@@ -108,7 +119,15 @@ function HeroContent({
                            flex items-center justify-center overflow-hidden
                            hover:shadow-lg transition-shadow duration-300"
               >
-                <span className="mr-7 lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6">
+                {/* Button Text */}
+                <span
+                  className={`mr-7
+        ${
+          primaryBtnText.length > 16
+            ? "mr-10 sm:mr-12" // extra gap only for responsive (mobile/tablet)
+            : "lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6"
+        }`}
+                >
                   {primaryBtnText}
                 </span>
 
