@@ -1,14 +1,20 @@
+"use client";
+import Image from "next/image";
+import FloatingSquare from "../common/FloatingSquare";
+import PendulumDroplet from "../common/PendulumAnimation";
 import SuspenseWrapper from "../common/SuspenseWrapper";
 import { BackgroundVector } from "./BackgroundVector";
 import InfoTabs from "./InfoTab";
 import { ScrollStickyShowcase } from "./Scroll-Sticky-Showcase";
+import Button from "../ui/Button/Button";
+import { motion } from "framer-motion";
 
-export default function Info() {
-  // Demo content. Replace with your real sections.
+export default function Info({ primaryBtnText, primaryBtnLink }) {
   const items = [
     {
       id: "section-1",
-      heading: "Scalable Growth",
+      heading: "All In One Solution",
+      subheading: "Scalable Growth",
       description:
         "Automate repetitive tasks to free up your team for strategic growth. Track inventory, forecast demand, and gain multi-warehouse visibility with ease.",
       bullets: [
@@ -25,6 +31,7 @@ export default function Info() {
     {
       id: "section-2",
       heading: "Inventory Solution",
+      subheading: "Inventory Solution",
       description:
         "Centralize SKU data and automate replenishment using AI-powered thresholds that adapt to seasonality.",
       bullets: [
@@ -40,7 +47,8 @@ export default function Info() {
     },
     {
       id: "section-3",
-      heading: "Performance Suite",
+      heading: "AI Warehouse Suite",
+      subheading: "Performance Suite",
       description:
         "Monitor key KPIs across operations with a live command center designed for distributed teams.",
       bullets: [
@@ -54,35 +62,137 @@ export default function Info() {
       shapeImageSrc: "/Images/Homeassests/HomeImages/Shape-blue.png",
       shapeColor: "var(--color-chart-2)",
     },
+    {
+      id: "section-4",
+      heading: "Performance Suite",
+      subheading: "Scalable Growth",
+      description:
+        "Automate repetitive tasks to free up your team for strategic growth. Track inventory, forecast demand, and gain multi-warehouse visibility with ease.",
+      bullets: [
+        "The Problem: Retail Co. struggled with manual inventory tracking and frequent stockouts, which resulted in lost sales and customer frustration.",
+        "The Solution: Accurack implemented its AI-powered platform to provide real-time inventory tracking, multi-warehouse visibility, and a robust AI forecasting engine.",
+        "The Result: A 30% reduction in stockouts, a 15% improvement in order fulfillment accuracy, and a significant boost in customer satisfaction.",
+      ],
+      mediaSrc: "/Images/Homeassests/HomeImages/screen.png",
+      mediaAlt: "Product dashboard UI",
+      mediaType: "image",
+      shapeImageSrc: "/Images/Homeassests/HomeImages/Shape-green.png",
+      shapeColor: "var(--color-chart-4)",
+    },
   ];
 
   return (
     <main className="relative bg-white mx-auto max-w-8xl h-full space-y-8 py-16 md:space-y-16 md:py-24 lg:py-32">
-      <BackgroundVector>
-        <div className="relative w-full mx-auto z-100 h-full flex max-w-6xl flex-col items-center">
-          <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-6">
-            <div className="inline-flex font-heading items-center bg-white text-black justify-center font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px]">
-              Discover Accurack
-            </div>
-            <h1 className="text-gray-900 font-heading text-lg sm:text-3xl md:text-4xl font-semibold max-w-3xl">
-              See How Accurack Saves You <br /> Time & Money{" "}
-            </h1>
-            <p className="text-gray-400 font-body text-sm sm:text-3xl md:text-sm max-w-xl">
-              Accurack’s advanced features meet the challenging demands of your
-              industry and alleviate unnecessary pain points, saving you
-              valuable time and money.
-            </p>
+      {/* Left side: Pendulum */}
+      <div className="absolute -left-90 bottom-38 w-[50vw] h-full pointer-events-none">
+        <PendulumDroplet />
+      </div>
 
-            <SuspenseWrapper>
+      {/* Header section */}
+      <div className="relative z-10 flex lg:-mt-30 flex-col items-center justify-center text-center px-1 py-10 sm:py-16 lg:py-24 gap-6 max-w-6xl mx-auto">
+        <div className="inline-flex font-heading items-center bg-white text-black justify-center font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px]">
+          Discover Accurack
+        </div>
+        <h1 className="text-gray-900 font-heading text-lg sm:text-3xl md:text-4xl font-semibold max-w-3xl">
+          See How Accurack Saves You <br /> Time & Money{" "}
+        </h1>
+        <p className="text-gray-400 font-body text-sm sm:text-3xl md:text-sm max-w-xl">
+          Accurack's advanced features meet the challenging demands of your
+          industry and alleviate unnecessary pain points, saving you valuable
+          time and money.
+        </p>
+      </div>
+
+      {/* Right side: Floating Square */}
+      <div className="absolute left-[57%] w-[50vw] h-full top-30 hidden lg:block pointer-events-none">
+        <FloatingSquare />
+      </div>
+
+      {/* BackgroundVector with ScrollStickyShowcase */}
+      <div className="relative z-10">
+        <BackgroundVector>
+          <div className="relative w-full mx-auto h-full flex max-w-6xl flex-col items-center">
+            <div className="w-full flex flex-col items-center justify-center gap-8">
+              <Image
+                src="/Images/Homeassests/HomeImages/info-logo.png"
+                alt="Top Logo"
+                width={100}
+                height={142}
+                className="w-29 h-29 mt-10 object-contain"
+              />
               <InfoTabs />
+            </div>
+            <SuspenseWrapper>
+              <ScrollStickyShowcase items={items} />
             </SuspenseWrapper>
           </div>
 
-          <SuspenseWrapper>
-            <ScrollStickyShowcase items={items} />
-          </SuspenseWrapper>
+          {/* --- ✅ CTA Section (Book a Demo) --- */}
+          <section className="relative bg-transparent flex flex-col items-center justify-end text-center rounded-t-[40px] pb-10">
+            <p className="text-gray-700 text-base md:text-lg max-w-2xl leading-relaxed px-4">
+              Book a <span className="font-semibold">30 minute call</span> to
+              discuss your plans, needs, and goals. <br />
+              We'll get on the same page, align, and{" "}
+              <span className="font-semibold">create an action plan.</span>
+            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
+            >
+              {primaryBtnText && (
+                <Button
+                  href={primaryBtnLink}
+                  className="group relative w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
+                    font-body font-bold text-[15px] sm:text-[16px] text-white
+                    bg-gradient-to-r from-cyan-400 to-teal-600
+                    flex items-center justify-center overflow-hidden
+                    hover:shadow-lg transition-shadow duration-300"
+                >
+                  <span
+                    className={`mr-7 ${
+                      primaryBtnText.length > 16
+                        ? "mr-10 sm:mr-12"
+                        : "lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6"
+                    }`}
+                  >
+                    {primaryBtnText}
+                  </span>
+                  <span
+                    className="absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
+                      w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-white
+                      lg:transition-all lg:duration-700 lg:ease-in-out 
+                      lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
+                  >
+                    <span className="block lg:hidden w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
+                    <span className="hidden lg:block w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrow.png')] bg-no-repeat bg-center"></span>
+                  </span>
+                </Button>
+              )}
+            </motion.div>
+          </section>
+
+          {/* --- ✅ Bottom Mirrored Animated Shapes --- */}
+        </BackgroundVector>
+        {/* --- Bottom Shapes (absolute positioned) --- */}
+        <div className="relative w-full h-[15vh] pointer-events-none">
+          {/* Left Pendulum (reversed) */}
+          <div className="absolute -left-65 -bottom-20 w-[40vw] h-full flex justify-center items-end">
+            <PendulumDroplet
+              reverse
+              gradientStart="rgb(194,158,229)"
+              gradientEnd="#3b82f6"
+              blurColor="#E0F2FE"
+            />
+          </div>
+
+          {/* Right Floating Square */}
+          <div className="absolute right-0 -bottom-80 w-[40vw] h-full flex justify-center items-end">
+            <FloatingSquare />
+          </div>
         </div>
-      </BackgroundVector>
+      </div>
     </main>
   );
 }

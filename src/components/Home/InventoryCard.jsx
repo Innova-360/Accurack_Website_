@@ -11,43 +11,39 @@ export function InventoryCard({
   className,
   index = 0,
 }) {
-  console.log(imageSrc);
   return (
     <motion.article
-      initial={{ y: 0, opacity: 0 }}
-      whileInView={{ y: -10, opacity: 1 }} // 🔹 slight slide when visible
-      viewport={{ once: true, amount: 0.3 }} // triggers only when 30% is visible
+      initial={{ y: 20, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{
         type: "spring",
-        stiffness: 200,
+        stiffness: 180,
         damping: 20,
-        delay: index * 0.2 + 0.5, // 🔹 small delay per card
+        delay: index * 0.15 + 0.3,
       }}
-      whileHover={{ y: -14 }} // still hover effect
+      whileHover={{ y: -8 }}
       className={cn(
-        "rounded-[22px] border shadow-md mt-10 border-black/5 bg-white/90 p-5 flex flex-col h-[380px]",
+        "group relative flex flex-col rounded-2xl border border-black/5 bg-white/95 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-[400px] p-5",
         className
       )}
       aria-label={title}
     >
-      {/* Image section */}
-      <div className="overflow-hidden rounded-[18px] h-[230px] flex-shrink-0">
+      {/* Image */}
+      <div className="relative h-[200px] w-full overflow-hidden rounded-xl">
         <Image
           src={imageSrc || "/placeholder.svg"}
-          alt={`${title} industry`}
-          width={560}
-          height={380}
-          className="h-full w-full object-cover"
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           priority={index < 3}
         />
       </div>
 
-      {/* Text section */}
+      {/* Text content */}
       <div className="flex flex-col flex-1 mt-4">
-        <h3 className="text-lg font-semibold font-body text-foreground">
-          {title}
-        </h3>
-        <p className="mt-2 text-sm leading-6 font-body text-muted-foreground line-clamp-3">
+        <h3 className="text-lg font-body font-semibold text-gray-900">{title}</h3>
+        <p className="mt-2 text-sm font-body text-gray-600 line-clamp-3 leading-relaxed">
           {description}
         </p>
       </div>

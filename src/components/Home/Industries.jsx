@@ -1,3 +1,4 @@
+import Button from "../ui/Button/Button";
 import IndustriesMarquee from "./IndustriesMarquee";
 
 const Industries = () => {
@@ -6,8 +7,7 @@ const Industries = () => {
       {/* Heading */}
       <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-2">
         <div
-          style={{ fontFamily: "'Lora', serif" }}
-          className="inline-flex items-center justify-center border font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-[#18BDA0]"
+          className="inline-flex font-heading items-center justify-center border font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-[#18BDA0]"
         >
           Discover Accurack
         </div>
@@ -25,16 +25,17 @@ const Industries = () => {
 
       <IndustriesMarquee />
 
-      <button
-        style={{
-          fontFamily: "'Lora', serif",
-        }}
-        className="p-4 cursor-pointer w-60 border border-[#fffff] rounded-full mt-10 mb-20 bg-[#18BDA0] hover:bg-[#0f9e87] transition-colors duration-300 flex items-center justify-center gap-3"
+      <Button
+        href="/book-demo"
+        className="group relative w-[293px] h-[51px] px-[25px] py-[15px] rounded-[44px] font-body font-bold text-[16px] leading-[100%] text-background bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 flex items-center justify-center overflow-hidden"
       >
-        <span className="text-white text-sm sm:text-lg md:text-sm font-medium">
-          Explore All Integrations
+        <span className="transition-transform duration-300 group-hover:-translate-x-[10px]">
+          Explore All Integration
         </span>
-      </button>
+        <span className="absolute right-2 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex items-center justify-center w-[44px] h-[44px] rounded-full bg-white">
+          <span className="w-[20px] h-[20px] bg-gradient-primary-2 mask-center mask-contain mask-no-repeat [mask-image:url('/Images/Navassests/ReArrow.png')]"></span>
+        </span>
+      </Button>
 
       <div className="relative h-[20vh] w-full bg-[rgba(219, 239, 242, 1)] overflow-hidden">
         {/* SVG curve at the bottom */}

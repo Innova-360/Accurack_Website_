@@ -69,7 +69,7 @@ function InventoryDesignInner() {
         >
           <motion.h2
             variants={item}
-            className="text-3xl md:text-5xl font-bold text-gray-900"
+            className="text-3xl font-heading md:text-5xl font-bold text-gray-900"
           >
             An inventory software designed to
             <br />
@@ -78,7 +78,7 @@ function InventoryDesignInner() {
 
           <motion.p
             variants={item}
-            className="mt-4 max-w-2xl text-gray-600 text-sm md:text-base"
+            className="mt-4 max-w-2xl font-body text-gray-600 text-sm md:text-base"
           >
             Accurack's advanced features meet the challenging demands of your
             industry and alleviate unnecessary pain points, saving you valuable
