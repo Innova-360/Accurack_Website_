@@ -17,15 +17,15 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <Ratings theme="dark" />
+      <Ratings />
       {/* <CardSection /> */}
-      <Info />
+      <Info primaryBtnLink={'/'} primaryBtnText={"Book A Demo"}/>
       <Industries />
       <ForecastingSection />
       {/* <IntegrationsSection /> */}
       <Features />
       <InventoryDesign />
-      <TeamSection/>
+      <TeamSection />
       <BlogsSection />
       <FAQSection />
       <ContactSection />
