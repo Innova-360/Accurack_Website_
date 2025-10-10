@@ -13,6 +13,7 @@ export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const dropdownRef = useRef(null);
+  const hoverTimeout = useRef(null);
   const pathname = usePathname();
 
   // ✅ Close menu and dropdown automatically on route change
@@ -21,7 +22,42 @@ export default function Navbar() {
     setOpenDropdown(null);
   }, [pathname]);
 
-  // ✅ Toggle dropdown handler (used for mobile)
+  // ✅ Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // ✅ Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenu(false);
+        setOpenDropdown(null);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ✅ Hover handlers with delay (prevents flicker)
+  const handleMouseEnter = (idx) => {
+    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+    setOpenDropdown(idx);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeout.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 120);
+  };
+
+  // ✅ Mobile dropdown toggle
   const handleDropdownToggle = (idx) => {
     setOpenDropdown(openDropdown === idx ? null : idx);
   };
@@ -159,27 +195,6 @@ export default function Navbar() {
     { name: "Pricing", href: "/pricing" },
   ];
 
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setOpenDropdown(null);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth >= 1024) {
-        setMobileMenu(false);
-        setOpenDropdown(null);
-      }
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <>
       {/* Background Blur when Mobile Menu is open */}
@@ -187,11 +202,11 @@ export default function Navbar() {
         <div className="fixed inset-0 bg-black/30 backdrop-blur-md z-40 transition-all duration-300"></div>
       )}
 
-      <nav className="sticky z-50 top-[23px] z-[100] w-full max-w-[1312px] mx-auto flex justify-between items-center px-6 lg:px-10">
+      <nav className="fixed top-[18px] z-[10000] w-full max-w- mx-auto flex justify-around gap-3 items-center px-6 lg:px-10">
         {/* Desktop Navbar */}
         <div
           ref={dropdownRef}
-          className="hidden lg:flex items-center justify-between w-[900px] h-[67px] rounded-[666px] font-body bg-background"
+          className="hidden lg:flex items-center lg:-gap-0 justify-start w-[890px] h-[67px] rounded-[666px] font-body bg-background"
         >
           {/* Logo */}
           <Link
@@ -203,6 +218,7 @@ export default function Navbar() {
               width={133}
               height={45}
               alt="Accurack Logo"
+              loading="lazy"
               className="block object-contain"
             />
           </Link>
@@ -213,8 +229,8 @@ export default function Navbar() {
               <div
                 key={idx}
                 className="relative group"
-                onMouseEnter={() => setOpenDropdown(idx)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseEnter={() => handleMouseEnter(idx)}
+                onMouseLeave={handleMouseLeave}
               >
                 {item.href ? (
                   <Link
@@ -228,7 +244,7 @@ export default function Navbar() {
                     <button className="flex items-center text-[15px] px-4 py-2 rounded-md transition font-body text-text font-semibold hover:text-[var(--color-gradient-primary-2)]">
                       {item.name}
                       <ChevronDown
-                        className={`ml-1 w-4 h-4 transition-transform duration-300 group-hover:rotate-180 ${
+                        className={`ml-1 w-4 h-4 transition-transform duration-300 ${
                           openDropdown === idx ? "rotate-180" : ""
                         }`}
                       />
@@ -269,7 +285,7 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-          </div>  
+          </div>
         </div>
 
         {/* Desktop Right Buttons */}
@@ -319,6 +335,7 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {mobileMenu && (
           <div className="fixed top-0 right-0 h-full w-[359px] bg-primary text-white z-50 transition-transform duration-300 flex flex-col rounded-tl-[17px] rounded-bl-[17px]">
             <button
@@ -351,21 +368,13 @@ export default function Navbar() {
                     </Link>
                   ) : (
                     <div>
-                      {/* ✅ Fixed Toggle Button */}
                       <button
                         type="button"
                         onClick={() => handleDropdownToggle(idx)}
                         className="w-full flex justify-between items-center border-b border-white/20 py-3 text-[24px] font-[400] leading-[47.33px] text-white/70 font-title"
                       >
                         <span className="text-left flex-1">{item.name}</span>
-                        <span
-                          role="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleDropdownToggle(idx);
-                          }}
-                          className="text-2xl w-10 inline-flex items-center justify-center"
-                        >
+                        <span className="text-2xl w-10 inline-flex items-center justify-center">
                           {openDropdown === idx ? "−" : "+"}
                         </span>
                       </button>

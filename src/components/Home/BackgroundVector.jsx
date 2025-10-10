@@ -4,77 +4,56 @@ import Image from "next/image";
 
 export function BackgroundVector({ children }) {
   return (
-    <div className="md:h-[500vh] lg:h-[490vh] relative">
-      {/* Background Layer - Lowest */}
-      <div className="absolute w-full h-full pointer-events-none">
-        {/* Main Background with Mask */}
-        <div
-          style={{
-            WebkitMaskImage: "url('/Images/Homeassests/HomeImages/Vector.png')",
-            WebkitMaskRepeat: "no-repeat",
-            WebkitMaskSize: "cover",
-            WebkitMaskPosition: "top center",
-            maskImage: "url('/Images/Homeassests/HomeImages/Vector.png')",
-            maskRepeat: "no-repeat",
-            maskSize: "cover",
-            maskPosition: "top center",
-            background:
-              "linear-gradient(180deg, #97D2DD 0%, #C8ECF3 50%, #6AC9DA 100%)",
-          }}
-          className="absolute inset-0 w-full h-full"
-        />
-
-        {/* TOP Shapes */}
-        <div className="absolute top-[9%] left-[36%] w-[280px] h-[420px] sm:w-[400px] sm:h-[600px] md:w-[520px] md:h-[780px] lg:w-[645px] lg:h-[986px] opacity-30">
-          <Shape src="/Images/Homeassests/HomeImages/Vector1.png" />
-        </div>
-
-        <div className="absolute top-[19%] left-[25%] w-[200px] h-[350px] sm:w-[320px] sm:h-[480px] md:w-[420px] md:h-[580px] lg:w-[500px] lg:h-[642px] opacity-25">
-          <Shape src="/Images/Homeassests/HomeImages/Vector2.png" />
-        </div>
-
-        <div className="absolute top-[22%] left-[16%] w-[110px] h-[400px] sm:w-[200px] sm:h-[520px] md:w-[300px] md:h-[600px] lg:w-[240px] lg:h-[742px] opacity-25">
-          <Shape src="/Images/Homeassests/HomeImages/Vector3.png" />
-        </div>
-
-        {/* BOTTOM Shapes */}
-        <div className="absolute bottom-[5%] right-[16%] w-[300px] h-[520px] sm:w-[400px] sm:h-[700px] md:w-[520px] md:h-[850px] lg:w-[645px] lg:h-[986px] opacity-30">
-          <Shape src="/Images/Homeassests/HomeImages/Vector1.png" />
-        </div>
-
-        <div className="absolute bottom-[6%] right-[37%] w-[220px] h-[400px] sm:w-[320px] sm:h-[520px] md:w-[420px] md:h-[620px] lg:w-[500px] lg:h-[642px] opacity-25">
-          <Shape src="/Images/Homeassests/HomeImages/Vector2.png" />
-        </div>
-
-        <div className="absolute bottom-[1%] right-[58%] w-[120px] h-[400px] sm:w-[180px] sm:h-[520px] md:w-[240px] md:h-[620px] lg:w-[200px] lg:h-[742px] opacity-25">
-          <Shape src="/Images/Homeassests/HomeImages/Vector3.png" />
-        </div>
-
-        {/* Logo */}
-        <div
-          className="
-            absolute
-            bottom-0
-            sm:top-16 sm:bottom-auto
-            left-1/2 -translate-x-1/2
-            lg:top-[80%]
-            lg:right-[41%] lg:left-auto lg:translate-x-0
-            w-[100px] sm:w-[160px] md:w-[200px] lg:w-[240px]
-            h-[300px] sm:h-[450px] md:h-[550px] lg:h-[702px]
-          "
+    <div className="relative w-full h-auto lg:pb-40 overflow-visible">
+      {/* Background SVG */}
+      <div className="absolute inset-0 -z-10 flex justify-center items-start pointer-events-none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1438 3638"
+          preserveAspectRatio="none"
+          className="w-full h-full min-h-[120vh] object-cover"
         >
-          <Image
-            src="/Images/Homeassests/HomeImages/info-logo.png"
-            alt="Top Logo"
-            width={500}
-            height={742}
-            className="w-full h-full object-contain"
+          <path
+            opacity="0.3"
+            d="M585.298 37.1416C667.529 -11.6118 770.474 -11.6117 852.7 37.142L1312.91 310C1390.54 356.029 1438 438.625 1438 527.715L1438 3110.28C1438 3199.37 1390.54 3281.97 1312.91 3328L852.7 3600.86C770.474 3649.61 667.528 3649.61 585.298 3600.86L125.088 3328C47.4542 3281.97 0 3199.37 0 3110.28L0.000610352 527.715C0.000610352 438.625 47.4548 356.029 125.088 310L585.298 37.1416Z"
+            fill="url(#paint0_linear_12_43529)"
           />
-        </div>
+          <defs>
+            <linearGradient
+              id="paint0_linear_12_43529"
+              x1="719"
+              y1="-271.969"
+              x2="719"
+              y2="2979.85"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#97D2DD">
+                <animate
+                  attributeName="offset"
+                  values="0;1;0"
+                  dur="6s"
+                  repeatCount="indefinite"
+                />
+              </stop>
+              <stop offset="0.5" stopColor="#C8ECF3" />
+              <stop offset="1" stopColor="#6AC9DA" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
 
-      {/* Content Layer - Always on Top */}
-      <div className="relative">{children}</div>
+      {/* Top Shape */}
+      <div className="absolute top-[5%] left-1/2 -translate-x-1/2 w-[200px] h-[300px] sm:w-[320px] sm:h-[480px] md:w-[420px] md:h-[640px] lg:w-[540px] lg:h-[800px] opacity-30">
+        <Shape src="/Images/Homeassests/HomeImages/Vector1.png" />
+      </div>
+
+      {/* Bottom Shape */}
+      <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[200px] h-[300px] sm:w-[320px] sm:h-[480px] md:w-[420px] md:h-[640px] lg:w-[540px] lg:h-[800px] opacity-30 rotate-180">
+        <Shape src="/Images/Homeassests/HomeImages/Vector1.png" />
+      </div>
+
+      {/* Foreground Content */}
+      <div className="relative z-10 flex flex-col w-full">{children}</div>
     </div>
   );
 }
@@ -85,12 +64,7 @@ function Shape({ src }) {
       className="relative w-full h-full blur-[2px]"
       style={{ filter: "brightness(0) invert(1)" }}
     >
-      <Image
-        src={src}
-        alt="Shape"
-        fill
-        className="w-full h-full object-contain"
-      />
+      <Image src={src} alt="Shape" fill className="object-contain" />
     </div>
   );
 }

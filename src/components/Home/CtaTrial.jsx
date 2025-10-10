@@ -39,7 +39,7 @@ function TrialCta() {
             <div className="mt-8">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(96.82deg,#00B6BC_-5.65%,#0C6676_105.24%)] px-6 py-3 text-base font-medium text-white shadow-lg shadow-[hsl(var(--primary)/0.25)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B6BC]"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 px-6 py-3 text-base font-medium text-white shadow-lg shadow-[hsl(var(--primary)/0.25)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_30px_rgba(0,0,0,0.15)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B6BC]"
               >
                 Get My Free Consultation
               </a>

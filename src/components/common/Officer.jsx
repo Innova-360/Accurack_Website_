@@ -50,14 +50,21 @@ export default function TeamSection({ whiteBg = false }) {
 
   return (
     <SuspenseWrapper>
-      <section className={`w-full ${whiteBg ? "bg-background" : "bg-[#F3F3F3]"}  py-16 px-4 sm:px-8 lg:px-16`}>
+      <section
+        className={`w-full ${
+          whiteBg
+            ? "bg-background"
+            : "bg-[#F3F3F3]"
+        }  py-16 px-4 sm:px-8 lg:px-16`}
+      >
         {/* Heading + Subtext */}
         <div className="max-w-[850px]">
           <h2 className="font-heading font-medium text-[48px] leading-[61px] text-text mb-6">
             The Great Minds Behind Our Work
           </h2>
           <p className="font-text text-[16px] leading-[24px] text-text font-normal mb-12 max-w-[612px]">
-            Join hundreds of businesses optimizing their operations with Accurack.
+            Join hundreds of businesses optimizing their operations with
+            Accurack.
           </p>
         </div>
 

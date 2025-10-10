@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Link2, Package, Warehouse, BarChart3 } from "lucide-react";
 
 export default function InfoTabs() {
@@ -13,31 +14,65 @@ export default function InfoTabs() {
   ];
 
   return (
-    <div className="w-full max-w-5xl mx-auto p-8">
-      <div className="grid lg:grid-cols-4 grid-cols-2 items-center justify-start gap-8 bg-transparent ">
+    <div className="flex items-center justify-center w-full mt-1 max-w-md p-1">
+      <div className="grid grid-cols-2">
         {tabs.map((tab, index) => {
           const Icon = tab.icon;
-          const isActive = activeTab === index;
-
           return (
-            <button
+            <motion.div
               key={index}
-              onClick={() => setActiveTab(index)}
-              className={`
-                flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200
-                ${
-                  isActive
-                    ? "text-gray-900 font-medium"
-                    : "text-gray-600 hover:text-gray-900"
-                }
-              `}
+              initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+                delay: index > 1 ? 0.2 : 0,
+              }}
             >
-              <Icon className="w-5 h-5" />
-              <span className="text-sm whitespace-nowrap">{tab.label}</span>
-            </button>
+              <button
+                onClick={() => setActiveTab(index)}
+                className={`relative w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200
+                  ${
+                    activeTab === index
+                      ? "text-gray-900 font-medium bg-transparent"
+                      : "text-gray-600"
+                  }
+                  group overflow-hidden
+                `}
+              >
+                <Icon className="w-5 h-5 z-10" />
+                <span
+                  className={`
+                    text-md whitespace-nowrap z-10 relative transition-all duration-500
+                    group-hover:text-transparent group-hover:bg-clip-text
+                    group-hover:bg-[linear-gradient(270deg,#ff0000,#ff9900,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff,#ff0000)]
+                    group-hover:animate-gradientReverse
+                  `}
+                >
+                  {tab.label}
+                </span>
+              </button>
+            </motion.div>
           );
         })}
       </div>
+
+      {/* 💫 Reversed Animated Gradient (Right → Left) */}
+      <style jsx>{`
+        @keyframes gradientReverse {
+          0% {
+            background-position: 200% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        .animate-gradientReverse {
+          background-size: 200% 200%;
+          animation: gradientReverse 2.5s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }

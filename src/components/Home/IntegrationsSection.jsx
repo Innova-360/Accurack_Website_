@@ -104,7 +104,7 @@ export default function IntegrationsSection() {
 
           {/* 🔹 Right Column: Text + Button */}
           <div className="flex flex-col gap-2 lg:pl-9 relative z-50">
-            <span className="inline-flex items-center justify-center border border-teal-400 text-teal-400 font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] w-fit">
+            <span className="inline-flex items-center justify-center border border-black font-heading font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] w-fit">
               Discover Accurack
             </span>
 
