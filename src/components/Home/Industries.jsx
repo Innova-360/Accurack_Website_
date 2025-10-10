@@ -2,7 +2,7 @@ import IndustriesMarquee from "./IndustriesMarquee";
 
 const Industries = () => {
   return (
-    <div className="w-[100vw]  bg-[linear-gradient(180deg,#FFFFFF_0%,#D5ECF0_115.91%)] min-h-[500px] flex flex-col items-center justify-center text-center ">
+    <div className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#FFFFFF_0%,#D5ECF0_115.91%)] min-h-[500px] flex flex-col items-center justify-center text-center">
       {/* Heading */}
       <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-2">
         <div className="inline-flex items-center justify-center font-heading border font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-text">
@@ -19,9 +19,12 @@ const Industries = () => {
         </p>
       </div>
 
-      <IndustriesMarquee />
+      {/* ✅ Fixed marquee overflow */}
+      <div className="w-full overflow-hidden">
+        <IndustriesMarquee />
+      </div>
 
-      <button className="p-4 cursor-pointer w-60 border border-background bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2     rounded-full mt-10 mb-20   flex items-center justify-center gap-3 font-body">
+      <button className="p-4 cursor-pointer w-60 border border-background bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 rounded-full mt-10 mb-20 flex items-center justify-center gap-3 font-body">
         <span className="text-background text-sm sm:text-lg md:text-sm font-medium">
           View All Integrations
         </span>
