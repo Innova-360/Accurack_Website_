@@ -84,7 +84,7 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
   return (
     <main className="relative bg-white mx-auto max-w-8xl h-full space-y-8 py-16 md:space-y-16 md:py-24 lg:py-32">
       {/* Left side: Pendulum */}
-      <div className="absolute -left-90 bottom-38 w-[50vw] h-full pointer-events-none">
+      <div className="absolute hidden lg:block xl:-left-100 bottom-38 w-[50vw] h-full pointer-events-none">
         <PendulumDroplet />
       </div>
 
@@ -104,7 +104,7 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
       </div>
 
       {/* Right side: Floating Square */}
-      <div className="absolute left-[57%] w-[50vw] h-full top-30 hidden lg:block pointer-events-none">
+      <div className="lg:absolute sm:hidden lg:left-[57%] xl:left-[60%] w-[50vw] h-full top-30 hidden lg:block pointer-events-none">
         <FloatingSquare />
       </div>
 
@@ -128,30 +128,64 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
           </div>
 
           {/* --- ✅ CTA Section (Book a Demo) --- */}
-          <section className="relative bg-transparent flex flex-col items-center justify-end text-center rounded-t-[40px] pb-10">
-            <p className="text-gray-700 text-base md:text-lg max-w-2xl leading-relaxed px-4">
-              Book a <span className="font-semibold">30 minute call</span> to
-              discuss your plans, needs, and goals. <br />
+          <section
+            className="
+    relative 
+    bg-transparent 
+    flex flex-col items-center justify-end 
+    text-center 
+    rounded-t-[30px] sm:rounded-t-[40px] 
+    px-4 sm:px-9 md:px-8 
+    pb-8 sm:pb-10
+  "
+          >
+            <p
+              className="
+      text-gray-700 
+      text-sm sm:text-base md:text-lg 
+      leading-relaxed 
+      max-w-md sm:max-w-md md:max-w-2xl
+    "
+            >
+              Book a <span className="font-semibold">30-minute call</span> to
+              discuss your plans, needs, and goals.{" "}
+              <br className="hidden sm:block" />
               We'll get on the same page, align, and{" "}
               <span className="font-semibold">create an action plan.</span>
             </p>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center"
+              className="
+      mt-6 sm:mt-8 
+      flex flex-col sm:flex-row 
+      gap-3 sm:gap-5 md:gap-6 
+      justify-center items-center
+    "
             >
               {primaryBtnText && (
                 <Button
                   href={primaryBtnLink}
-                  className="group relative w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
-                    font-body font-bold text-[15px] sm:text-[16px] text-white
-                    bg-gradient-to-r from-cyan-400 to-teal-600
-                    flex items-center justify-center overflow-hidden
-                    hover:shadow-lg transition-shadow duration-300"
+                  className="
+          group relative
+          w-[170px] sm:w-[85px] md:w-[193px] 
+          h-[46px] sm:h-[50px] md:h-[51px]
+          px-5 py-3
+          rounded-[40px]
+          font-body font-bold 
+          text-[14px] sm:text-[15px] md:text-[16px] 
+          text-white
+          bg-gradient-to-r from-cyan-400 to-teal-600
+          flex items-center justify-center
+          overflow-hidden
+          hover:shadow-lg
+          transition-all duration-300
+        "
                 >
                   <span
-                    className={`mr-7 ${
+                    className={`mr-6 sm:mr-8 md:mr-7 ${
                       primaryBtnText.length > 16
                         ? "mr-10 sm:mr-12"
                         : "lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6"
@@ -159,13 +193,19 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
                   >
                     {primaryBtnText}
                   </span>
+
                   <span
-                    className="absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
-                      w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-white
-                      lg:transition-all lg:duration-700 lg:ease-in-out 
-                      lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
+                    className="
+            absolute right-[10px] top-1/2 -translate-y-1/2 
+            flex items-center justify-center 
+            w-[38px] sm:w-[42px] md:w-[44px] 
+            h-[38px] sm:h-[42px] md:h-[44px] 
+            rounded-full bg-white
+            lg:transition-all lg:duration-700 lg:ease-in-out 
+            lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180
+          "
                   >
-                    <span className="block lg:hidden w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
+                    <span className="block lg:hidden w-[20px] sm:w-[24px] h-[18px] sm:h-[22px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
                     <span className="hidden lg:block w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrow.png')] bg-no-repeat bg-center"></span>
                   </span>
                 </Button>
@@ -176,20 +216,27 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
           {/* --- ✅ Bottom Mirrored Animated Shapes --- */}
         </BackgroundVector>
         {/* --- Bottom Shapes (absolute positioned) --- */}
-        <div className="relative w-full h-[15vh] pointer-events-none">
+        <div className="relative w-full h-[10vh] pointer-events-none overflow-visible hidden md:block">
           {/* Left Pendulum (reversed) */}
-          <div className="absolute -left-65 -bottom-20 w-[40vw] h-full flex justify-center items-end">
+          <div className="absolute -left-90 -bottom-18 w-[45vw] h-full flex justify-center items-end">
             <PendulumDroplet
               reverse
-              gradientStart="rgb(194,158,229)"
-              gradientEnd="#3b82f6"
-              blurColor="#E0F2FE"
+              gradientStart="#800080"
+              gradientEnd="#800080"
+              blurColor="rgb(194,158,229)"
             />
           </div>
 
           {/* Right Floating Square */}
-          <div className="absolute right-0 -bottom-80 w-[40vw] h-full flex justify-center items-end">
-            <FloatingSquare />
+          <div className="absolute -right-10 -bottom-80 w-[45vw] h-full flex justify-center items-end">
+            <FloatingSquare
+              gradientStart="rgb(110,194,255)"
+              gradientEnd="#0d9488"
+              shadowColor="#A7F3D0"
+              triangleColor="rgb(194,158,229)"
+              rotation={45}
+              duration={5}
+            />
           </div>
         </div>
       </div>

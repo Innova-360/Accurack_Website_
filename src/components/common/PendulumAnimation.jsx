@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useId } from "react";
 
 export default function PendulumDroplet({
   reverse = false,
@@ -7,6 +8,8 @@ export default function PendulumDroplet({
   gradientEnd = "#2dd4bf",
   blurColor = "#E3F4F6",
 }) {
+  const gradientId = useId(); // ✅ unique ID per component instance
+
   return (
     <div className="w-full h-screen bg-transparent flex items-center justify-center overflow-hidden relative">
       {/* Blurred circle background */}
@@ -49,7 +52,7 @@ export default function PendulumDroplet({
             <svg width="120" height="180" viewBox="0 0 160 180">
               <defs>
                 <linearGradient
-                  id="dropletGradient"
+                  id={`dropletGradient-${gradientId}`} // ✅ unique gradient
                   x1="0%"
                   y1="0%"
                   x2="100%"
@@ -58,7 +61,8 @@ export default function PendulumDroplet({
                   <stop offset="0%" stopColor={gradientStart} />
                   <stop offset="100%" stopColor={gradientEnd} />
                 </linearGradient>
-                <filter id="softGlow">
+
+                <filter id={`softGlow-${gradientId}`}>
                   <feGaussianBlur stdDeviation="3" result="coloredBlur" />
                   <feMerge>
                     <feMergeNode in="coloredBlur" />
@@ -72,8 +76,8 @@ export default function PendulumDroplet({
                 cx="80"
                 cy="90"
                 r="70"
-                fill="url(#dropletGradient)"
-                filter="url(#softGlow)"
+                fill={`url(#dropletGradient-${gradientId})`}
+                filter={`url(#softGlow-${gradientId})`}
                 opacity="0.95"
               />
 

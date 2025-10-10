@@ -43,7 +43,7 @@ export default function FAQSection() {
 
   return (
     <SuspenseWrapper fallback={<div className="text-center py-20">Loading FAQs...</div>}>
-      <section className="relative -mt-20 min-h-screen py-20 bg-[rgba(219,239,242)] overflow-hidden">
+      <section className="relative -mt-20 min-h-screen py-20 bg-[#F3F3F3] overflow-hidden">
         <div className="max-w-7xl mx-auto p-10">
           {/* Heading Section */}
           <div className="text-center">
@@ -146,7 +146,7 @@ export default function FAQSection() {
             preserveAspectRatio="none"
           >
             <path
-              fill="rgba(219,239,242)"
+              fill="#F3F3F3"
               fillOpacity="1"
               d="M0,280 C480,0 960,0 1440,280 L1440,320 L0,320 Z"
             />

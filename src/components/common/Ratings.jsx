@@ -53,27 +53,27 @@ export default function Ratings({ theme = "light" }) {
       >
         {icon === "left" ? (
           <Image
-            width={40}
-            height={40}
+            width={104}
+            height={104}
             src="/Images/Dropdownassests/Solutions/InventorySolutions/Get.png"
             alt={title}
-            className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-20 lg:h-6 flex-shrink-0"
+            className="w-6 h-6 sm:w-50 sm:h-20 md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
           />
         ) : icon === "right" ? (
           <Image
-            width={40}
-            height={40}
+            width={104}
+            height={104}
             src="/Images/Dropdownassests/Solutions/InventorySolutions/Msg.png"
             alt={title}
-            className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-29 lg:h-10 flex-shrink-0"
+            className="w-6 h-6 sm:w-full sm:h-full md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
           />
         ) : (
           <Image
-            width={40}
-            height={40}
+            width={64}
+            height={64}
             src={icon}
             alt={title}
-            className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-13 lg:h-10 flex-shrink-0"
+            className="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
           />
         )}
       </motion.div>
@@ -102,12 +102,12 @@ export default function Ratings({ theme = "light" }) {
       className="relative w-full z-100 py-12 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: colors.bg }}
     >
-      {/* === BLUR BACKGROUND BEHIND CONTENT === */}
+      {/* === BLUR BACKGROUND === */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[500px] h-[500px] bg-cyan-400/30 blur-[120px] rounded-full" />
       </div>
 
-      {/* === RATINGS CONTENT === */}
+      {/* === RATINGS GRID === */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-10">
         <motion.div
           initial={{ opacity: 0 }}

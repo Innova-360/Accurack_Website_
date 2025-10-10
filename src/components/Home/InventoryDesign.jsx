@@ -1,8 +1,9 @@
 "use client";
 
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useAnimation, useInView, useMotionValue, animate } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { InventoryCard } from "./InventoryCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import SuspenseWrapper from "../common/SuspenseWrapper";
 
 const items = [
@@ -37,6 +38,7 @@ function InventoryDesignInner() {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true });
   const controls = useAnimation();
+  const x = useMotionValue(0);
 
   useEffect(() => {
     if (inView) controls.start("visible");
@@ -55,12 +57,22 @@ function InventoryDesignInner() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
   };
 
+  // Slide function
+  const slide = (direction) => {
+    const distance = 300; // pixels per slide
+    const currentX = x.get();
+    const newX = direction === "left" ? currentX + distance : currentX - distance;
+
+    animate(x, newX, { duration: 0.6, ease: "easeInOut" });
+  };
+
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen bg-[linear-gradient(180deg,_#FFFFFF_0%,_#D5ECF0_115.91%)] overflow-hidden"
     >
       <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24 text-center">
+        {/* Heading */}
         <motion.div
           variants={container}
           initial="hidden"
@@ -86,18 +98,11 @@ function InventoryDesignInner() {
           </motion.p>
         </motion.div>
 
-        {/* Infinite Scrolling Cards */}
+        {/* Card Slider */}
         <div className="mt-12 relative w-full overflow-hidden">
           <motion.div
             className="flex gap-6"
-            animate={{
-              x: ["0%", "-50%"], // scroll left continuously
-            }}
-            transition={{
-              repeat: Infinity,
-              duration: 25, // adjust speed here
-              ease: "linear",
-            }}
+            style={{ x }}
           >
             {[...items, ...items].map((it, i) => (
               <div key={i} className="min-w-[280px]">
@@ -110,9 +115,26 @@ function InventoryDesignInner() {
             ))}
           </motion.div>
         </div>
+
+        {/* Centered Arrows Below Cards */}
+        <div className="mt-8 flex justify-center gap-4">
+          <button
+            onClick={() => slide("left")}
+            className="bg-white/90 hover:bg-white text-gray-700 shadow-md rounded-full p-3 transition"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={() => slide("right")}
+            className="bg-white/90 hover:bg-white text-gray-700 shadow-md rounded-full p-3 transition"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
       </div>
 
-      {/* Curved Bottom SVG */}
+      {/* Curved Bottom */}
       <div className="relative h-32 w-full bg-[#F3F3F3] overflow-hidden">
         <svg
           className="absolute top-0 left-0 w-full h-24 scale-y-[-1]"
@@ -130,7 +152,6 @@ function InventoryDesignInner() {
   );
 }
 
-// ✅ Only one default export
 export default function InventoryDesign() {
   return (
     <SuspenseWrapper fallback={<div className="text-center py-20">Loading Inventory Section...</div>}>

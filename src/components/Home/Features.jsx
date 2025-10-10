@@ -5,38 +5,38 @@ const Features = () => {
     {
       title: "Inbound Order Management",
       description:
-        "Utilize warehouse management software that covers every stage of your supply chain.",
+        "Utilize WMS that covers every stage of your supply chain.",
       arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Pack Station",
       description:
-        "Utilize warehouse management software that covers every stage of your supply chain.",
+        "Utilize WMS that covers every stage of your supply chain.",
 
       arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Shipping Management",
       description:
-        "Utilize warehouse management software that covers every stage of your supply chain.",
+        "Utilize WMS that covers every stage of your supply chain.",
       arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Inventory Control",
       description:
-        "Utilize warehouse management software that covers every stage of your supply chain.",
+        "Utilize WMS that covers every stage of your supply chain.",
       arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "Reporting & Analytics",
       description:
-        "Utilize warehouse management software that covers every stage of your supply chain.",
+        "Utilize WMS that covers every stage of your supply chain.",
       arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
     {
       title: "B2B Payments",
       description:
-        "Utilize warehouse management software that covers every stage of your supply chain.",
+        "Utilize WMS that covers every stage of your supply chain.",
       arrow: "/Images/Homeassests/FeaturesSection/arrow.png",
     },
   ];

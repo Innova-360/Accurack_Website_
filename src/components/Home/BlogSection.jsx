@@ -83,7 +83,7 @@ export default function BlogsSection() {
     <SuspenseWrapper
       fallback={<div className="text-center py-20">Loading blogs...</div>}
     >
-      <section className="relative overflow-hidden bg-[rgba(219,239,242)] px-6 py-20 md:px-12 lg:px-20 lg:py-28">
+      <section className="relative overflow-hidden bg-[#F3F3F3] px-6 py-20 md:px-12 lg:px-20 lg:py-28">
         <div className="mx-auto max-w-7xl">
           {/* Header with buttons */}
           <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

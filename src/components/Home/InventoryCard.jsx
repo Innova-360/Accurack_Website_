@@ -42,7 +42,9 @@ export function InventoryCard({
 
       {/* Text content */}
       <div className="flex flex-col flex-1 mt-4">
-        <h3 className="text-lg font-body font-semibold text-gray-900">{title}</h3>
+        <h3 className="text-lg font-heading font-semibold text-gray-900">
+          {title}
+        </h3>
         <p className="mt-2 text-sm font-body text-gray-600 line-clamp-3 leading-relaxed">
           {description}
         </p>

@@ -7,6 +7,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
+import Image from "next/image";
 
 export function ScrollStickyShowcase({ items = [], className }) {
   const [active, setActive] = useState(0);
@@ -130,20 +131,29 @@ export function ScrollStickyShowcase({ items = [], className }) {
               >
                 {/* Parallax Heading Badge */}
                 <motion.div
-                  className="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 px-4 py-2 rounded-full mb-4 border border-green-200"
+                  className="inline-flex justify-center items-center px-4 py-2 rounded-full mb-4 bg-transparent"
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <span className="font-semibold text-xs tracking-wide">
+                  <span
+                    className="font-semibold  text-3xl text-center tracking-wide"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(28, 159, 133, 0.70) 0%, rgba(28, 159, 133, 0.00) 100%)",
+                      backgroundClip: "text",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                    }}
+                  >
                     {currentMobile.heading}
                   </span>
                 </motion.div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-heading font-bold text-gray-900 mb-3">
                   {currentMobile.subheading || currentMobile.heading}
                 </h3>
-                <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                <p className="text-sm font-body text-gray-600 mb-6 leading-relaxed">
                   {currentMobile.description}
                 </p>
 
@@ -161,7 +171,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
                           <div className="w-5 h-5 rounded-full bg-cyan-500" />
                         </div>
                         <div className="flex-1 pt-2">
-                          <p className="text-sm text-gray-700 leading-relaxed">
+                          <p className="text-sm text-gray-700 font-body leading-relaxed">
                             {bullet}
                           </p>
                         </div>
@@ -190,7 +200,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
                   ) : null}
 
                   <motion.div
-                    className="relative w-[60vw] sm:w-[40vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-xl bg-white"
+                    className="relative w-[80vw] border sm:w-[60vw] aspect-[4/3] rounded-2xl overflow-hidden shadow-xl bg-white"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4 }}
@@ -198,14 +208,17 @@ export function ScrollStickyShowcase({ items = [], className }) {
                     {currentMobile.mediaType === "video" ? (
                       <video
                         src={currentMobile.mediaSrc}
-                        className="w-full h-full object-cover"
+                        className="w-full border h-full object-cover"
                         autoPlay
                         muted
                         loop
                         playsInline
                       />
                     ) : (
-                      <img
+                      <Image
+                        key={currentMobile.mediaSrc}
+                        width={300}
+                        height={400}
                         src={
                           currentMobile.mediaSrc || "/api/placeholder/400/300"
                         }
@@ -316,7 +329,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
         </div>
 
         {/* RIGHT side sticky media - FIXED STICKY */}
-        <div className="relative h-full">
+        <div className="relative sm:h-32 lg:h-full">
           <div className="sticky top-32 flex items-center justify-center w-full py-20">
             <div className="relative w-full max-w-lg overflow-visible">
               {/* Decorative Shape - Always visible behind */}
