@@ -1,19 +1,17 @@
 "use client";
 
-import ContactFormSection from "@/components/common/ContactForm"
-
+import ContactFormSection from "@/components/common/ContactForm";
 
 export default function FreeToolContact() {
   return (
-    <section aria-labelledby="contact-heading" className="relative bg-lightshade mt-20" >
-     
-
+    <section
+      aria-labelledby="contact-heading"
+      className="relative bg-lightshade mt-20"
+    >
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
         <div className="grid items-start gap-10 md:grid-cols-2 md:gap-14">
           {/* Left content */}
           <div className="space-y-6">
-            
-
             <h2
               id="contact-heading"
               className="font-serif text-3xl leading-tight text-foreground md:text-5xl"
@@ -47,11 +45,11 @@ export default function FreeToolContact() {
             </p>
             <p className="max-w-xl text-sm  text-light font-body md:text-base">
               Available Monday to Friday 9 AM -6 PM GMT
-            </p>              
+            </p>
           </div>
 
           {/* Right form */}
-          <ContactFormSection ShortForm />
+          <ContactFormSection ShortForm={true} />
         </div>
       </div>
     </section>
