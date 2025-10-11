@@ -1,6 +1,7 @@
 "use client";
 import { useId } from "react";
 import ContactForm from "../Home/ContactForm";
+import Button from "../ui/Button";
 export default function ContactFormSection({
   ShortForm = false,
   LongForm = false,
@@ -131,7 +132,7 @@ function SmallContactForm() {
             className="group relative w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] font-body font-bold text-[16px] leading-[100%] text-background bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 flex items-center justify-center overflow-hidden"
           >
             <span className="transition-transform duration-300 group-hover:-translate-x-[10px]">
-              Get My Free Consultant 
+              Get My Free Consultant
             </span>
             <span className="absolute right-2 opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 flex items-center justify-center w-[44px] h-[44px] rounded-full bg-white">
               <span className="w-[20px] h-[20px] bg-gradient-primary-2 mask-center mask-contain mask-no-repeat [mask-image:url('/Images/Navassests/ReArrow.png')]"></span>
