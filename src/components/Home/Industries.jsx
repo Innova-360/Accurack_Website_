@@ -1,4 +1,3 @@
-import Button from "../ui/Button/Button";
 import IndustriesMarquee from "./IndustriesMarquee";
 
 const Industries = () => {

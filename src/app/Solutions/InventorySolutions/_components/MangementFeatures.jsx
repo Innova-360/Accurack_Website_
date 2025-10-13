@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceFrown } from "@fortawesome/free-regular-svg-icons";
 import { faGear, faCheckDouble } from "@fortawesome/free-solid-svg-icons";
 import Img from "@/components/ui/Image";
+import Button from "@/components/ui/Button/Button";
 
 const loadFeatures = async () => domAnimation;
 
@@ -71,7 +72,7 @@ export default function AdvancedFeatures() {
               {tabs.map((t, i) => {
                 const isActive = i === active;
                 return (
-                  <button
+                  <Button
                     key={t}
                     onMouseEnter={() => window.innerWidth >= 1024 && handleTabChange(i)}
                     onClick={() => handleTabChange(i)}
@@ -86,7 +87,7 @@ export default function AdvancedFeatures() {
                         isActive ? "w-full bg-line" : "w-0"
                       }`}
                     />
-                  </button>
+                  </Button>
                 );
               })}
             </nav>

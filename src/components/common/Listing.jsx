@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Lisiting({
   title = "Surpassing Standards for Outstanding Success",
@@ -65,7 +66,10 @@ export function Lisiting({
                 {/* Image */}
                 <div className="flex-shrink-0">
                   <div className="w-32 h-32 rounded-2xl overflow-hidden bg-gray-100">
-                    <img
+                    <Image
+                      width={130}
+                      height={130}
+                      loading="lazy"
                       src={feature.image || "/api/placeholder/130/130"}
                       alt={feature.title}
                       className="w-full h-full object-cover"

@@ -1,11 +1,14 @@
-import Hero from "@/components/ui/HeroSection/Hero"
+"use client"
+import Hero from "@/components/ui/HeroSection/Hero";
 import SurSection from "@/components/common/Ratings";
-import RefeeralCard from "./_components/RefeeralCard"
-import JoinCard from "./_components/JoinCard"
-import Testimonials from "@/components/common/Testimonials"
-import RefeeralContact from "./_components/RefeeralContact"
+import RefeeralCard from "./_components/RefeeralCard";
+import JoinCard from "./_components/JoinCard";
+import Testimonials from "@/components/common/Testimonials";
+import RefeeralContact from "./_components/RefeeralContact";
 
-export default function RefeeralProgram() {
+import React from "react";
+
+const page = () => {
   return (
     <>
       <Hero
@@ -36,4 +39,6 @@ export default function RefeeralProgram() {
       <RefeeralContact />
     </>
   );
-}
+};
+
+export default page;

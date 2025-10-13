@@ -6,7 +6,7 @@ import SuspenseWrapper from "../common/SuspenseWrapper";
 import { BackgroundVector } from "./BackgroundVector";
 import InfoTabs from "./InfoTab";
 import { ScrollStickyShowcase } from "./Scroll-Sticky-Showcase";
-import Button from "../ui/Button/Button";
+import Button from "@/components/ui/Button/Button";
 import { motion } from "framer-motion";
 
 export default function Info({ primaryBtnText, primaryBtnLink }) {
@@ -133,18 +133,18 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
     relative 
     bg-transparent 
     flex flex-col items-center justify-end 
-    text-center 
+    text-center
     rounded-t-[30px] sm:rounded-t-[40px] 
-    px-4 sm:px-9 md:px-8 
-    pb-8 sm:pb-10
+    px-4 sm:px-9 md:px-8
+    pb-14 sm:pb-14
   "
           >
             <p
               className="
       text-gray-700 
       text-sm sm:text-base md:text-lg 
-      leading-relaxed 
-      max-w-md sm:max-w-md md:max-w-2xl
+      leading-relaxed font-body
+      max-w-md sm:max-w-sm md:max-w-2xl
     "
             >
               Book a <span className="font-semibold">30-minute call</span> to
@@ -159,7 +159,7 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
               className="
-      mt-6 sm:mt-8 
+      mt-6 sm:mt-16
       flex flex-col sm:flex-row 
       gap-3 sm:gap-5 md:gap-6 
       justify-center items-center
@@ -169,20 +169,20 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
                 <Button
                   href={primaryBtnLink}
                   className="
-          group relative
-          w-[170px] sm:w-[85px] md:w-[193px] 
-          h-[46px] sm:h-[50px] md:h-[51px]
-          px-5 py-3
-          rounded-[40px]
-          font-body font-bold 
-          text-[14px] sm:text-[15px] md:text-[16px] 
-          text-white
-          bg-gradient-to-r from-cyan-400 to-teal-600
-          flex items-center justify-center
-          overflow-hidden
-          hover:shadow-lg
-          transition-all duration-300
-        "
+      group relative
+      w-[170px] sm:w-[180px] md:w-[193px]
+      h-[46px] sm:h-[48px] md:h-[51px]
+      px-5 py-3
+      rounded-[40px]
+      font-body font-bold 
+      text-[14px] sm:text-[15px] md:text-[16px] 
+      text-white
+      bg-gradient-to-r from-cyan-400 to-teal-600
+      flex items-center justify-center
+      overflow-hidden
+      hover:shadow-lg
+      transition-all duration-300
+    "
                 >
                   <span
                     className={`mr-6 sm:mr-8 md:mr-7 ${
@@ -196,14 +196,15 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
 
                   <span
                     className="
-            absolute right-[10px] top-1/2 -translate-y-1/2 
-            flex items-center justify-center 
-            w-[38px] sm:w-[42px] md:w-[44px] 
-            h-[38px] sm:h-[42px] md:h-[44px] 
-            rounded-full bg-white
-            lg:transition-all lg:duration-700 lg:ease-in-out 
-            lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180
-          "
+        absolute right-[10px] top-1/2 -translate-y-1/2 
+        
+        flex items-center justify-center 
+        w-[38px] sm:w-[42px] md:w-[44px] 
+        h-[38px] sm:h-[42px] md:h-[44px] 
+        rounded-full bg-white
+        lg:transition-all lg:duration-700 lg:ease-in-out 
+        lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180
+      "
                   >
                     <span className="block lg:hidden w-[20px] sm:w-[24px] h-[18px] sm:h-[22px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
                     <span className="hidden lg:block w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrow.png')] bg-no-repeat bg-center"></span>

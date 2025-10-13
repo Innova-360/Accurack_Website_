@@ -6,7 +6,7 @@ import Testimonials from "@/components/common/Testimonials";
 import LeadingSection from "./_components/Leading";
 import PartnerContact from "./_components/PartnerContact";
 
-export default function PartnerDirectory() {
+const page = () => {
   return (
     <>
       <Hero
@@ -59,4 +59,6 @@ export default function PartnerDirectory() {
       <PartnerContact />
     </>
   );
-}
+};
+
+export default page;

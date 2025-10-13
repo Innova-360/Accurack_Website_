@@ -53,10 +53,10 @@ function TrialCta() {
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mx-auto w-full max-w-[680px] rounded-3xl bg-white p-3 ring-1 ring-black/10 shadow-xl"
+              className="mx-auto w-full max-w-[680px] rounded-3xl bg-transparent p-3 ring-1 ring-black/10 shadow-xl"
               aria-label="Dashboard preview"
             >
-              <div className="overflow-hidden rounded-2xl bg-gray-50 aspect-[680/450]">
+              <div className="overflow-hidden rounded-xl bg-transparent aspect-[680/450]">
                 <Image
                   src="/Images/Homeassests/CtaSection/screen.png"
                   alt="Product dashboard preview"

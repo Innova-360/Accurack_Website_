@@ -1,14 +1,12 @@
+
 import Hero from "@/components/ui/HeroSection/Hero";
 import SurSection from "@/components/common/Ratings";
-import StockSection from "./_components/StockLevels"
-import SneakPeekSection from "./_components/SneakPeekSection"
+import StockSection from "./_components/StockLevels";
+import SneakPeekSection from "./_components/SneakPeekSection";
 import BarcodeSection from "./_components/BarcodeSection";
-import FreeToolContact from "./_components/FreeToolContact"
+import FreeToolContact from "./_components/FreeToolContact";
 
-
-
-
-export default function FreeTools() {
+const page = () => {
   return (
     <>
       <Hero
@@ -40,4 +38,6 @@ export default function FreeTools() {
       <FreeToolContact />
     </>
   );
-}
+};
+
+export default page;
