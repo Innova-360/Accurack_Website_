@@ -20,14 +20,14 @@ export default function Ratings({ theme = "light" }) {
       {[...Array(4)].map((_, i) => (
         <Star
           key={i}
-          className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
           size={18}
+          className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
           style={{ color: colors.star, fill: colors.star }}
         />
       ))}
       <StarHalf
-        className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
         size={18}
+        className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
         style={{ color: colors.star, fill: colors.star }}
       />
     </div>
@@ -48,34 +48,34 @@ export default function Ratings({ theme = "light" }) {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: index * 0.1 + 0.2, ease: "easeOut" }}
-        className="flex items-center gap-1 sm:gap-2"
+        transition={{
+          duration: 0.4,
+          delay: index * 0.1 + 0.2,
+          ease: "easeOut",
+        }}
+        className="flex items-center justify-center"
       >
-        {icon === "left" ? (
-          <Image
-            width={104}
-            height={104}
-            src="/Images/Dropdownassests/Solutions/InventorySolutions/Get.png"
-            alt={title}
-            className="w-6 h-6 sm:w-50 sm:h-20 md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
-          />
-        ) : icon === "right" ? (
-          <Image
-            width={104}
-            height={104}
-            src="/Images/Dropdownassests/Solutions/InventorySolutions/Msg.png"
-            alt={title}
-            className="w-6 h-6 sm:w-full sm:h-full md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
-          />
-        ) : (
-          <Image
-            width={64}
-            height={64}
-            src={icon}
-            alt={title}
-            className="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
-          />
-        )}
+        <Image
+          width={100}
+          height={104}
+          src={
+            icon === "left"
+              ? "/Images/Dropdownassests/Solutions/InventorySolutions/Get.png"
+              : icon === "right"
+              ? "/Images/Dropdownassests/Solutions/InventorySolutions/Msg.png"
+              : icon
+          }
+          alt={title}
+          className="
+            w-18 h-18
+            sm:w-30 sm:h-30
+            md:w-14 md:h-14
+            lg:w-16 lg:h-16
+            xl:w-20 xl:h-20
+            object-contain
+            flex-shrink-0
+          "
+        />
       </motion.div>
 
       {/* Stars + Reviews */}
@@ -99,7 +99,7 @@ export default function Ratings({ theme = "light" }) {
 
   return (
     <section
-      className="relative w-full z-100 py-12 overflow-hidden transition-colors duration-300"
+      className="relative -mt-10 w-full z-100 py-12 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: colors.bg }}
     >
       {/* === BLUR BACKGROUND === */}

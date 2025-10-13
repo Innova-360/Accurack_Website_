@@ -3,7 +3,7 @@
 import { useState, useCallback, memo } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Image from "next/image";
-import Button from "../ui/Button/Button";
+import Button from "@/components/ui/Button/Button";
 
 // ✅ Static animation configs (outside component)
 const fadeInUp = {

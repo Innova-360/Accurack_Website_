@@ -14,65 +14,75 @@ export default function InfoTabs() {
   ];
 
   return (
-    <div className="flex items-center justify-center w-full mt-1 max-w-md p-1">
-      <div className="grid grid-cols-2">
-        {tabs.map((tab, index) => {
-          const Icon = tab.icon;
-          return (
-            <motion.div
-              key={index}
-              initial={{ x: index % 2 === 0 ? -100 : 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: index > 1 ? 0.2 : 0,
-              }}
-            >
-              <button
-                onClick={() => setActiveTab(index)}
-                className={`relative w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200
-                  ${
-                    activeTab === index
-                      ? "text-gray-900 font-medium bg-transparent"
-                      : "text-gray-600"
-                  }
-                  group overflow-hidden
-                `}
-              >
-                <Icon className="w-5 h-5 z-10" />
-                <span
-                  className={`
-                    text-md whitespace-nowrap z-10 relative transition-all duration-500
-                    group-hover:text-transparent group-hover:bg-clip-text
-                    group-hover:bg-[linear-gradient(270deg,#ff0000,#ff9900,#ffff00,#00ff00,#00ffff,#0000ff,#ff00ff,#ff0000)]
-                    group-hover:animate-gradientReverse
-                  `}
-                >
-                  {tab.label}
-                </span>
-              </button>
-            </motion.div>
-          );
-        })}
+    <div className="w-full max-w-md mx-auto p-3">
+      <div className="grid grid-cols-2 gap-1">
+        {/* First Row */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div
+            onClick={() => setActiveTab(0)}
+            className={`
+             w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200
+
+            `}
+          >
+            <Link2 className="w-5 h-5" />
+            <span className="text-sm whitespace-nowrap">{tabs[0].label}</span>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <button
+            onClick={() => setActiveTab(1)}
+            className={`
+              w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200
+            `}
+          >
+            <Package className="w-5 h-5" />
+            <span className="text-sm whitespace-nowrap">{tabs[1].label}</span>
+          </button>
+        </motion.div>
+
+        {/* Second Row */}
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          <button
+            onClick={() => setActiveTab(2)}
+            className={`
+              w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200
+            `}
+          >
+            <Warehouse className="w-5 h-5" />
+            <span className="text-sm whitespace-nowrap">{tabs[2].label}</span>
+          </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
+          <button
+            onClick={() => setActiveTab(3)}
+            className={`
+              w-full flex items-center gap-2 px-4 py-3 rounded-lg transition-all duration-200
+            `}
+          >
+            <BarChart3 className="w-5 h-5" />
+            <span className="text-sm whitespace-nowrap">{tabs[3].label}</span>
+          </button>
+        </motion.div>
       </div>
-
-      {/* 💫 Reversed Animated Gradient (Right → Left) */}
-      <style jsx>{`
-        @keyframes gradientReverse {
-          0% {
-            background-position: 200% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-
-        .animate-gradientReverse {
-          background-size: 200% 200%;
-          animation: gradientReverse 2.5s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }

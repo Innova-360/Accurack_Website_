@@ -24,9 +24,9 @@ const blogs = [
     image: "/Images/Homeassests/BlogSection/Blog-1.png",
     author: "Alex Martin",
     date: "26 Sept 2025",
-    title: "Barcode Inventory System for Small Businesses: 5 Key Features",
+    title: "Barcode Inventory System for Small Businesses: 5 Features",
     excerpt:
-      "A barcode inventory system can help increase the efficiency of businesses of all sizes.",
+      "A barcode inventory system can help increase the efficiency of businesses",
   },
   {
     id: "2",
@@ -83,7 +83,7 @@ export default function BlogsSection() {
     <SuspenseWrapper
       fallback={<div className="text-center py-20">Loading blogs...</div>}
     >
-      <section className="relative overflow-hidden bg-[#F3F3F3] px-6 py-20 md:px-12 lg:px-20 lg:py-28">
+      <section className="relative overflow-hidden bg-[#F3F3F3] px-6 md:px-12 lg:px-20 lg:py-1">
         <div className="mx-auto max-w-7xl">
           {/* Header with buttons */}
           <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">

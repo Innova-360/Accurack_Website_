@@ -1,4 +1,4 @@
-import FeatureCardGrid from "./FeatureCard";
+import { FeatureCardGrid } from "./FeatureCard";
 
 const Features = () => {
   const features = [
