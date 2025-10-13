@@ -114,10 +114,11 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
           <div className="relative w-full mx-auto h-full flex max-w-6xl flex-col items-center">
             <div className="w-full flex flex-col items-center justify-center gap-8">
               <Image
-                src="/Images/Homeassests/HomeImages/info-logo.png"
+                src="/Images/Homeassests/HomeImages/infoLogo.png"
                 alt="Top Logo"
                 width={100}
                 height={142}
+                loading="lazy"
                 className="w-29 h-29 mt-10 object-contain"
               />
               <InfoTabs />

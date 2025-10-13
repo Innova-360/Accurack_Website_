@@ -129,7 +129,7 @@ export default function Ratings({ theme = "light" }) {
             index={1}
           />
           <Item
-            icon="/Images/Dropdownassests/Solutions/InventorySolutions/Next.PNG"
+            icon="/Images/Dropdownassests/Solutions/InventorySolutions/Next.png"
             title="G2"
             rating="4.2 (941 reviews)"
             index={2}
