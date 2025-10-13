@@ -7,12 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "next/navigation";
 import Img from "../ui/Image/Image";
-import Button from "@/components/ui/Button/Button";
+import Button from "../ui/Button/Button";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
   const dropdownRef = useRef(null);
   const hoverTimeout = useRef(null);
   const pathname = usePathname();
@@ -21,9 +22,10 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenu(false);
     setOpenDropdown(null);
+    setMobileOpenDropdown(null);
   }, [pathname]);
 
-  // Close dropdown on outside click
+  // Close dropdown on outside click (Desktop only)
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -39,7 +41,7 @@ export default function Navbar() {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setMobileMenu(false);
-        setOpenDropdown(null);
+        setMobileOpenDropdown(null);
       }
     };
     window.addEventListener("resize", handleResize);
@@ -57,8 +59,8 @@ export default function Navbar() {
     }, 120);
   };
 
-  const handleDropdownToggle = (idx) => {
-    setOpenDropdown((prev) => (prev === idx ? null : idx));
+  const toggleMobileDropdown = (idx) => {
+    setMobileOpenDropdown((prev) => (prev === idx ? null : idx));
   };
 
   const navItems = [
@@ -207,12 +209,15 @@ export default function Navbar() {
       )}
 
       <nav className="fixed top-[18px] z-[10000] w-full mx-auto flex justify-around gap-3 items-center px-6 lg:px-10">
-        {/* Desktop Navbar */}
+        {/* Desktop Navbar - UNTOUCHED */}
         <div
           ref={dropdownRef}
           className="hidden lg:flex items-center justify-start w-[890px] h-[67px] rounded-[666px] font-body bg-background"
         >
-          <Link href="/" className="flex items-center w-[150px] h-[45px] ml-[9px]">
+          <Link
+            href="/"
+            className="flex items-center w-[150px] h-[45px] ml-[9px]"
+          >
             <Img
               src="/Images/Navassests/Accurack.png"
               width={133}
@@ -239,9 +244,7 @@ export default function Navbar() {
                   </Link>
                 ) : (
                   <>
-                    <Button
-                      className="flex items-center text-[15px] px-4 py-2 rounded-md font-body text-text font-semibold hover:text-[var(--color-gradient-primary-2)]"
-                    >
+                    <Button className="flex items-center text-[15px] px-4 py-2 rounded-md font-body text-text font-semibold hover:text-[var(--color-gradient-primary-2)]">
                       {item.name}
                       <ChevronDown
                         className={`ml-1 w-4 h-4 transition-transform duration-300 ${
@@ -267,7 +270,10 @@ export default function Navbar() {
                             >
                               <div className="flex items-center gap-3">
                                 {sub.isIcon ? (
-                                  <FontAwesomeIcon icon={sub.icon} className="w-5 h-5" />
+                                  <FontAwesomeIcon
+                                    icon={sub.icon}
+                                    className="w-5 h-5"
+                                  />
                                 ) : (
                                   <span
                                     className="w-5 h-5 inline-block bg-dropdownnavtext mask-center mask-contain mask-no-repeat"
@@ -291,9 +297,12 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Desktop Buttons */}
+        {/* Desktop Buttons - UNTOUCHED */}
         <div className="hidden lg:flex items-center gap-[22px] w-[319px] h-[67px] px-2 rounded-[666px] font-body bg-background">
-          <Button href="/login" className="w-[94px] h-[51px]  font-bold text-[16px] text-[var(--color-gradient-primary-2)]">
+          <Button
+            href="/login"
+            className="w-[94px] h-[51px]  font-bold text-[16px] text-[var(--color-gradient-primary-2)]"
+          >
             Login
           </Button>
           <Button
@@ -309,8 +318,8 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile Navbar */}
-        <div className="lg:hidden flex items-center justify-between px-4 py-3 fixed top-0 left-0 w-full z-50">
+        {/* Mobile Navbar Header - REBUILT FROM SCRATCH */}
+        <div className="lg:hidden flex items-center justify-between px-4 py-3 fixed top-0 left-0 w-full z-50 bg-transparent">
           <Img
             src="/Images/Navassests/Accurack.png"
             width={106}
@@ -318,7 +327,13 @@ export default function Navbar() {
             alt="Accurack Logo"
             className="object-contain"
           />
-          <Button onClick={() => setMobileMenu(true)}>
+          <div
+            className="p-2 cursor-pointer"
+            onPointerDown={(e) => {
+              e.preventDefault();
+              setMobileMenu(true);
+            }}
+          >
             <svg
               className="w-8 h-8 text-primary"
               fill="none"
@@ -326,132 +341,165 @@ export default function Navbar() {
               strokeWidth={2}
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
-          </Button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Sidebar - REBUILT FROM SCRATCH */}
         <AnimatePresence>
           {mobileMenu && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="fixed top-0 right-0 h-full w-[359px] bg-primary text-white z-50 rounded-tl-[17px] rounded-bl-[17px] flex flex-col"
-            >
-              <Button onClick={() => setMobileMenu(false)} className="absolute top-4 right-4">
-                <X className="w-6 h-6 text-white" />
-              </Button>
+            <div className="fixed inset-0 z-50 lg:hidden">
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }}
+                className="fixed top-0 right-0 h-full w-[359px] bg-primary text-white rounded-tl-[17px] rounded-bl-[17px] flex flex-col"
+              >
+                {/* Close Button */}
+                <div
+                  className="absolute top-4 right-4 p-2 cursor-pointer"
+                  onPointerDown={(e) => {
+                    e.preventDefault();
+                    setMobileMenu(false);
+                    setMobileOpenDropdown(null);
+                  }}
+                >
+                  <X className="w-6 h-6 text-white" />
+                </div>
 
-              <div className="flex items-center px-6 mt-6">
-                <Img
-                  src="/Images/Navassests/WhiteLog.png"
-                  width={123}
-                  height={35}
-                  alt="Accurack Logo"
-                  className="object-contain"
-                />
-              </div>
+                {/* Logo */}
+                <div className="flex items-center px-6 mt-6">
+                  <Img
+                    src="/Images/Navassests/WhiteLog.png"
+                    width={123}
+                    height={35}
+                    alt="Accurack Logo"
+                    className="object-contain"
+                  />
+                </div>
 
-              <div className="flex-1 mt-8 px-6 space-y-2 overflow-y-auto pb-40">
-                {navItems.map((item, idx) => (
-                  <div key={idx}>
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        onClick={() => setMobileMenu(false)}
-                        className="block border-b border-white/20 py-3 text-[24px] text-white/70"
-                      >
-                        {item.name}
-                      </Link>
-                    ) : (
-                      <div>
-                        <Button
-                          type="Button"
-                          onClick={() => handleDropdownToggle(idx)}
-                          className="w-full flex justify-between items-center border-b border-white/20 py-3 text-[24px] text-white/70"
+                {/* Navigation Items */}
+                <div className="flex-1 mt-8 px-6 overflow-y-auto pb-40">
+                  {navItems.map((item, idx) => (
+                    <div key={idx} className="mb-0">
+                      {item.href ? (
+                        <Link
+                          href={item.href}
+                          className="block border-b border-white/20 py-3 text-[24px] text-white/70"
+                          onPointerDown={() => {
+                            setMobileMenu(false);
+                          }}
                         >
-                          <span>{item.name}</span>
-                          <span className="text-2xl">
-                            {openDropdown === idx ? "−" : "+"}
-                          </span>
-                        </Button>
+                          {item.name}
+                        </Link>
+                      ) : (
+                        <div>
+                          {/* Dropdown Header */}
+                          <div
+                            className="w-full flex justify-between items-center border-b border-white/20 py-3 text-[24px] text-white/70 cursor-pointer"
+                            onPointerDown={(e) => {
+                              e.preventDefault();
+                              toggleMobileDropdown(idx);
+                            }}
+                          >
+                            <span>{item.name}</span>
+                            <span className="text-2xl select-none">
+                              {mobileOpenDropdown === idx ? "−" : "+"}
+                            </span>
+                          </div>
 
-                        <AnimatePresence>
-                          {openDropdown === idx && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="ml-4 mt-2 flex flex-col space-y-2"
-                            >
-                              {item.dropdown?.map((sub, subIdx) => (
-                                <Link
-                                  key={subIdx}
-                                  href={sub.href}
-                                  onClick={() => {
-                                    setOpenDropdown(null);
-                                    setMobileMenu(false);
-                                  }}
-                                  className="flex items-center gap-3 py-2 text-[20px] text-white/70"
-                                >
-                                  {sub.isIcon ? (
-                                    <FontAwesomeIcon icon={sub.icon} className="w-6 h-6 text-cyan-300" />
-                                  ) : (
-                                    <div
-                                      className="w-6 h-6 bg-cyan-300 mask-no-repeat mask-center mask-contain"
-                                      style={{
-                                        WebkitMaskImage: `url(${sub.icon})`,
-                                        maskImage: `url(${sub.icon})`,
-                                      }}
-                                    ></div>
-                                  )}
-                                  {sub.name}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Bottom Buttons - fade out only on dropdown open */}
-              <AnimatePresence>
-                {openDropdown === null && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute bottom-10 left-0 w-full px-6 flex flex-col space-y-4"
-                  >
-                    <div className="relative flex items-center justify-center bg-white w-[292px] h-[59px] rounded-full mx-auto">
-                      <span className="font-medium text-[16px] text-navbuttontext">Book a Demo</span>
-                      <div className="absolute right-4 flex items-center justify-center w-[44px] h-[44px] rounded-full bg-navbuttontext">
-                        <Img
-                          src="/Images/Navassests/Whitearrow.png"
-                          width={24}
-                          height={24}
-                          alt="Arrow"
-                        />
-                      </div>
+                          {/* Dropdown Content */}
+                          <AnimatePresence>
+                            {mobileOpenDropdown === idx && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="ml-4 mt-2 mb-2 overflow-hidden"
+                              >
+                                {item.dropdown?.map((sub, subIdx) => (
+                                  <Link
+                                    key={subIdx}
+                                    href={sub.href}
+                                    className="flex items-center gap-3 py-2 text-[20px] text-white/70"
+                                    onPointerDown={() => {
+                                      setMobileOpenDropdown(null);
+                                      setMobileMenu(false);
+                                    }}
+                                  >
+                                    {sub.isIcon ? (
+                                      <FontAwesomeIcon
+                                        icon={sub.icon}
+                                        className="w-6 h-6 text-cyan-300"
+                                      />
+                                    ) : (
+                                      <div
+                                        className="w-6 h-6 bg-cyan-300"
+                                        style={{
+                                          WebkitMaskImage: `url(${sub.icon})`,
+                                          maskImage: `url(${sub.icon})`,
+                                          WebkitMaskRepeat: "no-repeat",
+                                          WebkitMaskPosition: "center",
+                                          WebkitMaskSize: "contain",
+                                          maskRepeat: "no-repeat",
+                                          maskPosition: "center",
+                                          maskSize: "contain",
+                                        }}
+                                      />
+                                    )}
+                                    {sub.name}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      )}
                     </div>
+                  ))}
+                </div>
 
-                    <div className="flex items-center justify-center border w-[292px] h-[59px] mx-auto rounded-full border-white">
-                      <span className="font-medium text-[16px] text-white">
-                        Start Free Trial
-                      </span>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                {/* Bottom Buttons */}
+                <AnimatePresence>
+                  {mobileOpenDropdown === null && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute bottom-10 left-0 w-full px-6 flex flex-col gap-4"
+                    >
+                      <div className="relative flex items-center justify-center bg-white w-[292px] h-[59px] rounded-full mx-auto">
+                        <span className="font-medium text-[16px] text-navbuttontext">
+                          Book a Demo
+                        </span>
+                        <div className="absolute right-4 flex items-center justify-center w-[44px] h-[44px] rounded-full bg-navbuttontext">
+                          <Img
+                            src="/Images/Navassests/Whitearrow.png"
+                            width={24}
+                            height={24}
+                            alt="Arrow"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-center border w-[292px] h-[59px] mx-auto rounded-full border-white">
+                        <span className="font-medium text-[16px] text-white">
+                          Start Free Trial
+                        </span>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </div>
           )}
         </AnimatePresence>
       </nav>
