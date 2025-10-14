@@ -12,7 +12,7 @@ const page = () => {
       <Hero
         heading="Partner with Accurack: Grow Together"
         description="Collaborate with Accurack to expand your business, offer enhanced solutions, and drive mutual success."
-        primaryBtnText="Become an Accurack Partner"
+        primaryBtnText="Accurack Partner"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"

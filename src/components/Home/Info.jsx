@@ -89,14 +89,20 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
       </div>
 
       {/* Header section */}
-      <div className="relative z-10 flex lg:-mt-30 flex-col items-center justify-center text-center px-1 py-10 sm:py-16 lg:py-24 gap-6 max-w-6xl mx-auto">
-        <div className="inline-flex font-heading items-center bg-white text-black justify-center font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px]">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-2 py-10 sm:py-16 lg:py-24 gap-6 max-w-6xl mx-auto">
+        {/* Tagline */}
+        <div className="inline-flex items-center justify-center border bg-white text-black font-lora font-medium text-sm sm:text-base px-4 py-1 rounded-md">
           Discover Accurack
         </div>
-        <h1 className="text-gray-900 font-heading text-lg sm:text-3xl md:text-4xl font-semibold max-w-3xl">
-          See How Accurack Saves You <br /> Time & Money{" "}
+
+        {/* Heading */}
+        <h1 className="text-gray-900 font-heading font-semibold text-2xl sm:text-4xl md:text-5xl max-w-3xl">
+          See How Accurack Saves You <br className="hidden sm:block" /> Time &
+          Money
         </h1>
-        <p className="text-gray-400 font-body text-sm sm:text-3xl md:text-sm max-w-xl">
+
+        {/* Description */}
+        <p className="text-gray-400 font-body text-sm sm:text-base md:text-lg max-w-xl">
           Accurack's advanced features meet the challenging demands of your
           industry and alleviate unnecessary pain points, saving you valuable
           time and money.
@@ -171,7 +177,7 @@ export default function Info({ primaryBtnText, primaryBtnLink }) {
                   href={primaryBtnLink}
                   className="
       group relative
-      w-[170px] sm:w-[180px] md:w-[193px]
+      w-[170px] sm:w-[150px] md:w-[193px]
       h-[46px] sm:h-[48px] md:h-[51px]
       px-5 py-3
       rounded-[40px]

@@ -26,7 +26,7 @@ function HeroContent({
   reverse,
 }) {
   return (
-    <section className={`w-full mt-16 mb-10 ${bgColor || ""}`}>
+    <section className={`w-full mt-16 lg:mt-36 mb-10 ${bgColor || ""}`}>
       <div
         className={`max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center 
           ${containerPadding || ""} 

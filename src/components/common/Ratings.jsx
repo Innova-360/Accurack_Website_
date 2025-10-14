@@ -11,25 +11,48 @@ export default function Ratings({ theme = "light" }) {
   const colors = {
     bg: isDark ? "#0a0a0a" : "#f8fafc",
     text: isDark ? "#e5e7eb" : "#1e293b",
-    star: isDark ? "#ffffff" : "#FFCA43",
+    star: isDark ? "#FFCA43" : "#FFCA43",
+    border: isDark ? "#FFCA43" : "#FFCA43",
   };
 
   // === RATING STARS ===
   const RatingStars = () => (
     <div className="flex gap-[2px] sm:gap-1 justify-center">
       {[...Array(4)].map((_, i) => (
-        <Star
+        <span
           key={i}
+          className="flex items-center justify-center p-[2px] sm:p-[3px] rounded-full border transition-all duration-200 hover:scale-110"
+          style={{
+            borderColor: colors.border,
+            boxShadow: `0 0 6px ${colors.star}33`,
+          }}
+        >
+          <Star
+            size={18}
+            className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
+            style={{
+              color: colors.star,
+              fill: colors.star,
+            }}
+          />
+        </span>
+      ))}
+      <span
+        className="flex items-center justify-center p-[2px] sm:p-[3px] rounded-full border transition-all duration-200 hover:scale-110"
+        style={{
+          borderColor: colors.border,
+          boxShadow: `0 0 6px ${colors.star}33`,
+        }}
+      >
+        <StarHalf
           size={18}
           className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
-          style={{ color: colors.star, fill: colors.star }}
+          style={{
+            color: colors.star,
+            fill: colors.star,
+          }}
         />
-      ))}
-      <StarHalf
-        size={18}
-        className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
-        style={{ color: colors.star, fill: colors.star }}
-      />
+      </span>
     </div>
   );
 

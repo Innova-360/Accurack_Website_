@@ -103,27 +103,27 @@ export default function IntegrationsSection() {
           </div>
 
           {/* 🔹 Right Column: Text + Button */}
-          <div className="flex flex-col gap-2 lg:pl-9 relative z-50">
-            <span className="inline-flex items-center justify-center border border-black font-heading font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] w-fit">
+          <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6 lg:pl-9 relative z-50">
+            {/* Tagline */}
+            <span className="inline-flex items-center justify-center border border-black font-heading font-medium text-sm sm:text-base md:text-lg px-4 py-2 rounded-md w-fit">
               Discover Accurack
             </span>
 
-            {/* Heading with Power same line */}
-            <h2
-              style={{ fontFamily: "'Lora', serif" }}
-              className="font-lora font-medium text-[50px] leading-[70px] text-white"
-            >
+            {/* Heading */}
+            <h2 className="font-heading font-medium text-2xl sm:text-4xl md:text-5xl lg:text-[50px] leading-tight sm:leading-[50px] md:leading-[60px] lg:leading-[70px] text-white">
               Our Integrations Power Diverse Industries
             </h2>
 
-            <p className="text-gray-500 font-inter font-normal text-[16px] leading-[24px]">
+            {/* Description */}
+            <p className="text-gray-400 font-inter font-normal text-sm sm:text-base md:text-lg leading-[22px] sm:leading-[24px] max-w-2xl">
               Accurack integrates with the tools you already use, streamlining
               operations across ecommerce, wholesale, logistics, and beyond.
             </p>
 
+            {/* Button */}
             <Button
               href="#"
-              className="bg-black border border-white text-white font-plusjakarta font-medium text-[16px] uppercase px-5 py-3 rounded-md hover:bg-white hover:text-black transition w-fit"
+              className="bg-black border border-white text-white font-plusjakarta font-medium text-sm sm:text-base md:text-lg uppercase px-5 py-3 rounded-md hover:bg-white hover:text-black transition w-fit"
             >
               VIEW ALL INTEGRATIONS
             </Button>

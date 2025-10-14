@@ -14,7 +14,7 @@ const page = () => {
       <Hero
         heading="Join Our Referral Program: Share Accurack, Earn Rewards"
         description="Refer businesses to Accurack and receive exciting incentives for every successful conversion."
-        primaryBtnText="Join the Referral Program Now"
+        primaryBtnText="Join Program Now"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"

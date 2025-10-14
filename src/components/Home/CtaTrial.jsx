@@ -30,7 +30,7 @@ function TrialCta() {
               Try our End-to-End WHM system for{" "}
               <span className="font-semibold">14 days</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-[hsl(var(--muted-foreground))]">
+            <p className="mt-4 max-w-2xl font-body text-[hsl(var(--muted-foreground))]">
               Have any queries? Call us today and speak to our expert team for
               tailored assistance regarding our WMS – WareGo. We’d love to hear
               from you!
