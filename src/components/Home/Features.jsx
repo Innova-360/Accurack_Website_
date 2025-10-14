@@ -49,15 +49,13 @@ const Features = () => {
       {/* Heading */}
       <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-2">
         <div
-          style={{ fontFamily: "'Lora', serif" }}
-          className="inline-flex items-center justify-center border font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-[#18BDA0]"
+          className="inline-flex font-heading items-center justify-center border font-lora font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-[#18BDA0]"
         >
           Features
         </div>
 
         <h1
-          style={{ fontFamily: "'Lora', serif" }}
-          className="text-gray-900 text-2xl sm:text-3xl md:text-4xl 
+          className="text-gray-900 font-heading text-3xl md:text-4xl 
                     font-semibold max-w-3xl"
         >
           Key Features Of Our WMS

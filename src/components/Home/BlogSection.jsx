@@ -102,7 +102,7 @@ export default function BlogsSection() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
-                className="font-serif text-4xl font-normal leading-tight text-gray-900 md:text-5xl lg:text-6xl"
+                className="font-serif text-3xl font-normal leading-tight text-gray-900 md:text-5xl lg:text-6xl"
               >
                 Our Recent Blogs
               </motion.h2>
@@ -111,7 +111,7 @@ export default function BlogsSection() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 }}
-                className="text-gray-600 mt-2"
+                className="text-gray-600 mt-2 font-body lg:text-2xl text-sm"
               >
                 Stay updated with our latest insights and guides.
               </motion.p>

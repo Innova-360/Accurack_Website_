@@ -12,7 +12,7 @@ const page = () => {
       <Hero
         heading="Free Tools: Empower Your Inventory Management"
         description="Access complimentary resources to optimize your inventory, calculate ROI, and streamline operations."
-        primaryBtnText="Become an Accurack Partner"
+        primaryBtnText="Accurack Partner"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"

@@ -43,7 +43,7 @@ export default function CommunitySection() {
         {/* Heading */}
         <div className="max-w-[800px] mx-auto text-center px-4">
           <m.h2
-            className="font-medium font-heading text-[42px] md:text-[48px] leading-tight text-text"
+            className="font-medium font-heading text-3xl md:text-[48px] leading-tight text-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -53,7 +53,7 @@ export default function CommunitySection() {
           </m.h2>
 
           <m.p
-            className="mt-6 font-body text-[16px] leading-[24px] text-light font-normal"
+            className="mt-6 font-body text-sm leading-[24px] text-light font-normal"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -96,10 +96,10 @@ function FeatureBlock({ heading, text, image, bg, reverse }) {
             : "items-start text-left sm:items-start sm:text-left"
         }`}
       >
-        <h3 className="font-medium text-[22px] md:text-[24px] leading-[32px] text-text font-body mb-4">
+        <h3 className="font-medium font-heading text-2xl md:text-[24px] leading-[32px] text-text mb-4">
           {heading}
         </h3>
-        <p className="text-[15px] md:text-[16px] leading-[24px] font-body text-shade font-normal">
+        <p className="text-sm md:text-[16px] leading-[24px] font-body text-shade font-normal">
           {text}
         </p>
       </div>

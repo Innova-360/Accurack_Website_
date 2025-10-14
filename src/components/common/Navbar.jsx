@@ -193,7 +193,7 @@ export default function Navbar() {
         },
       ],
     },
-    { name: "Pricing", href: "/pricing" },
+    { name: "Pricing", href: "/Pricing" },
   ];
 
   return (

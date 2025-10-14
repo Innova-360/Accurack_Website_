@@ -102,6 +102,7 @@ export default function InventoryManagementFeaturesCards() {
                 iconWidth={28}
                 iconHeight={28}
                 iconGlow
+                className={"font-body"}
               />
             </m.div>
           ))}

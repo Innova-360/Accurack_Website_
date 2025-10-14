@@ -5,11 +5,11 @@ const Industries = () => {
     <div className="relative w-full overflow-hidden bg-[linear-gradient(180deg,#FFFFFF_0%,#D5ECF0_115.91%)] min-h-[500px] flex flex-col items-center justify-center text-center">
       {/* Heading */}
       <div className="flex flex-col items-center justify-center text-center px-4 py-10 sm:py-16 lg:py-24 gap-2">
-        <div className="inline-flex items-center justify-center font-heading border font-medium text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-text">
+        <div className="inline-flex items-center justify-center font-heading border font-medium text-sm lg:text-[16px] leading-[100%] px-4 py-1 rounded-[7px] text-text">
           Discover Accurack
         </div>
 
-        <h1 className="text-text font-heading text-lg sm:text-3xl md:text-4xl font-semibold max-w-5xl">
+        <h1 className="text-text font-heading text-3xl md:text-4xl font-semibold max-w-5xl">
           Our Integrations Power Diverse Industries
         </h1>
 

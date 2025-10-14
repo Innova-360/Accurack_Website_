@@ -1,10 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import {
-  motion,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export default function ForecastingSection() {
@@ -102,7 +99,9 @@ export default function ForecastingSection() {
       >
         {/* Features Tag */}
         <motion.span
-          className="inline-flex items-center justify-center border border-[#18BDA0] text-[#18BDA0] font-medium text-[14px] sm:text-[16px] leading-[100%] px-3 sm:px-4 py-1 rounded-[7px] mb-4 sm:mb-6"
+          className="inline-flex items-center justify-center border border-[#18BDA0] text-[#18BDA0] font-medium 
+  text-[13px] sm:text-[15px] md:text-[16px] leading-[100%] 
+  px-3 sm:px-4 py-[6px] rounded-[7px] mb-3 sm:mb-5"
           variants={itemVariants}
         >
           Features
@@ -110,7 +109,9 @@ export default function ForecastingSection() {
 
         {/* Heading */}
         <motion.h2
-          className="font-medium font-heading text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[110%] sm:leading-[100%] text-[#070709] text-center mb-3 sm:mb-4 px-2"
+          className="font-heading font-semibold text-3xl md:text-[38px] lg:text-[46px] 
+  leading-[115%] sm:leading-[110%] md:leading-[105%] text-[#070709] 
+  text-center mb-3 sm:mb-5 px-2"
           variants={itemVariants}
         >
           AI-Driven Demand Forecasting for{" "}
@@ -119,7 +120,9 @@ export default function ForecastingSection() {
 
         {/* Paragraph */}
         <motion.p
-          className="text-[#070709] font-body font-normal text-[14px] sm:text-[16px] leading-[20px] sm:leading-[24px] text-center max-w-4xl mb-8 sm:mb-12 px-2"
+          className="text-[#070709] font-body font-normal text-sm sm:text-sm md:text-[16px] 
+  leading-[20px] sm:leading-[24px] md:leading-[26px] 
+  text-center max-w-3xl sm:max-w-4xl mb-6 sm:mb-10 px-3"
           variants={itemVariants}
         >
           Discover why businesses partner with us to overcome challenges and
