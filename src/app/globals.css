@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:wght@500&family=Inter:wght@500&display=swap');
+
 @import "tailwindcss";
 
 /* ===========================
@@ -50,6 +52,13 @@
   --color-Footertext: #EFEFEF;
   --color-footerline: #E7E5E4;
   --color-bordericon: #93C5CC;
+  --color-desclight: #0A0A0A;
+  --color-bgnew: #F4EED9;
+  --color-border1: #D1D5DC;
+  --color-tablehead:#F8FAFC;
+  --color-tablecol: #F3FEE8;
+  --color-tablecolbord:#4F9E00;
+  
   
 
   /* Feature Backgrounds */
@@ -85,7 +94,22 @@
   --font-body: "Plus Jakarta Sans", sans-serif;
   --font-title: "Base Neue", monospace;
   --font-text: "Inter", sans-serif;
+   --font-desc: Arial, sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
 }
+
+
+
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
 
 /* ===========================
    🔤 Font Face

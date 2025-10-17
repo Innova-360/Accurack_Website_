@@ -57,7 +57,7 @@ function TestimonialsComponent() {
   );
 
   return (
-    <div className="w-full py-20 max-w-6xl mx-auto px-6">
+    <div className="w-full py-20 max-w-6xl mx-auto px-6 -mt-15">
       {/* Header */}
       <m.div
         initial={{ opacity: 0, y: -20 }}

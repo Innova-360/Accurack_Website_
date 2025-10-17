@@ -24,6 +24,9 @@ function HeroContent({
   descSize,
   containerPadding,
   reverse,
+  imageWrapperClass,
+  showImageLayers = true,
+   showImageBorder = true,
 }) {
   return (
     <section className={`w-full mt-16 lg:mt-36 mb-10 ${bgColor || ""}`}>
@@ -138,52 +141,60 @@ function HeroContent({
         </div>
 
         {/* Right Side Image */}
-        {imageSrc && (
-          <motion.div
-            initial={{ opacity: 0, x: reverse ? -50 : 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative flex justify-center items-center h-full"
-          >
-            <div className="relative w-full max-w-[700px]">
-              {/* Decorative borders */}
-              <motion.div
-                initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
-                animate={{ opacity: 1, rotate: 4, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[3px] border-teal-400 z-0"
-              />
-              <motion.div
-                initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
-                animate={{ opacity: 0.6, rotate: 7, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400 z-0"
-              />
-              <motion.div
-                initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
-                animate={{ opacity: 0.3, rotate: 10, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400 z-0"
-              />
-
-              {/* Image */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <Image
-                  width={709}
-                  height={473}
-                  loading="lazy"
-                  src={imageSrc || "/api/placeholder/709/473"}
-                  alt={imageAlt}
-                  className="relative w-full h-auto object-cover rounded-[30px] sm:rounded-[42px] border-[4px] sm:border-[5px] border-teal-700 z-10"
+             {imageSrc && (
+        <motion.div
+          initial={{ opacity: 0, x: reverse ? -50 : 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className={`relative flex justify-center items-center h-full ${imageWrapperClass || ""}`}
+        >
+          <div className="relative w-full max-w-[700px]">
+            {/* 🔹 Decorative layers */}
+            {showImageLayers && (
+              <>
+                <motion.div
+                  initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, rotate: 4, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[3px] border-teal-400 z-0"
                 />
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
+                <motion.div
+                  initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+                  animate={{ opacity: 0.6, rotate: 7, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400 z-0"
+                />
+                <motion.div
+                  initial={{ opacity: 0, rotate: 0, scale: 0.9 }}
+                  animate={{ opacity: 0.3, rotate: 10, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="absolute inset-0 rounded-[30px] sm:rounded-[42px] border-[2px] border-teal-400 z-0"
+                />
+              </>
+            )}
+
+            {/* 🖼️ Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <Image
+                width={709}
+                height={473}
+                loading="lazy"
+                src={imageSrc || "/api/placeholder/709/473"}
+                alt={imageAlt}
+                className={`relative w-full h-auto object-cover rounded-[30px] sm:rounded-[42px] ${
+                  showImageBorder ? "border-[4px] sm:border-[5px] border-teal-700" : ""
+                } z-10`}
+              />
+            </motion.div>
+          </div>
+        </motion.div>
+      )}
+
+  
       </div>
     </section>
   );
