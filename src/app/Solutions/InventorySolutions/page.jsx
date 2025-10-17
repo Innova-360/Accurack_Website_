@@ -15,7 +15,7 @@ export default function InSolutions() {
           heading={<>Precision <br /> Inventory <br /> Management</>}
           description="Optimize stock, streamline operations, and enhance efficiency with Accurack's intelligent AI Warehouse Suite."
           primaryBtnText="Book a Demo"
-          primaryBtnLink="/book-demo"
+          primaryBtnLink="/Demo"
           secondaryBtnText="Start Free Trial"
           secondaryBtnLink="/free-trial"
           imageSrc="/Images/Dropdownassests/Solutions/InventorySolutions/Inventory1.png"

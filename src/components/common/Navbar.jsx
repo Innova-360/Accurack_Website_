@@ -306,7 +306,7 @@ export default function Navbar() {
             Login
           </Button>
           <Button
-            href="/book-demo"
+            href="/Demo"
             className="group relative w-[193px] h-[51px] rounded-[44px] font-bold text-[16px] text-background bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 flex items-center justify-center"
           >
             <span className="transition-transform duration-300 group-hover:-translate-x-[10px]">
@@ -477,9 +477,9 @@ export default function Navbar() {
                       className="absolute bottom-10 left-0 w-full px-6 flex flex-col gap-4"
                     >
                       <div className="relative flex items-center justify-center bg-white w-[292px] h-[59px] rounded-full mx-auto">
-                        <span className="font-medium text-[16px] text-navbuttontext">
+                        <Link href='/Demo' className="font-medium text-[16px] text-navbuttontext">
                           Book a Demo
-                        </span>
+                        </Link>
                         <div className="absolute right-4 flex items-center justify-center w-[44px] h-[44px] rounded-full bg-navbuttontext">
                           <Img
                             src="/Images/Navassests/Whitearrow.png"

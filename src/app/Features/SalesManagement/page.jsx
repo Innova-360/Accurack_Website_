@@ -40,7 +40,7 @@ export default function page() {
         heading="Optimize Your Sales Process: From Order to Delivery."
         description="C Streamline order management, gain customer insights, and boost sales efficiency."
         primaryBtnText="Book a Demo"
-        primaryBtnLink="/book-demo"
+        primaryBtnLink="/Demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
         imageSrc="/Images/Homeassests/Heroimage/Loader.png"

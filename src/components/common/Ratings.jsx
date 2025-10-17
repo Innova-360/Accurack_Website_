@@ -7,12 +7,17 @@ import React from "react";
 
 export default function Ratings({ theme = "light" }) {
   const isDark = theme === "dark";
+  const isGray = theme === "gray";
 
   const colors = {
     bg: isDark ? "#0a0a0a" : "#f8fafc",
     text: isDark ? "#e5e7eb" : "#1e293b",
     star: isDark ? "#FFCA43" : "#FFCA43",
     border: isDark ? "#FFCA43" : "#FFCA43",
+    bg : isGray ? "#F6F6F6" : "#f8fafc",
+    text: isGray ? "#0E3646" : "#1e293b",
+    star: isGray ? "#0E3646" : "#FFCA43",
+    border: isGray ? "#B1B1B2" : "#FFCA43",
   };
 
   // === RATING STARS ===
@@ -126,9 +131,9 @@ export default function Ratings({ theme = "light" }) {
       style={{ backgroundColor: colors.bg }}
     >
       {/* === BLUR BACKGROUND === */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[500px] h-[500px] bg-cyan-400/30 blur-[120px] rounded-full" />
-      </div>
+      </div> */}
 
       {/* === RATINGS GRID === */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-10">
