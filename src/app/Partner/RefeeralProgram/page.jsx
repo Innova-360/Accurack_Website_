@@ -1,17 +1,20 @@
-import Hero from "@/components/ui/HeroSection/Hero"
+"use client"
+import Hero from "@/components/ui/HeroSection/Hero";
 import SurSection from "@/components/common/Ratings";
-import RefeeralCard from "./_components/RefeeralCard"
-import JoinCard from "./_components/JoinCard"
-import Testimonials from "@/components/common/Testimonials"
-import RefeeralContact from "./_components/RefeeralContact"
+import RefeeralCard from "./_components/RefeeralCard";
+import JoinCard from "./_components/JoinCard";
+import Testimonials from "@/components/common/Testimonials";
+import RefeeralContact from "./_components/RefeeralContact";
 
-export default function RefeeralProgram() {
+import React from "react";
+
+const page = () => {
   return (
     <>
       <Hero
         heading="Join Our Referral Program: Share Accurack, Earn Rewards"
         description="Refer businesses to Accurack and receive exciting incentives for every successful conversion."
-        primaryBtnText="Join the Referral Program Now"
+        primaryBtnText="Join Program Now"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
@@ -36,4 +39,6 @@ export default function RefeeralProgram() {
       <RefeeralContact />
     </>
   );
-}
+};
+
+export default page;

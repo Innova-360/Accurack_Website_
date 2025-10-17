@@ -1,5 +1,7 @@
 "use client";
 
+import Button from "@/components/ui/Button/Button";
+
 export default function SneakPeekSection() {
   return (
     <section className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-20 py-16 flex flex-col gap-8">
@@ -23,9 +25,9 @@ export default function SneakPeekSection() {
       {/* 🔹 Bottom Row: Button + Right Heading */}
       <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 md:gap-12">
         {/* Button */}
-        <button className="font-body font-bold text-[16px] text-background rounded-full px-[25px] py-[15px] flex items-center justify-center gap-[17px] bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 hover:opacity-90 transition w-fit">
+        <Button className="font-body font-bold text-[16px] text-background rounded-full px-[25px] py-[15px] flex items-center justify-center gap-[17px] bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 hover:opacity-90 transition w-fit">
           Download Free Excerpt
-        </button>
+        </Button>
 
         {/* Right Heading */}
         <h3 className="font-heading text-rowline2 text-[28px] sm:text-[36px] lg:text-[48px] font-medium leading-[48px] tracking-[-0.02em] max-w-[821px] text-left md:text-right">

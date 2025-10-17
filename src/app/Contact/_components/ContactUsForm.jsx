@@ -78,24 +78,24 @@ export default function ContactUsForm() {
 
                 <div className="mx-auto mb-6 h-px w-24 bg-white/20" />
 
-                <h4 className="mb-4 text-base font-semibold md:text-lg">
+                <h4 className="mb-4 font-body text-base font-semibold md:text-lg">
                   Use The Free Trial To
                 </h4>
                 <ul className="space-y-4 text-sm leading-relaxed text-white/90">
-                  <li className="flex gap-3">
+                  <li className="flex gap-3 font-body">
                     <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white">
                       <Check />
                     </span>
                     Get to know our system – see how it looks and works.
                   </li>
-                  <li className="flex gap-3">
+                  <li className="flex gap-3 font-body">
                     <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white">
                       <Check />
                     </span>
                     Experience how your business aligns with WareGo – see how we
                     solve your warehousing challenges.
                   </li>
-                  <li className="flex gap-3">
+                  <li className="flex gap-3 font-body">
                     <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white">
                       <Check />
                     </span>

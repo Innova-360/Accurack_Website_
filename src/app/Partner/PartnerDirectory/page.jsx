@@ -6,13 +6,13 @@ import Testimonials from "@/components/common/Testimonials";
 import LeadingSection from "./_components/Leading";
 import PartnerContact from "./_components/PartnerContact";
 
-export default function PartnerDirectory() {
+const page = () => {
   return (
     <>
       <Hero
         heading="Partner with Accurack: Grow Together"
         description="Collaborate with Accurack to expand your business, offer enhanced solutions, and drive mutual success."
-        primaryBtnText="Become an Accurack Partner"
+        primaryBtnText="Accurack Partner"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
@@ -59,4 +59,6 @@ export default function PartnerDirectory() {
       <PartnerContact />
     </>
   );
-}
+};
+
+export default page;
