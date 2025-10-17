@@ -12,7 +12,7 @@ const page = () => {
       <Hero
         heading="Partner with Accurack: Grow Together"
         description="Collaborate with Accurack to expand your business, offer enhanced solutions, and drive mutual success."
-        primaryBtnText="Accurack Partner"
+        primaryBtnText="Become an Accurack Partner"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
@@ -28,6 +28,8 @@ const page = () => {
         imageStyleType="custom"
         imageWrapperClass="rounded-[30px] border-[1px] px-5 py-5 border-picborder shadow-[-4px_4px_19.8px_0px_rgba(33,34,44,0.16)]  border-solid p-[23px] gap-[16px]"
         imageWrapperClass2="rounded-[21px]"
+         showImageLayers={false}
+        showImageBorder={false}
         reverse={false}
       />
 

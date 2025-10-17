@@ -97,11 +97,12 @@ export default function TransformSection() {
       </div>
 
       <LazyMotion features={domAnimation}>
+        <div className="w-full flex justify-center">
         <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="w-full px-4 sm:px-8 lg:px-20 py-12 sm:py-16 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-10 lg:gap-8 text-center lg:text-left"
+          className="w-full max-w-[1500px] px-4 sm:px-8 lg:px-20 py-12 sm:py-16 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-10 lg:gap-8 text-center lg:text-left"
         >
           {/* Left Text */}
           <m.div
@@ -140,6 +141,7 @@ export default function TransformSection() {
             />
           </m.div>
         </m.div>
+        </div>
       </LazyMotion>
     </section>
   );

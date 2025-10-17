@@ -213,8 +213,8 @@ export default function CompareTable() {
   </h1>
 
   {/* TABLE WRAPPER */}
-  <div className="w-full flex justify-center md:justify-start md:pl-6">
-  <div className="w-full overflow-x-auto md:overflow-x-visible">
+<div className="w-full flex justify-center">
+  <div className="w-full max-w-[1280px] overflow-x-auto md:overflow-x-visible">
     <table className="min-w-[700px] md:w-[1279px] border border-border1 rounded-[12px] text-sm md:text-base border-separate border-spacing-0">
 
         <thead className="bg-tablehead">
@@ -264,7 +264,7 @@ export default function CompareTable() {
               {["accurack", "comp1", "comp2", "comp3", "comp4"].map((col, j) => (
                 <td
                   key={j}
-                  className={`px-4 py-3 min-w-[220px] md:min-w-0 ${
+                  className={`px-4 py-3 align-top min-w-[220px] md:min-w-0 ${
                     col === "accurack"
                       ? "bg-tablecol border border-tablecolbord"
                       : "border border-border1"
@@ -276,7 +276,7 @@ export default function CompareTable() {
                       color={icons[row[col].type].color}
                       className="w-4 h-4 flex-shrink-0 mt-[2px] mr-[2px]"
                     />
-                    <span className="text-desclight  font-normal text-[16px] leading-[24px] tracking-[0px]">
+                    <span className="text-desclight align-top  font-normal text-[16px] leading-[24px] tracking-[0px]">
                       {row[col].text}
                     </span>
                   </div>

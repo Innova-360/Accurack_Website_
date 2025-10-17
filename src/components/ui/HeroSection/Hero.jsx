@@ -80,64 +80,77 @@ function HeroContent({
             </motion.p>
           )}
 
-          {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center"
-          >
-            {/* Primary Button */}
-            {primaryBtnText && (
-              <Button
-                href={primaryBtnLink}
-                className="group relative w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
-                           font-body font-bold text-[15px] sm:text-[16px] text-white
-                           bg-gradient-to-r from-cyan-400 to-teal-600
-                           flex items-center justify-center overflow-hidden
-                           hover:shadow-lg transition-shadow duration-300"
-              >
-                {/* Button Text */}
-                <span
-                  className={`mr-7
+         {/* Buttons */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+  className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center"
+>
+  {/* Primary Button */}
+  {primaryBtnText && (
+    <Button
+      href={primaryBtnLink}
+      className={`group relative h-[48px] sm:h-[51px] px-[24px] py-[12px] rounded-[44px]
+                  font-body font-bold text-[15px] sm:text-[16px] text-white
+                  bg-gradient-to-r from-cyan-400 to-teal-600
+                  flex items-center justify-center overflow-hidden
+                  hover:shadow-lg transition-shadow duration-300
+                  ${
+                    primaryBtnText.length > 16
+                      ? "w-auto min-w-[200px] max-w-full pr-[60px]" // make wider for long text
+                      : "w-[180px] sm:w-[193px]"
+                  }`}
+    >
+      {/* Button Text */}
+      <span
+        className={`whitespace-nowrap mr-7
         ${
           primaryBtnText.length > 16
-            ? "mr-10 sm:mr-12" // extra gap only for responsive (mobile/tablet)
+            ? "mr-10 sm:mr-12"
             : "lg:transition-transform lg:duration-700 lg:ease-in-out lg:group-hover:translate-x-6"
         }`}
-                >
-                  {primaryBtnText}
-                </span>
+      >
+        {primaryBtnText}
+      </span>
 
-                {/* Arrow container */}
-                <span
-                  className="absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
-                             w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-white
-                             lg:transition-all lg:duration-700 lg:ease-in-out 
-                             lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
-                >
-                  {/* Mobile Arrow */}
-                  <span className="block lg:hidden w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
+      {/* Arrow container */}
+      <span
+        className={`absolute right-[10px] top-1/2 -translate-y-1/2 flex items-center justify-center 
+                   w-[40px] sm:w-[44px] h-[40px] sm:h-[44px] rounded-full bg-white
+                   ${
+                     primaryBtnText.length > 16
+                       ? "" // disable hover if long text
+                       : "lg:transition-all lg:duration-700 lg:ease-in-out lg:group-hover:-translate-x-[130px] lg:group-hover:rotate-180"
+                   }`}
+      >
+        {/* Mobile Arrow */}
+        <span className="block lg:hidden w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrowRight.png')] bg-no-repeat bg-center"></span>
 
-                  {/* Desktop Arrow */}
-                  <span className="hidden lg:block w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrow.png')] bg-no-repeat bg-center"></span>
-                </span>
-              </Button>
-            )}
+        {/* Desktop Arrow */}
+        <span className="hidden lg:block w-[22px] sm:w-[26px] h-[20px] sm:h-[24px] bg-[url('/Images/Navassests/ReArrow.png')] bg-no-repeat bg-center"></span>
+      </span>
+    </Button>
+  )}
 
-            {/* Secondary Button */}
-            {secondaryBtnText && (
-              <Button
-                href={secondaryBtnLink}
-                className="w-[180px] sm:w-[193px] h-[48px] sm:h-[51px] px-[20px] py-[12px] rounded-[44px] 
-                           font-body font-bold text-[15px] sm:text-[16px] text-teal-600
-                           border border-teal-600 bg-white flex items-center justify-center
-                           hover:bg-teal-50 transition-colors duration-300"
-              >
-                {secondaryBtnText}
-              </Button>
-            )}
-          </motion.div>
+  {/* Secondary Button */}
+  {secondaryBtnText && (
+    <Button
+      href={secondaryBtnLink}
+      className={`h-[48px] sm:h-[51px] px-[24px] py-[12px] rounded-[44px] 
+                 font-body font-bold text-[15px] sm:text-[16px] text-teal-600
+                 border border-teal-600 bg-white flex items-center justify-center
+                 hover:bg-teal-50 transition-colors duration-300 whitespace-nowrap
+                 ${
+                   secondaryBtnText.length > 16
+                     ? "w-auto min-w-[200px] max-w-full pr-[40px]"
+                     : "w-[180px] sm:w-[193px]"
+                 }`}
+    >
+      {secondaryBtnText}
+    </Button>
+  )}
+</motion.div>
         </div>
 
         {/* Right Side Image */}

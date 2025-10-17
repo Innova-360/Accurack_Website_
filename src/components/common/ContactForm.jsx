@@ -124,7 +124,7 @@ function SmallContactForm() {
         <div className="pt-2">
           <Button
             href="/book-demo"
-            className="group relative w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] font-body font-bold text-[16px] leading-[100%] text-background bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 flex items-center justify-center overflow-hidden"
+            className="group relative w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] font-body font-bold text-[12px] leading-[100%] text-background bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 flex items-center justify-center overflow-hidden"
           >
             <span className="transition-transform duration-300 group-hover:-translate-x-[10px]">
               Get My Free Consultant

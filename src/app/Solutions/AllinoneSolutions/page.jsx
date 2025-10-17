@@ -43,6 +43,7 @@ export default function AllinoneSolutions() {
             icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",
             title: "Smart Forecasting",
             text: "Predict demand Optimize online inventory and fulfillment.Sync product listings, stock levels, and order updates across multiple e-commerce platforms in real time.Leverage AI-driven demand forecasting to reduce overselling, minimize returns.",
+            
           },
           {
             icon: "/Images/Dropdownassests/Solutions/AllinoneSolutions/Icon.png",

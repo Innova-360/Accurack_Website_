@@ -122,7 +122,7 @@ export default function Ratings({ theme = "light" }) {
 
   return (
     <section
-      className="relative -mt-10 w-full z-100 py-12 overflow-hidden transition-colors duration-300"
+      className="relative -mt-10 w-full z-100 py-12 mt-10 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: colors.bg }}
     >
       {/* === BLUR BACKGROUND === */}

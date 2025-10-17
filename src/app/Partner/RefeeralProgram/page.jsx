@@ -14,7 +14,7 @@ const page = () => {
       <Hero
         heading="Join Our Referral Program: Share Accurack, Earn Rewards"
         description="Refer businesses to Accurack and receive exciting incentives for every successful conversion."
-        primaryBtnText="Join Program Now"
+        primaryBtnText="Join the Referral Program Now"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
@@ -31,6 +31,8 @@ const page = () => {
         imageWrapperClass="rounded-[30px] border-[1px] px-5  border-picborder shadow-[-4px_4px_19.8px_0px_rgba(33,34,44,0.16)]  border-solid p-[23px] gap-[16px]"
         imageWrapperClass2="rounded-[21px]"
         reverse={false}
+         showImageLayers={false}
+        showImageBorder={false}
       />
       <SurSection />
       <RefeeralCard />
