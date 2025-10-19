@@ -1,8 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import DemoForm from "./DemoForm";
 import FormSuccess from "@/components/common/FormSuccess";
+import TimeSlotPicker from "@/components/common/TimeSlotPicker";
+import ConfirmationCard from "@/components/common/Confirmation";
+import { BookingSuccess } from "@/components/common/BookingSuccess";
 
 export default function FormSection() {
   const [formData, setFormData] = useState({
@@ -19,8 +22,35 @@ export default function FormSection() {
 
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showTimeSlotPicker, setShowTimeSlotPicker] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showBookingSuccess, setShowBookingSuccess] = useState(false);
+  const [chatResponse, setChatResponse] = useState("");
+  const [userId] = useState("user_" + Date.now());
 
   const GOOGLE_DEMO_SCRIPT = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT;
+
+  // Initialize chatbot on component mount
+  useEffect(() => {
+    const initializeChatbot = async () => {
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/chat`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            message: "book a demo",
+            user_id: userId,
+          }),
+        });
+      } catch (error) {
+        console.error("Error initializing chatbot:", error);
+      }
+    };
+
+    initializeChatbot();
+  }, [userId]);
 
   const handleSubmit = async () => {
     if (!formData.fullName || !formData.email || !formData.company || !formData.phone) {
@@ -37,6 +67,7 @@ export default function FormSection() {
         interests: formData.interests.join(", "),
       };
 
+      // Submit to Google Script
       await fetch(GOOGLE_DEMO_SCRIPT, {
         method: "POST",
         mode: "no-cors",
@@ -44,10 +75,106 @@ export default function FormSection() {
         body: JSON.stringify(data),
       });
 
-      // ✅ Trigger success animation
-      setTimeout(() => setIsSuccess(true), 300);
+      // Step 1: Send the name to chatbot
+      await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: formData.fullName,
+          user_id: userId,
+        }),
+      });
+
+      // Step 2: Send the email and get booked time slots
+      const emailResponse = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: formData.email,
+          user_id: userId,
+        }),
+      });
+
+      const emailData = await emailResponse.json();
+      setChatResponse(emailData.response);
+      
+      // Show TimeSlotPicker with the booked slots
+      setShowTimeSlotPicker(true);
     } catch (error) {
       console.error("Error submitting form:", error);
+      alert("Something went wrong! Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleSlotSelection = async (slot) => {
+    setIsSubmitting(true);
+    try {
+      // Send selected time slot to chatbot
+      const slotResponse = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: slot,
+          user_id: userId,
+        }),
+      });
+
+      const slotData = await slotResponse.json();
+      setChatResponse(slotData.response);
+
+      // Check if it's confirmation message
+      if (slotData.response.includes("I have you down for:") || slotData.response.includes("Does this look right?")) {
+        setShowTimeSlotPicker(false);
+        setShowConfirmation(true);
+      }
+    } catch (error) {
+      console.error("Error selecting slot:", error);
+      alert("Something went wrong! Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleConfirmationResponse = async (response) => {
+    setIsSubmitting(true);
+    try {
+      const confirmResponse = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: response,
+          user_id: userId,
+        }),
+      });
+
+      const confirmData = await confirmResponse.json();
+      setChatResponse(confirmData.response);
+
+      // Check if booking is successful
+      if (confirmData.response.includes("Demo booked!") || confirmData.response.includes("Rescheduled")) {
+        setShowConfirmation(false);
+        setShowBookingSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(true);
+          setShowBookingSuccess(false);
+        }, 3000);
+      } else if (response.toLowerCase().includes("no") || response.toLowerCase().includes("change")) {
+        // User wants to change - go back to time slot picker
+        setShowConfirmation(false);
+        setShowTimeSlotPicker(true);
+      }
+    } catch (error) {
+      console.error("Error confirming booking:", error);
       alert("Something went wrong! Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -101,9 +228,9 @@ export default function FormSection() {
           </div>
         </motion.div>
 
-        {/* ✅ Right Section: Animated Transition */}
+        {/* Right Section: Animated Transition */}
         <AnimatePresence mode="wait">
-          {!isSuccess ? (
+          {!isSuccess && !showTimeSlotPicker && !showConfirmation && !showBookingSuccess ? (
             <motion.div
               key="form"
               initial={{ opacity: 0, y: 30 }}
@@ -117,6 +244,45 @@ export default function FormSection() {
                 handleSubmit={handleSubmit}
                 isSubmitting={isSubmitting}
               />
+            </motion.div>
+          ) : showTimeSlotPicker ? (
+            <motion.div
+              key="timeslot"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 rounded-xl shadow-lg"
+            >
+              <TimeSlotPicker
+                rawText={chatResponse} 
+                onConfirm={handleSlotSelection}
+              />
+            </motion.div>
+          ) : showConfirmation ? (
+            <motion.div
+              key="confirmation"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 rounded-xl shadow-lg"
+            >
+              <ConfirmationCard 
+                text={chatResponse} 
+                onResponse={handleConfirmationResponse}
+              />
+            </motion.div>
+          ) : showBookingSuccess ? (
+            <motion.div
+              key="booking-success"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 rounded-xl shadow-lg"
+            >
+              <BookingSuccess text={chatResponse} />
             </motion.div>
           ) : (
             <motion.div

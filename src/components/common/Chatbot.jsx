@@ -25,12 +25,14 @@ export default function BookDemo() {
     scrollToBottom();
   }, [messages]);
 
+  const AI_URL = `${process.env.NEXT_PUBLIC_SERVER_URL}/chat`;
+
   const startDemoChat = async () => {
     setShowIntro(false);
     setShowChat(true);
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/chat", {
+      const res = await fetch(AI_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -64,7 +66,7 @@ export default function BookDemo() {
 
       try {
         // Send backendFormatted to the backend API
-        const res = await fetch("http://localhost:5000/chat", {
+        const res = await fetch(AI_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -101,7 +103,7 @@ export default function BookDemo() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/chat", {
+      const res = await fetch(AI_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
