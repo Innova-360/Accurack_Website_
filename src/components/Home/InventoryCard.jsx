@@ -2,15 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
-export function InventoryCard({
-  title,
-  description,
-  imageSrc,
-  className,
-  index = 0,
-}) {
+export function InventoryCard({ title, description, imageSrc, index = 0 }) {
   return (
     <motion.article
       initial={{ y: 20, opacity: 0 }}
@@ -23,24 +16,18 @@ export function InventoryCard({
         delay: index * 0.15 + 0.3,
       }}
       whileHover={{ y: -8 }}
-      className={cn(
-        "group relative flex flex-col rounded-2xl border border-black/5 bg-white/95 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-[400px] p-5",
-        className
-      )}
-      aria-label={title}
+      className="group relative flex flex-col rounded-2xl border border-black/5 bg-white/95 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-[400px] p-5"
     >
-      {/* Image */}
       <div className="relative h-[200px] w-full overflow-hidden rounded-xl">
         <Image
-          src={imageSrc || "/placeholder.svg"}
-          alt={title}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          priority={index < 3}
+          src={imageSrc}
+          alt={title}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
-      {/* Text content */}
       <div className="flex flex-col flex-1 mt-4">
         <h3 className="text-lg font-heading font-semibold text-gray-900">
           {title}

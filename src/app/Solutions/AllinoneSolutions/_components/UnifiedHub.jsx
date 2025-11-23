@@ -66,7 +66,7 @@ export default function Perfomance() {
           {/* Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center w-full">
             <Button
-              href="/book-demo"
+              href="/Demo"
               className="group relative w-[193px] h-[51px] px-[25px] py-[15px] rounded-[44px] 
                          font-jakarta font-bold text-[16px] leading-[100%] text-white 
                          bg-gradient-to-r from-[var(--navbookademobg1)] to-[var(--navbookademobg2)] 

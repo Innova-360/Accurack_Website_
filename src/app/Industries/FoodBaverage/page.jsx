@@ -13,7 +13,7 @@ const page = () => {
         heading="Food & Beverage Inventory Solutions: Freshness, Safety, Profit."
         description="Manage perishable inventory with precision, ensure food safety, and optimize supply chains from farm to table."
         primaryBtnText="Book a Demo"
-        primaryBtnLink="/book-demo"
+        primaryBtnLink="/Demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
         imageSrc="/Images/IndustriesAssests/Integration/integration-dashboard.png"

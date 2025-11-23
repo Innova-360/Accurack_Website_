@@ -7,29 +7,57 @@ import React from "react";
 
 export default function Ratings({ theme = "light" }) {
   const isDark = theme === "dark";
+  const isGray = theme === "gray";
 
   const colors = {
     bg: isDark ? "#0a0a0a" : "#f8fafc",
     text: isDark ? "#e5e7eb" : "#1e293b",
-    star: isDark ? "#ffffff" : "#FFCA43",
+    star: isDark ? "#FFCA43" : "#FFCA43",
+    border: isDark ? "#FFCA43" : "#FFCA43",
+    bg : isGray ? "#F6F6F6" : "#f8fafc",
+    text: isGray ? "#0E3646" : "#1e293b",
+    star: isGray ? "#0E3646" : "#FFCA43",
+    border: isGray ? "#B1B1B2" : "#FFCA43",
   };
 
   // === RATING STARS ===
   const RatingStars = () => (
     <div className="flex gap-[2px] sm:gap-1 justify-center">
       {[...Array(4)].map((_, i) => (
-        <Star
+        <span
           key={i}
-          className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
-          size={18}
-          style={{ color: colors.star, fill: colors.star }}
-        />
+          className="flex items-center justify-center p-[2px] sm:p-[3px] rounded-full border transition-all duration-200 hover:scale-110"
+          style={{
+            borderColor: colors.border,
+            boxShadow: `0 0 6px ${colors.star}33`,
+          }}
+        >
+          <Star
+            size={18}
+            className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
+            style={{
+              color: colors.star,
+              fill: colors.star,
+            }}
+          />
+        </span>
       ))}
-      <StarHalf
-        className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
-        size={18}
-        style={{ color: colors.star, fill: colors.star }}
-      />
+      <span
+        className="flex items-center justify-center p-[2px] sm:p-[3px] rounded-full border transition-all duration-200 hover:scale-110"
+        style={{
+          borderColor: colors.border,
+          boxShadow: `0 0 6px ${colors.star}33`,
+        }}
+      >
+        <StarHalf
+          size={18}
+          className="text-[10px] sm:text-[14px] lg:text-[18px] flex-shrink-0"
+          style={{
+            color: colors.star,
+            fill: colors.star,
+          }}
+        />
+      </span>
     </div>
   );
 
@@ -48,34 +76,34 @@ export default function Ratings({ theme = "light" }) {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: index * 0.1 + 0.2, ease: "easeOut" }}
-        className="flex items-center gap-1 sm:gap-2"
+        transition={{
+          duration: 0.4,
+          delay: index * 0.1 + 0.2,
+          ease: "easeOut",
+        }}
+        className="flex items-center justify-center"
       >
-        {icon === "left" ? (
-          <Image
-            width={104}
-            height={104}
-            src="/Images/Dropdownassests/Solutions/InventorySolutions/Get.png"
-            alt={title}
-            className="w-6 h-6 sm:w-50 sm:h-20 md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
-          />
-        ) : icon === "right" ? (
-          <Image
-            width={104}
-            height={104}
-            src="/Images/Dropdownassests/Solutions/InventorySolutions/Msg.png"
-            alt={title}
-            className="w-6 h-6 sm:w-full sm:h-full md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
-          />
-        ) : (
-          <Image
-            width={64}
-            height={64}
-            src={icon}
-            alt={title}
-            className="w-6 h-6 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 flex-shrink-0"
-          />
-        )}
+        <Image
+          width={100}
+          height={104}
+          src={
+            icon === "left"
+              ? "/Images/Dropdownassests/Solutions/InventorySolutions/Get.png"
+              : icon === "right"
+              ? "/Images/Dropdownassests/Solutions/InventorySolutions/Msg.png"
+              : icon
+          }
+          alt={title}
+          className="
+            w-18 h-18
+            sm:w-30 sm:h-30
+            md:w-14 md:h-14
+            lg:w-16 lg:h-16
+            xl:w-20 xl:h-20
+            object-contain
+            flex-shrink-0
+          "
+        />
       </motion.div>
 
       {/* Stars + Reviews */}
@@ -99,13 +127,13 @@ export default function Ratings({ theme = "light" }) {
 
   return (
     <section
-      className="relative w-full z-100 py-12 overflow-hidden transition-colors duration-300"
+      className="relative -mt-10 w-full z-100 py-12 overflow-hidden transition-colors duration-300"
       style={{ backgroundColor: colors.bg }}
     >
       {/* === BLUR BACKGROUND === */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[500px] h-[500px] bg-cyan-400/30 blur-[120px] rounded-full" />
-      </div>
+      </div> */}
 
       {/* === RATINGS GRID === */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-10">
@@ -129,7 +157,7 @@ export default function Ratings({ theme = "light" }) {
             index={1}
           />
           <Item
-            icon="/Images/Dropdownassests/Solutions/InventorySolutions/Next.PNG"
+            icon="/Images/Dropdownassests/Solutions/InventorySolutions/Next.png"
             title="G2"
             rating="4.2 (941 reviews)"
             index={2}

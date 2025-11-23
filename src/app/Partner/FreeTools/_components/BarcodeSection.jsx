@@ -1,5 +1,7 @@
 "use client";
 
+import Button from "@/components/ui/Button/Button";
+
 export default function BarcodeSection() {
   return (
     <section
@@ -24,9 +26,9 @@ export default function BarcodeSection() {
         </p>
 
         {/* Button */}
-        <button className="font-body font-bold text-[16px] text-white rounded-full px-[55px] py-[15px] flex items-center justify-center gap-[17px] bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 hover:opacity-90 transition">
+        <Button className="font-body font-bold text-[16px] text-white rounded-full px-[55px] py-[15px] flex items-center justify-center gap-[17px] bg-gradient-to-r from-gradient-primary-1 to-gradient-primary-2 hover:opacity-90 transition">
           Generate Barcodes
-        </button>
+        </Button>
       </div>
     </section>
   );

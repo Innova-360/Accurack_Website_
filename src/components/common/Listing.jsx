@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Lisiting({
   title = "Surpassing Standards for Outstanding Success",
@@ -42,7 +43,7 @@ export function Lisiting({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12 md:mb-16 ${titleClassName}`}
+          className={`text-3xl font-heading sm:text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12 md:mb-16 ${titleClassName}`}
         >
           {title}
         </motion.h2>
@@ -65,7 +66,10 @@ export function Lisiting({
                 {/* Image */}
                 <div className="flex-shrink-0">
                   <div className="w-32 h-32 rounded-2xl overflow-hidden bg-gray-100">
-                    <img
+                    <Image
+                      width={130}
+                      height={130}
+                      loading="lazy"
                       src={feature.image || "/api/placeholder/130/130"}
                       alt={feature.title}
                       className="w-full h-full object-cover"
@@ -78,10 +82,10 @@ export function Lisiting({
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors">
+                  <h3 className="font-heading text-xl md:text-2xl font-semibold text-gray-900 mb-3 group-hover:text-cyan-600 transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="font-body text-sm text-gray-600 leading-relaxed text-sm md:text-base">
                     {feature.description}
                   </p>
                 </div>

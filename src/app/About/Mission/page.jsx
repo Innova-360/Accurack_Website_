@@ -72,7 +72,7 @@ const page = () => {
         heading="Driving Efficiency Through AI Innovation"
         description="Optimize stock, streamline operations, and enhance efficiency with Accurack's intelligent AI Warehouse Suite."
         primaryBtnText="Book a Demo"
-        primaryBtnLink="/book-demo"
+        primaryBtnLink="/Demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
         imageSrc="/Images/AboutAssests/Story/hero.png"

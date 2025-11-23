@@ -40,7 +40,7 @@ const page = () => {
         heading="Seamless Integrations: Unify Your Workflows."
         description="Connect Accurack with your essential business tools for a truly unified and automated operation."
         primaryBtnText="Book a Demo"
-        primaryBtnLink="/book-demo"
+        primaryBtnLink="/Demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
         imageSrc="/Images/IndustriesAssests/Integration/integration-dashboard.png"

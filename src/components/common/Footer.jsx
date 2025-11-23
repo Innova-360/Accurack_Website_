@@ -234,7 +234,6 @@ export default function Footer() {
           alt="Footer Decoration"
           width={1440}
           height={1500}
-          quality={100}
           className="object-cover -mt-10 max-w-full h-auto"
         />
       </motion.div>

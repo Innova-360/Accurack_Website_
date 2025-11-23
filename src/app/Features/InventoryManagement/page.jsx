@@ -12,7 +12,7 @@ export default function page() {
                 heading="Real-Time Inventory Control: Your Stock, Always in Sight."
                 description="Achieve precision tracking for all your locations, from warehouse to retail floor."
                 primaryBtnText="Book a Demo"
-                primaryBtnLink="/book-demo"
+                primaryBtnLink="/Demo"
                 secondaryBtnText="Start Free Trial"
                 secondaryBtnLink="/free-trial"
                 imageSrc="/Images/Homeassests/Heroimage/Loader.png"

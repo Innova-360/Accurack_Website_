@@ -1,10 +1,15 @@
 "use client";
 
-import { motion, useAnimation, useInView, useMotionValue, animate } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useInView,
+  useMotionValue,
+  animate,
+} from "framer-motion";
 import { useRef, useEffect } from "react";
 import { InventoryCard } from "./InventoryCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import SuspenseWrapper from "../common/SuspenseWrapper";
 
 const items = [
   {
@@ -34,8 +39,9 @@ const items = [
   },
 ];
 
-function InventoryDesignInner() {
+export default function InventoryDesign() {
   const sectionRef = useRef(null);
+  const containerRef = useRef(null);
   const inView = useInView(sectionRef, { once: true });
   const controls = useAnimation();
   const x = useMotionValue(0);
@@ -57,19 +63,31 @@ function InventoryDesignInner() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
   };
 
-  // Slide function
   const slide = (direction) => {
-    const distance = 300; // pixels per slide
-    const currentX = x.get();
-    const newX = direction === "left" ? currentX + distance : currentX - distance;
+    const containerEl = containerRef.current;
+    if (!containerEl) return;
 
-    animate(x, newX, { duration: 0.6, ease: "easeInOut" });
+    const maxScroll = containerEl.scrollWidth - containerEl.clientWidth;
+
+    // Calculate distance based on screen size
+    const isMobile = window.innerWidth < 1024;
+    const distance = isMobile
+      ? containerEl.clientWidth
+      : containerEl.clientWidth / 4;
+
+    const currentX = x.get();
+    let newX = direction === "left" ? currentX + distance : currentX - distance;
+
+    // Prevent overscrolling
+    newX = Math.min(0, Math.max(-maxScroll, newX));
+
+    animate(x, newX, { duration: 0.3, ease: "easeInOut" });
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen bg-[linear-gradient(180deg,_#FFFFFF_0%,_#D5ECF0_115.91%)] overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-b from-white via-white to-[#D5ECF0] overflow-hidden"
     >
       <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-24 text-center">
         {/* Heading */}
@@ -98,14 +116,18 @@ function InventoryDesignInner() {
           </motion.p>
         </motion.div>
 
-        {/* Card Slider */}
-        <div className="mt-12 relative w-full overflow-hidden">
+        {/* Cards */}
+        <div
+          ref={containerRef}
+          className="mt-16 relative w-full overflow-x-hidden"
+        >
           <motion.div
-            className="flex gap-6"
+            className="flex gap-6 will-change-transform"
             style={{ x }}
+            initial={false}
           >
-            {[...items, ...items].map((it, i) => (
-              <div key={i} className="min-w-[280px]">
+            {items.map((it, i) => (
+              <div key={i} className="w-full sm:w-[320px] flex-shrink-0">
                 <InventoryCard
                   title={it.title}
                   description={it.desc}
@@ -116,7 +138,7 @@ function InventoryDesignInner() {
           </motion.div>
         </div>
 
-        {/* Centered Arrows Below Cards */}
+        {/* Arrows */}
         <div className="mt-8 flex justify-center gap-4">
           <button
             onClick={() => slide("left")}
@@ -149,13 +171,5 @@ function InventoryDesignInner() {
         </svg>
       </div>
     </section>
-  );
-}
-
-export default function InventoryDesign() {
-  return (
-    <SuspenseWrapper fallback={<div className="text-center py-20">Loading Inventory Section...</div>}>
-      <InventoryDesignInner />
-    </SuspenseWrapper>
   );
 }

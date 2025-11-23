@@ -33,7 +33,7 @@ export default function page() {
                 heading="Unify Your Business: Integrated CRM & ERP."
                 description="Manage customers, optimize operations, and gain holistic insights from one powerful platform."
                 primaryBtnText="Book a Demo"
-                primaryBtnLink="/book-demo"
+                primaryBtnLink="/Demo"
                 secondaryBtnText="Start Free Trial"
                 secondaryBtnLink="/free-trial"
                 imageSrc="/Images/Homeassests/Heroimage/Loader.png"

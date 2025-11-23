@@ -64,7 +64,7 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.55, ease: "easeOut" }}
-                className="font-serif text-3xl leading-tight text-foreground md:text-5xl"
+                className="font-heading text-3xl leading-tight text-foreground md:text-5xl"
               >
                 Connect With Us For
                 <br />
@@ -76,7 +76,7 @@ export default function ContactSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="max-w-xl text-sm text-muted-foreground md:text-base"
+                className="max-w-xl text-sm font-body text-muted-foreground md:text-base"
               >
                 Have any queries? Call us today and speak to our expert team for
                 tailored assistance regarding our WMS – WareGo. We’d love to
@@ -103,10 +103,10 @@ export default function ContactSection() {
 
                   <div className="mx-auto mb-6 h-px w-24 bg-white/20" />
 
-                  <h4 className="mb-4 text-base font-semibold md:text-lg">
+                  <h4 className="mb-4 font-body text-base font-semibold md:text-lg">
                     Use The Free Trial To
                   </h4>
-                  <ul className="space-y-4 text-sm leading-relaxed text-white/90">
+                  <ul className="space-y-4 text-sm leading-relaxed text-white/90 font-body">
                     <li className="flex gap-3">
                       <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-white">
                         <Check />

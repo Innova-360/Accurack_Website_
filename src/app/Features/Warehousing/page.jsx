@@ -13,7 +13,7 @@ export default function page() {
         heading="Smarter Storage, Faster Fulfillment."
         description="Optimize stock across all locations with AI-driven insights and streamlined operations."
         primaryBtnText="Book a Demo"
-        primaryBtnLink="/book-demo"
+        primaryBtnLink="/Demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
         imageSrc="/Images/Homeassests/Heroimage/Loader.png"

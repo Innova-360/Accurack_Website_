@@ -37,7 +37,7 @@ export default function Header({ title, description } = props) {
   return (
     <div className="text-center max-w-3xl mx-auto mb-12">
       <motion.h2
-        className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4"
+        className="text-3xl sm:text-4xl md:text-5xl mt-30 font-heading font-bold text-gray-900 mb-4"
         variants={titleVariant}
         initial="hidden"
         whileInView="visible"

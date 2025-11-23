@@ -1,20 +1,18 @@
+
 import Hero from "@/components/ui/HeroSection/Hero";
 import SurSection from "@/components/common/Ratings";
-import StockSection from "./_components/StockLevels"
-import SneakPeekSection from "./_components/SneakPeekSection"
+import StockSection from "./_components/StockLevels";
+import SneakPeekSection from "./_components/SneakPeekSection";
 import BarcodeSection from "./_components/BarcodeSection";
-import FreeToolContact from "./_components/FreeToolContact"
+import FreeToolContact from "./_components/FreeToolContact";
 
-
-
-
-export default function FreeTools() {
+const page = () => {
   return (
     <>
       <Hero
         heading="Free Tools: Empower Your Inventory Management"
         description="Access complimentary resources to optimize your inventory, calculate ROI, and streamline operations."
-        primaryBtnText="Become an Accurack Partner"
+        primaryBtnText="Accurack Partner"
         primaryBtnLink="/book-demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
@@ -40,4 +38,6 @@ export default function FreeTools() {
       <FreeToolContact />
     </>
   );
-}
+};
+
+export default page;

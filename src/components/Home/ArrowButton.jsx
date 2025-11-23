@@ -1,10 +1,12 @@
 "use client";
 
+import Button from "@/components/ui/Button/Button";
+
 export function ArrowButton({ direction, onClick }) {
   const isLeft = direction === "left";
   return (
-    <button
-      type="button"
+    <Button
+      type="Button"
       onClick={onClick}
       aria-label={isLeft ? "Scroll left" : "Scroll right"}
       className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 text-foreground/80 transition-colors hover:bg-foreground/5"
@@ -33,6 +35,6 @@ export function ArrowButton({ direction, onClick }) {
           />
         )}
       </svg>
-    </button>
+    </Button>
   );
 }

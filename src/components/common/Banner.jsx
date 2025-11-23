@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function HeroBanner({
   title = "Tracking for Production",
@@ -21,9 +22,12 @@ export function HeroBanner({
       {/* Background Image with Overlay */}
       {backgroundImage && (
         <div className="absolute inset-0">
-          <img
+          <Image
+            width={1920}
+            height={1080}
+            loading="lazy"
             src={backgroundImage}
-            alt=""
+            alt="BackGround"
             className="w-full h-full object-cover opacity-30"
             onError={(e) => {
               e.target.style.display = 'none';

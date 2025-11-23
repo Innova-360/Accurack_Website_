@@ -36,7 +36,7 @@ export default function page() {
         heading="Integrated Accounting Solutions: Financial Clarity, Effortless Sync."
         description="Streamline financial tracking, reporting, and reconciliation with seamless accounting integrations."
         primaryBtnText="Book a Demo"
-        primaryBtnLink="/book-demo"
+        primaryBtnLink="/Demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
         imageSrc="/Images/Homeassests/Heroimage/Loader.png"

@@ -2,7 +2,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import Img from "../ui/Image";
-import Button from "../ui/Button/Button";
+import Button from "@/components/ui/Button/Button";
 
 export default function HeroSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
@@ -13,7 +13,7 @@ export default function HeroSection() {
         className="
       w-full h-full lg:mt-40
       px-4 sm:px-6 lg:px-[100px]
-      py-10 sm:py-12 lg:py-20
+      py-10 sm:py-19 lg:py-20
       grid grid-cols-1 lg:grid-cols-2
       items-center text-center lg:text-left
       lg:gap-8 sm:gap-12 
@@ -25,7 +25,7 @@ export default function HeroSection() {
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col items-center lg:items-start text-center lg:text-left -mt-[9px]"
+          className="flex flex-col items-center lg:items-start text-center lg:text-left mt-10 lg:-mt-[9px]"
         >
           {/* ✅ Heading with exact style */}
           <h1

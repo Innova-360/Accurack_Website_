@@ -15,12 +15,17 @@ export default function Img({
   return (
     <Image
       src={imgSrc || fallback}
-      width={width}
-      height={height}
+      width={width || 0}
+      height={height || 0}
       alt={alt}
       className={className}
       loading="lazy"
       onError={() => setImgSrc(fallback)}
+      // 👇 this line removes the Next.js warning
+      style={{
+        width: width && !height ? "auto" : undefined,
+        height: height && !width ? "auto" : undefined,
+      }}
     />
   );
 }

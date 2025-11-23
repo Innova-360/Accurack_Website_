@@ -3,26 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import SuspenseWrapper from "@/components/common/SuspenseWrapper"; // ⬅ adjust import path if needed
+import Button from "@/components/ui/Button/Button";
 
-function Button({ href, className, children }) {
-  const Component = href ? "a" : "button";
-  return <Component href={href} className={className}>{children}</Component>;
-}
-
-function Img({ src, alt, width, height, className, fallback }) {
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      onError={(e) => {
-        if (fallback) e.target.src = fallback;
-      }}
-    />
-  );
-}
 
 function HeroContent({
   badgeText,
@@ -42,16 +24,9 @@ function HeroContent({
   descSize,
   containerPadding,
   reverse,
-
- 
-  imageWrapperClass,
-  imageWrapperClass2, 
-  primaryBtnClass, 
-  secondaryBtnClass, 
-  imageStyleType,
 }) {
   return (
-    <section className={`w-full mt-16 mb-10 ${bgColor || ""}`}>
+    <section className={`w-full mt-16 lg:mt-36 mb-10 ${bgColor || ""}`}>
       <div
         className={`max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center 
           ${containerPadding || ""} 

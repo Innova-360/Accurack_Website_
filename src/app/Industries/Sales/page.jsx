@@ -41,7 +41,7 @@ const page = () => {
         heading="Retail & E-commerce Optimization"
         description="Manage multi-channel sales, synchronize inventory, and streamline logistics with ease"
         primaryBtnText="Book a Demo"
-        primaryBtnLink="/book-demo"
+        primaryBtnLink="/Demo"
         secondaryBtnText="Start Free Trial"
         secondaryBtnLink="/free-trial"
         imageSrc="/Images/IndustriesAssests/Integration/integration-dashboard.png"

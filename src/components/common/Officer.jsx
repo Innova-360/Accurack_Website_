@@ -59,10 +59,10 @@ export default function TeamSection({ whiteBg = false }) {
       >
         {/* Heading + Subtext */}
         <div className="max-w-[850px]">
-          <h2 className="font-heading font-medium text-[48px] leading-[61px] text-text mb-6">
+          <h2 className="font-heading font-black lg:font-medium text-3xl lg:text-[48px] lg:leading-[61px] text-text mb-6">
             The Great Minds Behind Our Work
           </h2>
-          <p className="font-text text-[16px] leading-[24px] text-text font-normal mb-12 max-w-[612px]">
+          <p className="font-body text-sm lg:text-[16px] lg:leading-[24px] text-text font-normal mb-12 max-w-[612px]">
             Join hundreds of businesses optimizing their operations with
             Accurack.
           </p>

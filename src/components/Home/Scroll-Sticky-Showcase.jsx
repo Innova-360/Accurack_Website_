@@ -299,10 +299,10 @@ export function ScrollStickyShowcase({ items = [], className }) {
                 </span>
               </motion.div>
 
-              <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <h3 className="text-3xl lg:text-4xl font-heading font-extrabold text-gray-900 mb-4">
                 {item.subheading || item.heading}
               </h3>
-              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+              <p className="text-gray-600 font-body text-lg mb-6 leading-relaxed">
                 {item.description}
               </p>
               {item.bullets?.length && (
@@ -319,7 +319,7 @@ export function ScrollStickyShowcase({ items = [], className }) {
                       <span className="text-cyan-600 font-bold text-xl mt-1">
                         •
                       </span>
-                      <span className="text-base">{b}</span>
+                      <span className="text-base font-body">{b}</span>
                     </motion.li>
                   ))}
                 </motion.ul>

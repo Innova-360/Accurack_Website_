@@ -12,7 +12,7 @@ export default function page() {
                 heading="Streamlined Supplier Integrations: Optimize Your Procurement."
                 description="Connect seamlessly with your vendors, automate purchase orders, and gain full visibility into your supply chain."
                 primaryBtnText="Book a Demo"
-                primaryBtnLink="/book-demo"
+                primaryBtnLink="/Demo"
                 secondaryBtnText="Start Free Trial"
                 secondaryBtnLink="/free-trial"
                 imageSrc="/Images/Homeassests/Heroimage/Loader.png"

@@ -1,10 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import {
-  motion,
-  AnimatePresence,
-} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function ForecastingSection() {
   const [videoUrl, setVideoUrl] = useState(null);
@@ -91,7 +89,7 @@ export default function ForecastingSection() {
   };
 
   return (
-    <section className="w-full bg-[#EFEFEF] flex flex-col lg:mt-28 mt-32 items-center justify-center py-8 sm:py-12 lg:py-16 px-4 sm:px-8">
+    <section className="w-full bg-[#EFEFEF] flex flex-col items-center justify-center py-8 sm:py-12 lg:py-16 px-4 sm:px-8">
       <motion.div
         className="max-w-[1284px] w-full flex flex-col items-center text-center"
         initial="hidden"
@@ -101,7 +99,9 @@ export default function ForecastingSection() {
       >
         {/* Features Tag */}
         <motion.span
-          className="inline-flex items-center justify-center border border-[#18BDA0] text-[#18BDA0] font-medium text-[14px] sm:text-[16px] leading-[100%] px-3 sm:px-4 py-1 rounded-[7px] mb-4 sm:mb-6"
+          className="inline-flex items-center justify-center border border-[#18BDA0] text-[#18BDA0] font-medium 
+  text-[13px] sm:text-[15px] md:text-[16px] leading-[100%] 
+  px-3 sm:px-4 py-[6px] rounded-[7px] mb-3 sm:mb-5"
           variants={itemVariants}
         >
           Features
@@ -109,7 +109,9 @@ export default function ForecastingSection() {
 
         {/* Heading */}
         <motion.h2
-          className="font-medium text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-[110%] sm:leading-[100%] text-[#070709] text-center mb-3 sm:mb-4 px-2"
+          className="font-heading font-semibold text-3xl md:text-[38px] lg:text-[46px] 
+  leading-[115%] sm:leading-[110%] md:leading-[105%] text-[#070709] 
+  text-center mb-3 sm:mb-5 px-2"
           variants={itemVariants}
         >
           AI-Driven Demand Forecasting for{" "}
@@ -118,7 +120,9 @@ export default function ForecastingSection() {
 
         {/* Paragraph */}
         <motion.p
-          className="text-[#070709] font-normal text-[14px] sm:text-[16px] leading-[20px] sm:leading-[24px] text-center max-w-4xl mb-8 sm:mb-12 px-2"
+          className="text-[#070709] font-body font-normal text-sm sm:text-sm md:text-[16px] 
+  leading-[20px] sm:leading-[24px] md:leading-[26px] 
+  text-center max-w-3xl sm:max-w-4xl mb-6 sm:mb-10 px-3"
           variants={itemVariants}
         >
           Discover why businesses partner with us to overcome challenges and
@@ -151,9 +155,12 @@ export default function ForecastingSection() {
                 whileTap={{ scale: 0.98 }}
               >
                 {/* Background Image */}
-                <img
+                <Image
                   src={v.img}
                   alt={`Forecasting ${v.id}`}
+                  width={280}
+                  height={300}
+                  loading="lazy"
                   className={`absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-in-out ${v.hover}`}
                 />
 
@@ -172,7 +179,10 @@ export default function ForecastingSection() {
                   whileHover={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img
+                  <Image
+                    width={200}
+                    height={200}
+                    loading="lazy"
                     src="/Images/Homeassests/Forecastingsection/Video.png"
                     alt="Play Video"
                     className="w-20 h-20 sm:w-[100px] sm:h-[100px] opacity-70"
@@ -191,7 +201,10 @@ export default function ForecastingSection() {
                 onClick={() => setVideoUrl(v.video)}
               >
                 {/* Background Image */}
-                <img
+                <Image
+                  width={280}
+                  height={300}
+                  loading="lazy"
                   src={v.img}
                   alt={`Forecasting ${v.id}`}
                   className={`absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-in-out ${v.hover}`}
@@ -202,7 +215,10 @@ export default function ForecastingSection() {
 
                 {/* Video Icon */}
                 <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100 scale-50 opacity-0">
-                  <img
+                  <Image
+                    width={118}
+                    height={118}
+                    loading="lazy"
                     src="/Images/Homeassests/Forecastingsection/Video.png"
                     alt="Play Video"
                     className="w-[118px] h-[118px] opacity-70"
